@@ -1,2 +1,4 @@
 br/com/reschoene/mariobros/MarioBros.java
  br.com.reschoene.mariobros.MarioBros
+br/com/reschoene/mariobros/screens/PlayScreen.java
+ br.com.reschoene.mariobros.screens.PlayScreen
