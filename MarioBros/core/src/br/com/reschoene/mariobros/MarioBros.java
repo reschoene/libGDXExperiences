@@ -5,6 +5,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MarioBros extends Game {
+	public static final int V_WIDTH=400;
+	public static final int V_HEIGHT=300;
 	public SpriteBatch batch;
 	
 	@Override
