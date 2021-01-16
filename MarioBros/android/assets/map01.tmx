@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="102">
  <tileset firstgid="1" name="NES - Super Mario Bros - Tileset" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924" columns="33">
-  <image source="../NES - Super Mario Bros - Tileset.png" trans="ff00ff" width="594" height="504"/>
+  <image source="NES - Super Mario Bros - Tileset.png" trans="ff00ff" width="594" height="504"/>
  </tileset>
  <layer id="1" name="background" width="240" height="13">
   <data encoding="base64" compression="zlib">
@@ -74,7 +74,6 @@
   <object id="84" x="266.667" y="190.667"/>
   <object id="87" x="912" y="112" width="16" height="16"/>
   <object id="88" x="944" y="112" width="16" height="16"/>
-  <object id="89" x="989.333" y="166"/>
   <object id="91" x="1536" y="80" width="16" height="16"/>
   <object id="95" x="2320" y="16" width="16" height="16"/>
   <object id="96" x="2336" y="16" width="16" height="16"/>
