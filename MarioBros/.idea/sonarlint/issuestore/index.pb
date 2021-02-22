@@ -25,11 +25,15 @@ g
 7core/src/br/com/reschoene/mariobros/sprites/Ground.java,b/9/b9155f6c11303ffcf9d5ab6af0368aed922a0c76
 e
 5core/src/br/com/reschoene/mariobros/sprites/Pipe.java,4/b/4b09960ef6d062b8a0f040ecb9bed5b23bc81c4c
-v
-Fcore/src/br/com/reschoene/mariobros/sprites/InteractiveTileObject.java,c/e/ce3c3a7f30121fdfbdc8f51086cf05571a72bae6
 e
 5core/src/br/com/reschoene/mariobros/sprites/Coin.java,0/b/0b0e85b9589db6671b48849562673b77e53c37db
 m
 =core/src/br/com/reschoene/mariobros/tools/B2WorldCreator.java,8/e/8ed5222e285a5d4a207757efccf035c18820efa3
 f
 6core/src/br/com/reschoene/mariobros/sprites/Mario.java,9/e/9ee1f7e9051124382123de308da6879b25fb91d4
+m
+=core/src/br/com/reschoene/mariobros/sprites/HeadHittable.java,5/7/57605275cd98efeab1b8fd3d31ef98b95250d0ee
+k
+;core/src/br/com/reschoene/mariobros/sprites/TileObject.java,6/4/644e25403a0b3e8fe35e16020503689edb7a0783
+s
+Ccore/src/br/com/reschoene/mariobros/tools/WorldContactListener.java,0/f/0f3ad56ec8913f336d4d6cc8d70910d51b65c9b7

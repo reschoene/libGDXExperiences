@@ -4,6 +4,7 @@ import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.tools.B2WorldCreator;
+import br.com.reschoene.mariobros.tools.WorldContactListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -56,6 +57,8 @@ public class PlayScreen implements Screen {
         new B2WorldCreator(world, map).createMapObjects();
 
         player = new Mario(world, this);
+
+        world.setContactListener(new WorldContactListener());
     }
 
     public TextureAtlas getAtlas(){
