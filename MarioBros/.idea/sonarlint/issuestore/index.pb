@@ -37,3 +37,5 @@ k
 ;core/src/br/com/reschoene/mariobros/sprites/TileObject.java,6/4/644e25403a0b3e8fe35e16020503689edb7a0783
 s
 Ccore/src/br/com/reschoene/mariobros/tools/WorldContactListener.java,0/f/0f3ad56ec8913f336d4d6cc8d70910d51b65c9b7
+i
+9core/src/br/com/reschoene/mariobros/scenes/MapLayers.java,e/b/eb1d465bec329179ed54375f334e2c9429866582

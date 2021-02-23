@@ -2,6 +2,9 @@ package br.com.reschoene.mariobros;
 
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MarioBros extends Game {
@@ -16,10 +19,22 @@ public class MarioBros extends Game {
 	public static final short DESTROYED_BIT = 16;
 
 	public SpriteBatch batch;
+
+	//WARNING Using AssetManager in a static way can cause issues.
+	//We will use it in the static context to save time for now
+	public static AssetManager manager;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+
+		manager = new AssetManager();
+		manager.load("audio/music/mario_music.ogg", Music.class);
+		manager.load("audio/sounds/coin.wav", Sound.class);
+		manager.load("audio/sounds/bump.wav", Sound.class);
+		manager.load("audio/sounds/breakblock.wav", Sound.class);
+		manager.finishLoading(); //synchronous loading
+
 		setScreen(new PlayScreen(this));
 	}
 
@@ -30,6 +45,7 @@ public class MarioBros extends Game {
 	
 	@Override
 	public void dispose () {
+		manager.dispose();
 		batch.dispose();
 	}
 }

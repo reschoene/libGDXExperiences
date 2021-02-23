@@ -8,6 +8,7 @@ import br.com.reschoene.mariobros.tools.WorldContactListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -37,6 +38,8 @@ public class PlayScreen implements Screen {
     private Box2DDebugRenderer b2dr;
     private Mario player;
 
+    private Music music;
+
     public PlayScreen(MarioBros game) {
         atlas = new TextureAtlas("Mario_and_Enemies.atlas");
 
@@ -59,6 +62,10 @@ public class PlayScreen implements Screen {
         player = new Mario(world, this);
 
         world.setContactListener(new WorldContactListener());
+
+        music = MarioBros.manager.get("audio/music/mario_music.ogg", Music.class);
+        music.setLooping(true);
+        music.play();
     }
 
     public TextureAtlas getAtlas(){
@@ -85,6 +92,7 @@ public class PlayScreen implements Screen {
         world.step(1/60f /*60 times per second*/, 6, 2);
 
         player.update(delta);
+        hud.update(delta);
 
         gamecam.position.x = player.b2Body.getPosition().x;
 
