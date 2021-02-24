@@ -2,6 +2,7 @@ package br.com.reschoene.mariobros.sprites;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.tools.FixtureFilterBits;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -21,10 +22,10 @@ public class Mario extends Sprite {
     private float stateTimer;
     private boolean runningRight;
 
-    public Mario(World world, PlayScreen screen){
+    public Mario(PlayScreen screen){
         super(screen.getAtlas().findRegion("little_mario"));
 
-        this.world = world;
+        this.world = screen.getWorld();
 
         currentState = State.STANDING;
         previousState = State.STANDING;
@@ -61,8 +62,13 @@ public class Mario extends Sprite {
 
         //categoryBits defines whats fixture is
         //maskBits defines whats this fixture collides with
-        fdef.filter.categoryBits = MarioBros.MARIO_BIT;
-        fdef.filter.maskBits = MarioBros.DEFAULT_BIT | MarioBros.COIN_BIT | MarioBros.BRICK_BIT;
+        fdef.filter.categoryBits = FixtureFilterBits.MARIO_BIT.getValue();
+        fdef.filter.maskBits = FixtureFilterBits.combine(
+                FixtureFilterBits.GROUND_BIT,
+                FixtureFilterBits.COIN_BIT,
+                FixtureFilterBits.BRICK_BIT,
+                FixtureFilterBits.ENEMY_BIT,
+                FixtureFilterBits.OBJECT_BIT);
 
         fdef.shape = shape;
         b2Body.createFixture(fdef);

@@ -2,6 +2,8 @@ package br.com.reschoene.mariobros.sprites;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.scenes.Hud;
+import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.tools.FixtureFilterBits;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -13,11 +15,11 @@ public class Coin extends TileObject implements HeadHittable{
     private static TiledMapTileSet tileSet;
     private final int BLACK_COIN = 28;
 
-    public Coin(World world, TiledMap map, Rectangle bounds) {
-        super(world, map, bounds);
+    public Coin(PlayScreen screen, Rectangle bounds) {
+        super(screen, bounds);
         tileSet = map.getTileSets().getTileSet("NES - Super Mario Bros - Tileset");
         fixture.setUserData(this);
-        setCategoryFilter(MarioBros.COIN_BIT);
+        setCategoryFilter(FixtureFilterBits.COIN_BIT.getValue());
     }
 
     @Override

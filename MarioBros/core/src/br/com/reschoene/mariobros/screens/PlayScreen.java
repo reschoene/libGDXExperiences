@@ -2,6 +2,8 @@ package br.com.reschoene.mariobros.screens;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.scenes.Hud;
+import br.com.reschoene.mariobros.sprites.Enemy;
+import br.com.reschoene.mariobros.sprites.Goomba;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.tools.B2WorldCreator;
 import br.com.reschoene.mariobros.tools.WorldContactListener;
@@ -36,7 +38,10 @@ public class PlayScreen implements Screen {
     //Box2d variables
     private World world;
     private Box2DDebugRenderer b2dr;
+
+    //sprites
     private Mario player;
+    private Goomba goomba;
 
     private Music music;
 
@@ -57,15 +62,17 @@ public class PlayScreen implements Screen {
         world = new World(new Vector2(0, -10), true);
         b2dr = new Box2DDebugRenderer();
 
-        new B2WorldCreator(world, map).createMapObjects();
+        new B2WorldCreator(this).createMapObjects();
 
-        player = new Mario(world, this);
+        player = new Mario(this);
 
         world.setContactListener(new WorldContactListener());
 
         music = MarioBros.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
         music.play();
+
+        goomba = new Goomba(this, .32f, .32f);
     }
 
     public TextureAtlas getAtlas(){
@@ -93,6 +100,7 @@ public class PlayScreen implements Screen {
 
         player.update(delta);
         hud.update(delta);
+        goomba.update(delta);
 
         gamecam.position.x = player.b2Body.getPosition().x;
 
@@ -114,6 +122,7 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
+        goomba.draw(game.batch);
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
@@ -123,6 +132,14 @@ public class PlayScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         gamePort.update(width, height);
+    }
+
+    public TiledMap getMap(){
+        return map;
+    }
+
+    public World getWorld(){
+        return world;
     }
 
     @Override

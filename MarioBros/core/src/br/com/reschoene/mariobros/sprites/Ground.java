@@ -1,11 +1,10 @@
 package br.com.reschoene.mariobros.sprites;
 
-import com.badlogic.gdx.maps.tiled.TiledMap;
+import br.com.reschoene.mariobros.screens.PlayScreen;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.physics.box2d.World;
 
 public class Ground extends TileObject {
-    public Ground(World world, TiledMap map, Rectangle bounds) {
-        super(world, map, bounds);
+    public Ground(PlayScreen screen, Rectangle bounds) {
+        super(screen, bounds);
     }
 }

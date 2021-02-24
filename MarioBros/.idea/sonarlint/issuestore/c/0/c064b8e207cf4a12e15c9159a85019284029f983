@@ -1,5 +1,11 @@
 
 l
-java:S1104"QMake batch a static final constant or non-public and provide accessors if needed.(û Üêýÿÿÿÿ
+java:S1104"QMake batch a static final constant or non-public and provide accessors if needed.(û Üêýÿÿÿÿ
+I
+java:S1444"-Make this "public static manager" field final(«‚í&8°Á·‡ý.
+S
+java:S2696"6Make the enclosing method "static" or remove this set.(èåÃÂ8€£¼‡ý.
 >
-java:S1185"(Remove this method to simply inherit it.(íŠ¦¯
+java:S1185*"(Remove this method to simply inherit it.(íŠ¦¯
+o
+java:S1104"SMake manager a static final constant or non-public and provide accessors if needed.(«‚í&8°Á·‡ý.

@@ -2,6 +2,7 @@ package br.com.reschoene.mariobros.sprites;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.scenes.MapLayers;
+import br.com.reschoene.mariobros.screens.PlayScreen;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -16,23 +17,28 @@ public abstract class TileObject {
     protected Body body;
     protected Fixture fixture;
 
-    public TileObject(World world, TiledMap map, Rectangle bounds) {
-        this.world = world;
-        this.map = map;
+    public TileObject(PlayScreen screen, Rectangle bounds) {
+        this.world = screen.getWorld();
+        this.map = screen.getMap();
         this.bounds = bounds;
 
-        BodyDef bdef = new BodyDef();
-        FixtureDef fdef = new FixtureDef();
+        this.createBody();
+        this.createFixture();
+    }
+
+    protected void createFixture() {
         PolygonShape shape = new PolygonShape();
-
-        bdef.type = BodyDef.BodyType.StaticBody;
-        bdef.position.set((bounds.getX() + bounds.getWidth()/2) / MarioBros.PPM, (bounds.getY() + bounds.getHeight()/2) / MarioBros.PPM);
-
-        body = world.createBody(bdef);
-
+        FixtureDef fdef = new FixtureDef();
         shape.setAsBox(bounds.getWidth()/2 / MarioBros.PPM, bounds.getHeight()/2 / MarioBros.PPM);
         fdef.shape = shape;
         fixture = body.createFixture(fdef);
+    }
+
+    protected void createBody() {
+        BodyDef bdef = new BodyDef();
+        bdef.type = BodyDef.BodyType.StaticBody;
+        bdef.position.set((bounds.getX() + bounds.getWidth()/2) / MarioBros.PPM, (bounds.getY() + bounds.getHeight()/2) / MarioBros.PPM);
+        body = world.createBody(bdef);
     }
 
     public void setCategoryFilter(short filterBit){
