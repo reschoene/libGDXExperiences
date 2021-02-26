@@ -1,34 +1,34 @@
 br/com/reschoene/mariobros/scenes/Hud.java
  br.com.reschoene.mariobros.scenes.Hud
+br/com/reschoene/mariobros/sprites/HeadHittable.java
+ br.com.reschoene.mariobros.sprites.HeadHittable
+br/com/reschoene/mariobros/scenes/MapLayers.java
+ br.com.reschoene.mariobros.scenes.MapLayers
+br/com/reschoene/mariobros/tools/FixtureFilterBits.java
+ br.com.reschoene.mariobros.tools.FixtureFilterBits
+br/com/reschoene/mariobros/tools/B2WorldCreator.java
+ br.com.reschoene.mariobros.tools.B2WorldCreator
 br/com/reschoene/mariobros/sprites/TileObject.java
  br.com.reschoene.mariobros.sprites.TileObject
 br/com/reschoene/mariobros/sprites/Pipe.java
  br.com.reschoene.mariobros.sprites.Pipe
-br/com/reschoene/mariobros/tools/WorldContactListener.java
- br.com.reschoene.mariobros.tools.WorldContactListener
 br/com/reschoene/mariobros/sprites/Coin.java
  br.com.reschoene.mariobros.sprites.Coin
-br/com/reschoene/mariobros/sprites/Brick.java
- br.com.reschoene.mariobros.sprites.Brick
-br/com/reschoene/mariobros/scenes/MapLayers.java
- br.com.reschoene.mariobros.scenes.MapLayers
-br/com/reschoene/mariobros/tools/B2WorldCreator.java
- br.com.reschoene.mariobros.tools.B2WorldCreator
-br/com/reschoene/mariobros/tools/FixtureFilterBits.java
- br.com.reschoene.mariobros.tools.FixtureFilterBits
 br/com/reschoene/mariobros/MarioBros.java
  br.com.reschoene.mariobros.MarioBros
 br/com/reschoene/mariobros/sprites/Ground.java
  br.com.reschoene.mariobros.sprites.Ground
-br/com/reschoene/mariobros/sprites/HeadHittable.java
- br.com.reschoene.mariobros.sprites.HeadHittable
+br/com/reschoene/mariobros/sprites/Brick.java
+ br.com.reschoene.mariobros.sprites.Brick
 br/com/reschoene/mariobros/sprites/Enemy.java
  br.com.reschoene.mariobros.sprites.Enemy
-br/com/reschoene/mariobros/screens/PlayScreen.java
- br.com.reschoene.mariobros.screens.PlayScreen
+br/com/reschoene/mariobros/sprites/Goomba.java
+ br.com.reschoene.mariobros.sprites.Goomba
 br/com/reschoene/mariobros/sprites/Mario.java
  br.com.reschoene.mariobros.sprites.Mario
  br.com.reschoene.mariobros.sprites.Mario$1
  br.com.reschoene.mariobros.sprites.Mario$State
-br/com/reschoene/mariobros/sprites/Goomba.java
- br.com.reschoene.mariobros.sprites.Goomba
+br/com/reschoene/mariobros/tools/WorldContactListener.java
+ br.com.reschoene.mariobros.tools.WorldContactListener
+br/com/reschoene/mariobros/screens/PlayScreen.java
+ br.com.reschoene.mariobros.screens.PlayScreen

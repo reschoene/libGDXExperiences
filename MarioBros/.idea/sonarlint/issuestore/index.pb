@@ -39,3 +39,9 @@ s
 Ccore/src/br/com/reschoene/mariobros/tools/WorldContactListener.java,0/f/0f3ad56ec8913f336d4d6cc8d70910d51b65c9b7
 i
 9core/src/br/com/reschoene/mariobros/scenes/MapLayers.java,e/b/eb1d465bec329179ed54375f334e2c9429866582
+p
+@core/src/br/com/reschoene/mariobros/tools/FixtureFilterBits.java,8/c/8cc1e252123ad01b9bbb5306baa5728b4a1d856d
+f
+6core/src/br/com/reschoene/mariobros/sprites/Enemy.java,1/a/1ad648773889f2e33574a699257866e01a7ec295
+g
+7core/src/br/com/reschoene/mariobros/sprites/Goomba.java,7/b/7bfb96eb0eb0fbcfabf752d96a97c59924936aa9

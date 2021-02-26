@@ -68,7 +68,8 @@ public class Mario extends Sprite {
                 FixtureFilterBits.COIN_BIT,
                 FixtureFilterBits.BRICK_BIT,
                 FixtureFilterBits.ENEMY_BIT,
-                FixtureFilterBits.OBJECT_BIT);
+                FixtureFilterBits.OBJECT_BIT,
+                FixtureFilterBits.ENEMY_HEAD_BIT);
 
         fdef.shape = shape;
         b2Body.createFixture(fdef);

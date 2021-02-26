@@ -4,16 +4,21 @@ import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.tools.FixtureFilterBits;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.utils.Array;
 
 public class Goomba extends Enemy {
     private float stateTime;
     private Animation walkAnimation;
     private Array<TextureRegion> frames;
+    private boolean setToDestroy;
+    private boolean destroyed;
 
     public Goomba(PlayScreen screen, float x, float y) {
         super(screen, x, y);
@@ -27,14 +32,23 @@ public class Goomba extends Enemy {
 
     public void update(float dt){
         stateTime += dt;
-        setPosition(b2Body.getPosition().x - getWidth()/2,b2Body.getPosition().y - getHeight()/2);
-        setRegion((TextureRegion) walkAnimation.getKeyFrame(stateTime, true));
+
+        if (setToDestroy && !destroyed){
+            world.destroyBody(b2Body);
+            destroyed = true;
+            setRegion(new TextureRegion(screen.getAtlas().findRegion("goomba"), 32, 0, 16, 16));
+            stateTime = 0;
+        }else if (!destroyed) {
+            b2Body.setLinearVelocity(velocity);
+            setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2);
+            setRegion((TextureRegion) walkAnimation.getKeyFrame(stateTime, true));
+        }
     }
 
     @Override
     protected void defineEnemy() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(32 / MarioBros.PPM, 32 / MarioBros.PPM);
+        bdef.position.set(getX(), getY());
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2Body = world.createBody(bdef);
 
@@ -44,16 +58,39 @@ public class Goomba extends Enemy {
 
         //categoryBits defines whats fixture is
         //maskBits defines whats this fixture collides with
-        fdef.filter.categoryBits = FixtureFilterBits.GROUND_BIT.getValue();
+        fdef.filter.categoryBits = FixtureFilterBits.ENEMY_BIT.getValue();
         fdef.filter.maskBits = FixtureFilterBits.combine(
                 FixtureFilterBits.GROUND_BIT,
                 FixtureFilterBits.COIN_BIT,
                 FixtureFilterBits.BRICK_BIT,
                 FixtureFilterBits.OBJECT_BIT,
-                FixtureFilterBits.MARIO_BIT,
-                FixtureFilterBits.ENEMY_BIT);
+                FixtureFilterBits.MARIO_BIT);
 
         fdef.shape = shape;
-        b2Body.createFixture(fdef);
+        b2Body.createFixture(fdef).setUserData(this);
+
+        PolygonShape head = new PolygonShape();
+        Vector2[] vertices = new Vector2[4];
+        vertices[0] = new Vector2(-5,8).scl(1/MarioBros.PPM);
+        vertices[1] = new Vector2( 5,8).scl(1/MarioBros.PPM);
+        vertices[2] = new Vector2(-3,3).scl(1/MarioBros.PPM);
+        vertices[3] = new Vector2( 3,3).scl(1/MarioBros.PPM);
+        head.set(vertices);
+
+        fdef.shape = head;
+        fdef.restitution = 0.5f;
+        fdef.filter.categoryBits = FixtureFilterBits.ENEMY_HEAD_BIT.getValue();
+        b2Body.createFixture(fdef).setUserData(this);
+    }
+
+    @Override
+    public void draw(Batch batch) {
+        if(!destroyed || stateTime < 1)
+            super.draw(batch);
+    }
+
+    @Override
+    public void onHeadHit() {
+        setToDestroy = true;
     }
 }
