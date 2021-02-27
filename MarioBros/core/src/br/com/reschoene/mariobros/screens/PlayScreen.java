@@ -44,9 +44,13 @@ public class PlayScreen implements Screen {
 
     //sprites
     private Mario player;
-    private List<Enemy> enemies;
 
     private Music music;
+
+    private B2WorldCreator creator;
+
+    //result of number of ground tiles * width of a ground tile = screen pixels
+    private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
 
     public PlayScreen(MarioBros game) {
         atlas = new TextureAtlas("Mario_and_Enemies.atlas");
@@ -65,7 +69,8 @@ public class PlayScreen implements Screen {
         world = new World(new Vector2(0, -10), true);
         b2dr = new Box2DDebugRenderer();
 
-        new B2WorldCreator(this).createMapObjects();
+        creator = new B2WorldCreator(this);
+        creator.createMapObjects();
 
         player = new Mario(this);
 
@@ -74,10 +79,6 @@ public class PlayScreen implements Screen {
         music = MarioBros.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
         music.play();
-
-        enemies = new LinkedList<>();
-        enemies.add(new Goomba(this, 4.54f, .16f));
-        enemies.add(new Goomba(this, 8.0f, .16f));
     }
 
     public TextureAtlas getAtlas(){
@@ -106,8 +107,11 @@ public class PlayScreen implements Screen {
         player.update(delta);
         hud.update(delta);
 
-        for(Enemy enemy : enemies)
+        for(Enemy enemy : creator.getGoombas()){
             enemy.update(delta);
+            if (enemy.getX() < player.getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/MarioBros.PPM))
+                enemy.b2Body.setActive(true);
+        }
 
         gamecam.position.x = player.b2Body.getPosition().x;
 
@@ -129,7 +133,7 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
-        for(Enemy enemy : enemies)
+        for(Enemy enemy : creator.getGoombas())
             enemy.draw(game.batch);
         game.batch.end();
 

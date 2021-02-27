@@ -11,6 +11,7 @@ public class WorldContactListener implements ContactListener {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
 
+        //when marios head hits one hittable object, triggers its event
         if ("head".equals(fixA.getUserData()) || "head".equals(fixB.getUserData())) {
             Fixture head = "head".equals(fixA.getUserData()) ? fixA : fixB;
             Fixture object = head.equals(fixA) ? fixB : fixA;
@@ -20,6 +21,7 @@ public class WorldContactListener implements ContactListener {
             }
         }
 
+        //process collision between two objects
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
         if (cDef == FixtureFilterBits.combine(FixtureFilterBits.MARIO_BIT, FixtureFilterBits.ENEMY_HEAD_BIT))
@@ -27,6 +29,10 @@ public class WorldContactListener implements ContactListener {
         else if ((cDef == FixtureFilterBits.combine(FixtureFilterBits.ENEMY_BIT, FixtureFilterBits.OBJECT_BIT)) ||
                  (cDef == FixtureFilterBits.combine(FixtureFilterBits.ENEMY_BIT, FixtureFilterBits.BLOCK_BIT)))
             getEnemyByFixture(fixA, fixB, FixtureFilterBits.ENEMY_BIT).reverseVelocity(true, false);
+        else if (cDef == FixtureFilterBits.combine(FixtureFilterBits.ENEMY_BIT, FixtureFilterBits.ENEMY_BIT)){
+            ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
+            ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
+        }
         else if (cDef == FixtureFilterBits.combine(FixtureFilterBits.MARIO_BIT, FixtureFilterBits.ENEMY_BIT))
             Gdx.app.log("Mario", "Died");
     }

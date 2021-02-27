@@ -18,6 +18,7 @@ public abstract class Enemy extends Sprite implements HeadHittable{
         setPosition(x, y);
         defineEnemy();
         velocity = new Vector2(1,0);
+        b2Body.setActive(false);
     }
 
     protected abstract void defineEnemy();

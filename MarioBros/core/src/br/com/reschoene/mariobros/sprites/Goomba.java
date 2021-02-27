@@ -39,9 +39,13 @@ public class Goomba extends Enemy {
             setRegion(new TextureRegion(screen.getAtlas().findRegion("goomba"), 32, 0, 16, 16));
             stateTime = 0;
         }else if (!destroyed) {
-            b2Body.setLinearVelocity(velocity);
             setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2);
             setRegion((TextureRegion) walkAnimation.getKeyFrame(stateTime, true));
+
+            if (b2Body.getLinearVelocity().y > -0.15) //-0.15 e nao zero para dar tempo de sair do frame onde da uma travada ao cair
+                b2Body.setLinearVelocity(velocity);
+            else
+                b2Body.setLinearVelocity(new Vector2(0, b2Body.getLinearVelocity().y));
         }
     }
 
@@ -61,6 +65,7 @@ public class Goomba extends Enemy {
         fdef.filter.categoryBits = FixtureFilterBits.ENEMY_BIT.getValue();
         fdef.filter.maskBits = FixtureFilterBits.combine(
                 FixtureFilterBits.GROUND_BIT,
+                FixtureFilterBits.ENEMY_BIT,
                 FixtureFilterBits.BLOCK_BIT,
                 FixtureFilterBits.COIN_BIT,
                 FixtureFilterBits.BRICK_BIT,
