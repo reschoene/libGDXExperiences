@@ -2,7 +2,7 @@ package br.com.reschoene.mariobros.sprites;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.screens.PlayScreen;
-import br.com.reschoene.mariobros.tools.FixtureFilterBits;
+import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -61,6 +61,7 @@ public class Goomba extends Enemy {
         fdef.filter.categoryBits = FixtureFilterBits.ENEMY_BIT.getValue();
         fdef.filter.maskBits = FixtureFilterBits.combine(
                 FixtureFilterBits.GROUND_BIT,
+                FixtureFilterBits.BLOCK_BIT,
                 FixtureFilterBits.COIN_BIT,
                 FixtureFilterBits.BRICK_BIT,
                 FixtureFilterBits.OBJECT_BIT,

@@ -16,14 +16,20 @@ public abstract class TileObject {
     protected Rectangle bounds;
     protected Body body;
     protected Fixture fixture;
+    protected short categoryBits = 0x0001;
 
-    public TileObject(PlayScreen screen, Rectangle bounds) {
+    public TileObject(PlayScreen screen, Rectangle bounds, short categoryBits) {
         this.world = screen.getWorld();
         this.map = screen.getMap();
         this.bounds = bounds;
+        this.categoryBits = categoryBits;
 
         this.createBody();
         this.createFixture();
+    }
+
+    public TileObject(PlayScreen screen, Rectangle bounds) {
+        this(screen, bounds, (short) 0x0001);
     }
 
     protected void createFixture() {
@@ -31,6 +37,7 @@ public abstract class TileObject {
         FixtureDef fdef = new FixtureDef();
         shape.setAsBox(bounds.getWidth()/2 / MarioBros.PPM, bounds.getHeight()/2 / MarioBros.PPM);
         fdef.shape = shape;
+        fdef.filter.categoryBits = categoryBits;
         fixture = body.createFixture(fdef);
     }
 

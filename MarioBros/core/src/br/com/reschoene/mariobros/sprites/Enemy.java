@@ -28,4 +28,6 @@ public abstract class Enemy extends Sprite implements HeadHittable{
         if (y)
             velocity.y = -velocity.y;
     }
+
+    public abstract void update(float delta);
 }

@@ -3,12 +3,9 @@ package br.com.reschoene.mariobros.sprites;
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
-import br.com.reschoene.mariobros.tools.FixtureFilterBits;
-import com.badlogic.gdx.Gdx;
+import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.physics.box2d.World;
 
 public class Brick extends TileObject implements HeadHittable {
     public Brick(PlayScreen screen, Rectangle bounds) {

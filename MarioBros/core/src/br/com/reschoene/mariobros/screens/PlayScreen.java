@@ -1,12 +1,12 @@
 package br.com.reschoene.mariobros.screens;
 
 import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.collison.WorldContactListener;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.sprites.Enemy;
 import br.com.reschoene.mariobros.sprites.Goomba;
 import br.com.reschoene.mariobros.sprites.Mario;
-import br.com.reschoene.mariobros.tools.B2WorldCreator;
-import br.com.reschoene.mariobros.tools.WorldContactListener;
+import br.com.reschoene.mariobros.util.B2WorldCreator;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -22,6 +22,9 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class PlayScreen implements Screen {
     private MarioBros game;
@@ -41,7 +44,7 @@ public class PlayScreen implements Screen {
 
     //sprites
     private Mario player;
-    private Goomba goomba;
+    private List<Enemy> enemies;
 
     private Music music;
 
@@ -72,7 +75,9 @@ public class PlayScreen implements Screen {
         music.setLooping(true);
         music.play();
 
-        goomba = new Goomba(this, 4.54f, .16f);
+        enemies = new LinkedList<>();
+        enemies.add(new Goomba(this, 4.54f, .16f));
+        enemies.add(new Goomba(this, 8.0f, .16f));
     }
 
     public TextureAtlas getAtlas(){
@@ -100,7 +105,9 @@ public class PlayScreen implements Screen {
 
         player.update(delta);
         hud.update(delta);
-        goomba.update(delta);
+
+        for(Enemy enemy : enemies)
+            enemy.update(delta);
 
         gamecam.position.x = player.b2Body.getPosition().x;
 
@@ -122,7 +129,8 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
-        goomba.draw(game.batch);
+        for(Enemy enemy : enemies)
+            enemy.draw(game.batch);
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
