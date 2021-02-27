@@ -1,0 +1,4 @@
+br/com/reschoene/mariobros/BuildConfig.java
+ br.com.reschoene.mariobros.BuildConfig
+br/com/reschoene/mariobros/AndroidLauncher.java
+ br.com.reschoene.mariobros.AndroidLauncher

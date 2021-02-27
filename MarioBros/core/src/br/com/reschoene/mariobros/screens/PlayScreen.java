@@ -2,6 +2,7 @@ package br.com.reschoene.mariobros.screens;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.collison.WorldContactListener;
+import br.com.reschoene.mariobros.scenes.Controller;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Item;
@@ -9,6 +10,7 @@ import br.com.reschoene.mariobros.sprites.items.ItemDef;
 import br.com.reschoene.mariobros.sprites.items.Mushroom;
 import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
 import br.com.reschoene.mariobros.util.B2WorldCreator;
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -34,6 +36,7 @@ public class PlayScreen implements Screen {
     private OrthographicCamera gamecam;
     private Viewport gamePort;
     private Hud hud;
+    private Controller controller;
 
     //Tiled map variables
     private TmxMapLoader mapLoader;
@@ -64,6 +67,7 @@ public class PlayScreen implements Screen {
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MarioBros.V_WIDTH / MarioBros.PPM, MarioBros.V_HEIGHT / MarioBros.PPM, gamecam);
         hud = new Hud(game.batch);
+        controller = new Controller(game.batch);
 
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("map01.tmx");
@@ -83,7 +87,7 @@ public class PlayScreen implements Screen {
 
         music = MarioBros.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
-        //music.play();
+        music.play();
 
         items = new Array<>();
         itemsToSpawn = new PriorityQueue<>();
@@ -112,17 +116,17 @@ public class PlayScreen implements Screen {
 
     }
 
-    public void handleInput(float delta){
-        if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
+    public void handleInput(){
+        if(controller.isUpPressed() && player.b2Body.getLinearVelocity().y == 0)
             player.b2Body.applyLinearImpulse(new Vector2(0, 4f), player.b2Body.getWorldCenter(), true);
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2Body.getLinearVelocity().x <= 2)
+        if((controller.isRightPressed()) && (player.b2Body.getLinearVelocity().x <= 2))
             player.b2Body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2Body.getWorldCenter(), true);
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2Body.getLinearVelocity().x >= -2)
+        if((controller.isLeftPressed()) && (player.b2Body.getLinearVelocity().x >= -2))
             player.b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2Body.getWorldCenter(), true);
     }
 
     public void update(float delta){
-        handleInput(delta);
+        handleInput();
         handleSpawnItems();
 
         world.step(1/60f /*60 times per second*/, 6, 2);
@@ -154,7 +158,7 @@ public class PlayScreen implements Screen {
 
         renderer.render();
 
-        b2dr.render(world, gamecam.combined);
+        //b2dr.render(world, gamecam.combined);
 
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
@@ -169,11 +173,14 @@ public class PlayScreen implements Screen {
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+        if(Gdx.app.getType() == Application.ApplicationType.Android)
+            controller.draw();
     }
 
     @Override
     public void resize(int width, int height) {
         gamePort.update(width, height);
+        controller.resize(width, height);
     }
 
     public TiledMap getMap(){
@@ -206,5 +213,6 @@ public class PlayScreen implements Screen {
         world.dispose();
         b2dr.dispose();
         hud.dispose();
+        controller.dispose();
     }
 }

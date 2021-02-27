@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "applicationId": "br.com.reschoene.mariobros",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "BUNDLE_MANIFEST"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 1,
+        "versionName": "1.0",
+        "outputFile": "android-release-unsigned.apk",
+        "fullName": "release",
+        "baseName": "release",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {
+        "packageId": "br.com.reschoene.mariobros",
+        "split": "",
+        "minSdkVersion": "14"
+      }
+    }
+  ]
+}

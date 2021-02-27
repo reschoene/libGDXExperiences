@@ -1,0 +1,48 @@
+# List of SDK dependencies of this app, this information is also included in an encrypted form in the APK.
+# For more information visit: https://d.android.com/r/tools/dependency-metadata
+
+library {
+  maven_library {
+    groupId: "com.badlogicgames.gdx"
+    artifactId: "gdx-backend-android"
+    version: "1.9.13"
+  }
+  digests {
+    sha256: "\200\330Jk#B\343y\315<\272\272\026\033\335\323\200\031&\217B+\245\326\321\031\302?\216\256\020\243"
+  }
+}
+library {
+  maven_library {
+    groupId: "com.badlogicgames.gdx"
+    artifactId: "gdx"
+    version: "1.9.13"
+  }
+  digests {
+    sha256: "\324\266\375\274\357\257\214\203\323\270aY\002VW\373\264T\237\3158\251\307\376d\300\272\316\035Q\267u"
+  }
+}
+library {
+  maven_library {
+    groupId: "com.badlogicgames.gdx"
+    artifactId: "gdx-box2d"
+    version: "1.9.13"
+  }
+  digests {
+    sha256: "X\005\026W\021g\314;+h\335f\210*\340f\205\223\316o\373\252\226w;\377\362\350I\354\265\n"
+  }
+}
+library_dependencies {
+  library_dep_index: 1
+}
+library_dependencies {
+  library_index: 1
+}
+library_dependencies {
+  library_index: 2
+  library_dep_index: 1
+}
+module_dependencies {
+  module_name: "base"
+  dependency_index: 0
+  dependency_index: 2
+}
