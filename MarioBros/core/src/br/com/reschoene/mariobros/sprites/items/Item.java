@@ -2,6 +2,7 @@ package br.com.reschoene.mariobros.sprites.items;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
@@ -25,7 +26,7 @@ public abstract class Item extends Sprite {
     }
 
     public abstract void defineItem();
-    public abstract void use();
+    public abstract void use(Mario mario);
 
     public void update(float dt){
         if(setToDestroy && !destroyed){
@@ -42,5 +43,12 @@ public abstract class Item extends Sprite {
 
     public void destroy(){
         setToDestroy = true;
+    }
+
+    public void reverseVelocity(boolean x, boolean y){
+        if (x)
+            velocity.x = -velocity.x;
+        if (y)
+            velocity.y = -velocity.y;
     }
 }

@@ -1,9 +1,13 @@
 package br.com.reschoene.mariobros.collison;
 
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
+import br.com.reschoene.mariobros.sprites.items.Item;
 import br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable;
+import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
+
+import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 
 public class WorldContactListener implements ContactListener {
     @Override
@@ -11,40 +15,50 @@ public class WorldContactListener implements ContactListener {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
 
-        //when marios head hits one hittable object, triggers its event
-        if ("head".equals(fixA.getUserData()) || "head".equals(fixB.getUserData())) {
-            Fixture head = "head".equals(fixA.getUserData()) ? fixA : fixB;
-            Fixture object = head.equals(fixA) ? fixB : fixA;
-
-            if (object.getUserData() != null && object.getUserData() instanceof HeadHittable) {
-                ((HeadHittable) object.getUserData()).onHeadHit();
-            }
-        }
-
-        //process collision between two objects
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
-        if (cDef == FixtureFilterBits.combine(FixtureFilterBits.MARIO_BIT, FixtureFilterBits.ENEMY_HEAD_BIT))
-            getEnemyByFixture(fixA, fixB, FixtureFilterBits.ENEMY_HEAD_BIT).onHeadHit();
-        else if ((cDef == FixtureFilterBits.combine(FixtureFilterBits.ENEMY_BIT, FixtureFilterBits.OBJECT_BIT)) ||
-                 (cDef == FixtureFilterBits.combine(FixtureFilterBits.ENEMY_BIT, FixtureFilterBits.BLOCK_BIT)))
-            getEnemyByFixture(fixA, fixB, FixtureFilterBits.ENEMY_BIT).reverseVelocity(true, false);
-        else if (cDef == FixtureFilterBits.combine(FixtureFilterBits.ENEMY_BIT, FixtureFilterBits.ENEMY_BIT)){
+        if (cDef == combine(MARIO_HEAD, BRICK_BIT)){
+            Object obj = getObjByFilterType(fixA, fixB, BRICK_BIT);
+            ((HeadHittable) obj).onHeadHit();
+        }
+        else if (cDef == combine(MARIO_HEAD, COIN_BIT)){
+            Object obj = getObjByFilterType(fixA, fixB, COIN_BIT);
+            ((HeadHittable) obj).onHeadHit();
+        }
+        else if (cDef == combine(MARIO_BIT, ENEMY_HEAD_BIT)){
+            Object obj = getObjByFilterType(fixA, fixB, ENEMY_HEAD_BIT);
+            ((Enemy) obj).onHeadHit();
+        }
+        else if ((cDef == combine(ENEMY_BIT, OBJECT_BIT)) || (cDef == combine(ENEMY_BIT, BLOCK_BIT))){
+            Object obj = getObjByFilterType(fixA, fixB, ENEMY_BIT);
+            ((Enemy) obj).reverseVelocity(true, false);
+        }
+        else if (cDef == combine(ENEMY_BIT, ENEMY_BIT)){
             ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
             ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
         }
-        else if (cDef == FixtureFilterBits.combine(FixtureFilterBits.MARIO_BIT, FixtureFilterBits.ENEMY_BIT))
+        else if (cDef == combine(MARIO_BIT, ENEMY_BIT))
             Gdx.app.log("Mario", "Died");
+        else if ((cDef == combine(ITEM_BIT, OBJECT_BIT)) || (cDef == combine(ITEM_BIT, BLOCK_BIT))) {
+            Object obj = getObjByFilterType(fixA, fixB, ITEM_BIT);
+            ((Item) obj).reverseVelocity(true, false);
+        }
+        else if (cDef == combine(ITEM_BIT, MARIO_BIT)){
+            if (fixA.getFilterData().categoryBits == ITEM_BIT.getValue())
+                ((Item) fixA.getUserData()).use((Mario) fixB.getUserData());
+            else
+                ((Item) fixB.getUserData()).use((Mario) fixA.getUserData());
+        }
     }
 
-    private Enemy getEnemyByFixture(Fixture fixA, Fixture fixB, FixtureFilterBits enemyFilterBit){
-        Enemy enemy;
-        if (fixA.getFilterData().categoryBits == enemyFilterBit.getValue())
-            enemy = (Enemy) fixA.getUserData();
+    private Object getObjByFilterType(Fixture fixA, Fixture fixB, FixtureFilterBits filterBit){
+        Object obj;
+        if (fixA.getFilterData().categoryBits == filterBit.getValue())
+            obj = fixA.getUserData();
         else
-            enemy = (Enemy) fixB.getUserData();
+            obj = fixB.getUserData();
 
-        return enemy;
+        return obj;
     }
 
     @Override
