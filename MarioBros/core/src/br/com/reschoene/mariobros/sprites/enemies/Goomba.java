@@ -1,4 +1,4 @@
-package br.com.reschoene.mariobros.sprites;
+package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.screens.PlayScreen;
@@ -57,6 +57,7 @@ public class Goomba extends Enemy {
         b2Body = world.createBody(bdef);
 
         FixtureDef fdef = new FixtureDef();
+        fdef.restitution = 0.008f; //a small restitution just to avoid it stuck on a collision
         CircleShape shape = new CircleShape();
         shape.setRadius(6 / MarioBros.PPM);
 

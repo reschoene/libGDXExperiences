@@ -1,7 +1,7 @@
 package br.com.reschoene.mariobros.collison;
 
-import br.com.reschoene.mariobros.sprites.Enemy;
-import br.com.reschoene.mariobros.sprites.HeadHittable;
+import br.com.reschoene.mariobros.sprites.enemies.Enemy;
+import br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
 

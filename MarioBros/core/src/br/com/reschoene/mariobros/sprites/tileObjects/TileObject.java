@@ -1,4 +1,4 @@
-package br.com.reschoene.mariobros.sprites;
+package br.com.reschoene.mariobros.sprites.tileObjects;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.scenes.MapLayers;
@@ -17,8 +17,10 @@ public abstract class TileObject {
     protected Body body;
     protected Fixture fixture;
     protected short categoryBits = 0x0001;
+    protected PlayScreen screen;
 
     public TileObject(PlayScreen screen, Rectangle bounds, short categoryBits) {
+        this.screen = screen;
         this.world = screen.getWorld();
         this.map = screen.getMap();
         this.bounds = bounds;

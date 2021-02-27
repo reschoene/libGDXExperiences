@@ -1,12 +1,13 @@
-package br.com.reschoene.mariobros.sprites;
+package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 
-public abstract class Enemy extends Sprite implements HeadHittable{
+public abstract class Enemy extends Sprite implements HeadHittable {
     protected final World world;
     protected final PlayScreen screen;
     public Body b2Body;

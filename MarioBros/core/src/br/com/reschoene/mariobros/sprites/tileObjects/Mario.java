@@ -1,4 +1,4 @@
-package br.com.reschoene.mariobros.sprites;
+package br.com.reschoene.mariobros.sprites.tileObjects;
 
 import br.com.reschoene.mariobros.MarioBros;
 import br.com.reschoene.mariobros.screens.PlayScreen;
