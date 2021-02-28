@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.scenes;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -18,15 +18,24 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class Controller implements Disposable {
     private Viewport viewport;
     private Stage stage;
-    boolean upPressed, downPressed, leftPressed, rightPressed;
-    private SpriteBatch sb;
+
+    private static final int SIZE_BTN = 20;
+    private static final int BTN_PAD = 2;
+
+    private boolean upPressed;
+    private boolean downPressed;
+    private boolean leftPressed;
+    private boolean rightPressed;
+    private boolean upActionPressed;
+    private boolean downActionPressed;
+    private boolean leftActionPressed;
+    private boolean rightActionPressed;
 
     public Controller(SpriteBatch sb){
-        sb = sb;
-        viewport = new FitViewport(800, 480, new OrthographicCamera());
-        stage = new Stage(viewport, sb);
+        this.viewport = new FitViewport(MarioGame.V_WIDTH, MarioGame.V_HEIGHT, new OrthographicCamera());
+        this.stage = new Stage(viewport, sb);
 
-        stage.addListener(new InputListener(){
+        this.stage.addListener(new InputListener(){
 
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
@@ -42,6 +51,18 @@ public class Controller implements Disposable {
                         break;
                     case Input.Keys.RIGHT:
                         rightPressed = true;
+                        break;
+                    case Input.Keys.W:
+                        upActionPressed = true;
+                        break;
+                    case Input.Keys.S:
+                        downActionPressed = true;
+                        break;
+                    case Input.Keys.A:
+                        leftActionPressed = true;
+                        break;
+                    case Input.Keys.D:
+                        rightActionPressed = true;
                         break;
                 }
                 return true;
@@ -62,6 +83,18 @@ public class Controller implements Disposable {
                     case Input.Keys.RIGHT:
                         rightPressed = false;
                         break;
+                    case Input.Keys.W:
+                        upActionPressed = false;
+                        break;
+                    case Input.Keys.S:
+                        downActionPressed = false;
+                        break;
+                    case Input.Keys.A:
+                        leftActionPressed = false;
+                        break;
+                    case Input.Keys.D:
+                        rightActionPressed = false;
+                        break;
                 }
                 return true;
             }
@@ -69,11 +102,8 @@ public class Controller implements Disposable {
 
         Gdx.input.setInputProcessor(stage);
 
-        Table table = new Table();
-        table.left().bottom();
-
         Image upImg = new Image(new Texture("upArrow.png"));
-        upImg.setSize(50, 50);
+        upImg.setSize(SIZE_BTN, SIZE_BTN);
         upImg.addListener(new InputListener() {
 
             @Override
@@ -89,7 +119,7 @@ public class Controller implements Disposable {
         });
 
         Image downImg = new Image(new Texture("downArrow.png"));
-        downImg.setSize(50, 50);
+        downImg.setSize(SIZE_BTN, SIZE_BTN);
         downImg.addListener(new InputListener() {
 
             @Override
@@ -105,7 +135,7 @@ public class Controller implements Disposable {
         });
 
         Image rightImg = new Image(new Texture("rightArrow.png"));
-        rightImg.setSize(50, 50);
+        rightImg.setSize(SIZE_BTN, SIZE_BTN);
         rightImg.addListener(new InputListener() {
 
             @Override
@@ -121,7 +151,7 @@ public class Controller implements Disposable {
         });
 
         Image leftImg = new Image(new Texture("leftArrow.png"));
-        leftImg.setSize(50, 50);
+        leftImg.setSize(SIZE_BTN, SIZE_BTN);
         leftImg.addListener(new InputListener() {
 
             @Override
@@ -136,19 +166,112 @@ public class Controller implements Disposable {
             }
         });
 
-        table.add();
-        table.add(upImg).size(upImg.getWidth(), upImg.getHeight());
-        table.add();
-        table.row().pad(5, 5, 5, 5);
-        table.add(leftImg).size(leftImg.getWidth(), leftImg.getHeight());
-        table.add();
-        table.add(rightImg).size(rightImg.getWidth(), rightImg.getHeight());
-        table.row().padBottom(5);
-        table.add();
-        table.add(downImg).size(downImg.getWidth(), downImg.getHeight());
-        table.add();
+        Image upActionImg = new Image(new Texture("controlActionLightPurple.png"));
+        upActionImg.setSize(SIZE_BTN, SIZE_BTN);
+        upActionImg.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                upActionPressed = true;
+                return true;
+            }
 
-        stage.addActor(table);
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                upActionPressed = false;
+            }
+        });
+
+        Image leftActionImg = new Image(new Texture("controlActionLightPurple.png"));
+        leftActionImg.setSize(SIZE_BTN, SIZE_BTN);
+        leftActionImg.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                leftActionPressed = true;
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                leftActionPressed = false;
+            }
+        });
+
+        Image rightActionImg = new Image(new Texture("controlActionPurple.png"));
+        rightActionImg.setSize(SIZE_BTN, SIZE_BTN);
+        rightActionImg.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                rightActionPressed = true;
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                rightActionPressed = false;
+            }
+        });
+
+        Image downActionImg = new Image(new Texture("controlActionPurple.png"));
+        downActionImg.setSize(SIZE_BTN, SIZE_BTN);
+        downActionImg.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                downActionPressed = true;
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                downActionPressed = false;
+            }
+        });
+
+        //arrow keys
+        Table tableArrows = new Table();
+        tableArrows.setBounds(0,0,MarioGame.V_WIDTH, MarioGame.V_HEIGHT);
+        tableArrows.left().bottom().padLeft(5);
+
+        tableArrows.add();
+        tableArrows.add(upImg).size(upImg.getWidth(), upImg.getHeight());
+        tableArrows.add();
+        tableArrows.row().pad(BTN_PAD, BTN_PAD, BTN_PAD, BTN_PAD);
+        tableArrows.add(leftImg).size(leftImg.getWidth(), leftImg.getHeight());
+        tableArrows.add();
+        tableArrows.add(rightImg).size(rightImg.getWidth(), rightImg.getHeight());
+        tableArrows.row().padBottom(BTN_PAD);
+        tableArrows.add();
+        tableArrows.add(downImg).size(downImg.getWidth(), downImg.getHeight());
+        tableArrows.add();
+
+        //action buttons
+        Table tableActions = new Table();
+        tableActions.setBounds(0,0,MarioGame.V_WIDTH, MarioGame.V_HEIGHT);
+        tableActions.bottom().right().padRight(5).padBottom(2);
+
+        tableActions.add();
+        tableActions.add(upActionImg).size(upActionImg.getWidth(), upActionImg.getHeight());
+        tableActions.add();
+        tableActions.row().pad(BTN_PAD, BTN_PAD, BTN_PAD, BTN_PAD);
+        tableActions.add(leftActionImg).size(leftActionImg.getWidth(), leftActionImg.getHeight());
+        tableActions.add();
+        tableActions.add(rightActionImg).size(rightActionImg.getWidth(), rightActionImg.getHeight());
+        tableActions.row().padBottom(BTN_PAD);
+        tableActions.add();
+        tableActions.add(downActionImg).size(downActionImg.getWidth(), downActionImg.getHeight());
+        tableActions.add();
+
+        Table tableBackgroundActions = new Table();
+        tableBackgroundActions.setBounds(0,0,MarioGame.V_WIDTH, MarioGame.V_HEIGHT);
+        tableBackgroundActions.bottom().right().padRight(3).padTop(3);
+
+        Image actionBackgroundImg = new Image(new Texture("actionBackground.png"));
+        actionBackgroundImg.setSize(73, 73);
+        tableBackgroundActions.add(actionBackgroundImg).size(actionBackgroundImg.getWidth(), actionBackgroundImg.getHeight());;
+
+        stage.addActor(tableBackgroundActions);
+        stage.addActor(tableArrows);
+        stage.addActor(tableActions);
+
     }
 
     public void draw(){
@@ -169,6 +292,22 @@ public class Controller implements Disposable {
 
     public boolean isRightPressed() {
         return rightPressed;
+    }
+
+    public boolean isUpActionPressed() {
+        return upActionPressed;
+    }
+
+    public boolean isDownActionPressed() {
+        return downActionPressed;
+    }
+
+    public boolean isLeftActionPressed() {
+        return leftActionPressed;
+    }
+
+    public boolean isRightActionPressed() {
+        return rightActionPressed;
     }
 
     public void resize(int width, int height){

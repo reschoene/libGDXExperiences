@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.sprites.tileObjects;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
@@ -25,10 +25,10 @@ public class Coin extends TileObject implements HeadHittable{
     @Override
     public void onHeadHit() {
         if (getCell().getTile().getId() == BLACK_COIN)
-            MarioBros.manager.get("audio/sounds/bump.wav", Sound.class).play();
+            MarioGame.manager.get("audio/sounds/bump.wav", Sound.class).play();
         else{
-            MarioBros.manager.get("audio/sounds/coin.wav", Sound.class).play();
-            screen.spawnItem(new ItemDef(new Vector2(body.getPosition().x, body.getPosition().y + 16 / MarioBros.PPM), Mushroom.class));
+            MarioGame.manager.get("audio/sounds/coin.wav", Sound.class).play();
+            screen.spawnItem(new ItemDef(new Vector2(body.getPosition().x, body.getPosition().y + 16 / MarioGame.PPM), Mushroom.class));
         }
 
         getCell().setTile(tileSet.getTile(BLACK_COIN));

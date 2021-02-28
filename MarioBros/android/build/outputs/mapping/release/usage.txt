@@ -2304,6 +2304,10 @@ com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle:
     public com.badlogic.gdx.scenes.scene2d.utils.Drawable down
     public com.badlogic.gdx.scenes.scene2d.utils.Drawable over
     public com.badlogic.gdx.scenes.scene2d.utils.Drawable background
+br.com.reschoene.mariobros.MarioGame:
+    public static final int V_WIDTH
+    public static final int V_HEIGHT
+    public static final float PPM
 com.badlogic.gdx.graphics.Pixmap$1$1
 com.badlogic.gdx.graphics.g3d.particles.ParticleChannels$ColorInitializer
 com.badlogic.gdx.graphics.g3d.attributes.DirectionalLightsAttribute
@@ -3272,10 +3276,6 @@ com.badlogic.gdx.utils.SnapshotArray:
     public java.lang.Object[] setSize(int)
 com.badlogic.gdx.graphics.glutils.PixmapTextureData
 com.badlogic.gdx.backends.android.surfaceview.FixedResolutionStrategy
-br.com.reschoene.mariobros.MarioBros:
-    public static final int V_WIDTH
-    public static final int V_HEIGHT
-    public static final float PPM
 com.badlogic.gdx.graphics.g3d.particles.ResourceData$AssetData:
     public void <init>(java.lang.String,java.lang.Class)
     public void write(com.badlogic.gdx.utils.Json)
@@ -3726,13 +3726,8 @@ com.badlogic.gdx.scenes.scene2d.ui.Table:
     public com.badlogic.gdx.scenes.scene2d.ui.Table padRight(com.badlogic.gdx.scenes.scene2d.ui.Value)
     public com.badlogic.gdx.scenes.scene2d.ui.Table pad(float)
     public com.badlogic.gdx.scenes.scene2d.ui.Table pad(float,float,float,float)
-    public com.badlogic.gdx.scenes.scene2d.ui.Table padTop(float)
-    public com.badlogic.gdx.scenes.scene2d.ui.Table padLeft(float)
-    public com.badlogic.gdx.scenes.scene2d.ui.Table padBottom(float)
-    public com.badlogic.gdx.scenes.scene2d.ui.Table padRight(float)
     public com.badlogic.gdx.scenes.scene2d.ui.Table align(int)
     public com.badlogic.gdx.scenes.scene2d.ui.Table center()
-    public com.badlogic.gdx.scenes.scene2d.ui.Table right()
     public com.badlogic.gdx.scenes.scene2d.ui.Table debug()
     public com.badlogic.gdx.scenes.scene2d.ui.Table debugTable()
     public com.badlogic.gdx.scenes.scene2d.ui.Table debugCell()
@@ -6143,7 +6138,11 @@ com.badlogic.gdx.utils.Json:
     private static final boolean debug
 br.com.reschoene.mariobros.scenes.Controller:
     public boolean isDownPressed()
-    private com.badlogic.gdx.graphics.g2d.SpriteBatch sb
+    public boolean isUpActionPressed()
+    public boolean isLeftActionPressed()
+    public boolean isRightActionPressed()
+    private static final int SIZE_BTN
+    private static final int BTN_PAD
 com.badlogic.gdx.utils.CharArray
 com.badlogic.gdx.graphics.g2d.PixmapPacker
 com.badlogic.gdx.scenes.scene2d.actions.DelegateAction

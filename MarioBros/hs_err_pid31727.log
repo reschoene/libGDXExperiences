@@ -40,7 +40,7 @@ j  br.com.reschoene.mariobros.sprites.items.Mushroom.<init>(Lbr/com/reschoene/ma
 J 1289 c1 br.com.reschoene.mariobros.screens.PlayScreen.handleSpawnItems()V (60 bytes) @ 0x00007fc8415a4ecc [0x00007fc8415a4b20+0x00000000000003ac]
 J 1254 c1 br.com.reschoene.mariobros.screens.PlayScreen.update(F)V (180 bytes) @ 0x00007fc84159243c [0x00007fc841592360+0x00000000000000dc]
 J 1255 c1 br.com.reschoene.mariobros.screens.PlayScreen.render(F)V (223 bytes) @ 0x00007fc841593db4 [0x00007fc841593d20+0x0000000000000094]
-J 1298 c1 br.com.reschoene.mariobros.MarioBros.render()V (5 bytes) @ 0x00007fc8415aad74 [0x00007fc8415aabe0+0x0000000000000194]
+J 1298 c1 br.com.reschoene.mariobros.MarioGame.render()V (5 bytes) @ 0x00007fc8415aad74 [0x00007fc8415aabe0+0x0000000000000194]
 J 1272 c1 com.badlogic.gdx.backends.lwjgl3.Lwjgl3Window.update()Z (217 bytes) @ 0x00007fc84159d80c [0x00007fc84159cb20+0x0000000000000cec]
 j  com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application.loop()V+90
 j  com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application.<init>(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/lwjgl3/Lwjgl3ApplicationConfiguration;)V+246

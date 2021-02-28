@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.sprites.items;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -21,7 +21,7 @@ public abstract class Item extends Sprite {
         this.screen = screen;
         this.world = screen.getWorld();
         setPosition(x, y);
-        setBounds(getX(), getY(), 16/ MarioBros.PPM, 16/MarioBros.PPM);
+        setBounds(getX(), getY(), 16/ MarioGame.PPM, 16/ MarioGame.PPM);
         defineItem();
     }
 

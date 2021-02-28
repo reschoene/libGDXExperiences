@@ -1,7 +1,6 @@
 package br.com.reschoene.mariobros.sprites.items;
 
-import br.com.reschoene.mariobros.MarioBros;
-import br.com.reschoene.mariobros.collison.FixtureFilterBits;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
 import com.badlogic.gdx.math.Vector2;
@@ -27,7 +26,7 @@ public class Mushroom extends Item{
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(6 / MarioBros.PPM);
+        shape.setRadius(6 / MarioGame.PPM);
         fdef.filter.categoryBits = ITEM_BIT.getValue();
         fdef.filter.maskBits = combine(MARIO_BIT, OBJECT_BIT, GROUND_BIT, BLOCK_BIT, COIN_BIT, BRICK_BIT);
 

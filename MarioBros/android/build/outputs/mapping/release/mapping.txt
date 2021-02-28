@@ -1,9 +1,9 @@
 # compiler: R8
 # compiler_version: 2.0.99
 # min_api: 14
-# pg_map_id: f0d6e95
+# pg_map_id: 9bcaee0
 # common_typos_disable
-br.com.reschoene.mariobros.MarioBros -> br.com.reschoene.mariobros.a:
+br.com.reschoene.mariobros.MarioGame -> br.com.reschoene.mariobros.a:
     com.badlogic.gdx.assets.AssetManager manager -> c
     com.badlogic.gdx.graphics.g2d.SpriteBatch batch -> b
     void dispose() -> a
@@ -33,18 +33,30 @@ br.com.reschoene.mariobros.collison.WorldContactListener -> br.com.reschoene.mar
     java.lang.Object getObjByFilterType(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture,br.com.reschoene.mariobros.collison.FixtureFilterBits) -> e
 br.com.reschoene.mariobros.scenes.Controller -> br.com.reschoene.mariobros.c.a:
     com.badlogic.gdx.utils.viewport.Viewport viewport -> a
-    com.badlogic.gdx.graphics.OrthographicCamera cam -> g
+    boolean leftActionPressed -> i
+    boolean rightActionPressed -> j
     boolean leftPressed -> e
     com.badlogic.gdx.scenes.scene2d.Stage stage -> b
     boolean rightPressed -> f
+    boolean upActionPressed -> g
+    boolean downActionPressed -> h
     boolean upPressed -> c
     boolean downPressed -> d
-    void resize(int,int) -> C
+    boolean access$402(br.com.reschoene.mariobros.scenes.Controller,boolean) -> C
+    boolean access$502(br.com.reschoene.mariobros.scenes.Controller,boolean) -> I
+    boolean access$602(br.com.reschoene.mariobros.scenes.Controller,boolean) -> L
+    boolean access$702(br.com.reschoene.mariobros.scenes.Controller,boolean) -> O
+    void draw() -> P
+    boolean isDownActionPressed() -> Q
+    boolean isLeftPressed() -> R
+    boolean isRightPressed() -> S
+    boolean isUpPressed() -> T
+    void resize(int,int) -> U
     void dispose() -> a
-    void draw() -> m
-    boolean isLeftPressed() -> q
-    boolean isRightPressed() -> w
-    boolean isUpPressed() -> x
+    boolean access$002(br.com.reschoene.mariobros.scenes.Controller,boolean) -> m
+    boolean access$102(br.com.reschoene.mariobros.scenes.Controller,boolean) -> q
+    boolean access$202(br.com.reschoene.mariobros.scenes.Controller,boolean) -> w
+    boolean access$302(br.com.reschoene.mariobros.scenes.Controller,boolean) -> x
 br.com.reschoene.mariobros.scenes.Controller$1 -> br.com.reschoene.mariobros.c.a$a:
     br.com.reschoene.mariobros.scenes.Controller this$0 -> b
     boolean keyDown(com.badlogic.gdx.scenes.scene2d.InputEvent,int) -> d
@@ -62,6 +74,22 @@ br.com.reschoene.mariobros.scenes.Controller$4 -> br.com.reschoene.mariobros.c.a
     boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> i
     void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> k
 br.com.reschoene.mariobros.scenes.Controller$5 -> br.com.reschoene.mariobros.c.a$e:
+    br.com.reschoene.mariobros.scenes.Controller this$0 -> b
+    boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> i
+    void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> k
+br.com.reschoene.mariobros.scenes.Controller$6 -> br.com.reschoene.mariobros.c.a$f:
+    br.com.reschoene.mariobros.scenes.Controller this$0 -> b
+    boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> i
+    void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> k
+br.com.reschoene.mariobros.scenes.Controller$7 -> br.com.reschoene.mariobros.c.a$g:
+    br.com.reschoene.mariobros.scenes.Controller this$0 -> b
+    boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> i
+    void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> k
+br.com.reschoene.mariobros.scenes.Controller$8 -> br.com.reschoene.mariobros.c.a$h:
+    br.com.reschoene.mariobros.scenes.Controller this$0 -> b
+    boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> i
+    void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> k
+br.com.reschoene.mariobros.scenes.Controller$9 -> br.com.reschoene.mariobros.c.a$i:
     br.com.reschoene.mariobros.scenes.Controller this$0 -> b
     boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> i
     void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> k
@@ -99,7 +127,7 @@ br.com.reschoene.mariobros.screens.PlayScreen -> br.com.reschoene.mariobros.d.a:
     com.badlogic.gdx.graphics.g2d.TextureAtlas atlas -> b
     br.com.reschoene.mariobros.sprites.tileObjects.Mario player -> k
     com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer renderer -> i
-    br.com.reschoene.mariobros.MarioBros game -> a
+    br.com.reschoene.mariobros.MarioGame game -> a
     com.badlogic.gdx.physics.box2d.World world -> j
     com.badlogic.gdx.utils.viewport.Viewport gamePort -> d
     java.util.PriorityQueue itemsToSpawn -> o
@@ -3700,9 +3728,14 @@ com.badlogic.gdx.scenes.scene2d.ui.Table -> a.a.a.v.a.j.o:
     com.badlogic.gdx.scenes.scene2d.Actor hit(float,float,boolean) -> H
     com.badlogic.gdx.scenes.scene2d.ui.Table left() -> H0
     com.badlogic.gdx.scenes.scene2d.ui.Cell obtainCell() -> I0
-    com.badlogic.gdx.scenes.scene2d.ui.Cell row() -> J0
-    com.badlogic.gdx.scenes.scene2d.ui.Table top() -> K0
+    com.badlogic.gdx.scenes.scene2d.ui.Table padBottom(float) -> J0
+    com.badlogic.gdx.scenes.scene2d.ui.Table padLeft(float) -> K0
+    com.badlogic.gdx.scenes.scene2d.ui.Table padRight(float) -> L0
+    com.badlogic.gdx.scenes.scene2d.ui.Table padTop(float) -> M0
+    com.badlogic.gdx.scenes.scene2d.ui.Table right() -> N0
+    com.badlogic.gdx.scenes.scene2d.ui.Cell row() -> O0
     void setDebug(boolean) -> P
+    com.badlogic.gdx.scenes.scene2d.ui.Table top() -> P0
     float getMinHeight() -> a
     float getMinWidth() -> b
     void clearChildren() -> c0

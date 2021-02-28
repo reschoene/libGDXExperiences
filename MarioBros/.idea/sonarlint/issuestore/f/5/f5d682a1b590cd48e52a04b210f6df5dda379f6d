@@ -1,0 +1,7 @@
+
+>
+java:S1170"!Make this final field static too.(å¸¼«8ş„‡‡ı.
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÒÖËÂùÿÿÿÿ8ìÆŠ¤ş.
+q	java:S116"URename this field "BLACK_COIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å¸¼«8ş„‡‡ı.
+A
+java:S3010"$Remove this assignment of "tileSet".(„ÜÁÿ8Íƒ‡ı.

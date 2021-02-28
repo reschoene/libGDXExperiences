@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.sprites.tileObjects;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -49,19 +49,19 @@ public class Mario extends Sprite {
         defineMario();
 
         marioStand = new TextureRegion(getTexture(), 2, 12, 16, 16);
-        setBounds(0, 0, 16 / MarioBros.PPM, 16 / MarioBros.PPM);
+        setBounds(0, 0, 16 / MarioGame.PPM, 16 / MarioGame.PPM);
         setRegion(marioStand);
     }
 
     private void defineMario() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(32 / MarioBros.PPM, 32 / MarioBros.PPM);
+        bdef.position.set(32 / MarioGame.PPM, 32 / MarioGame.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2Body = world.createBody(bdef);
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(6 / MarioBros.PPM);
+        shape.setRadius(6 / MarioGame.PPM);
 
         //categoryBits defines whats fixture is
         //maskBits defines whats this fixture collides with
@@ -73,7 +73,7 @@ public class Mario extends Sprite {
         b2Body.createFixture(fdef).setUserData(this);
 
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-2 / MarioBros.PPM, 6 / MarioBros.PPM), new Vector2(2 / MarioBros.PPM, 6 / MarioBros.PPM));
+        head.set(new Vector2(-2 / MarioGame.PPM, 6 / MarioGame.PPM), new Vector2(2 / MarioGame.PPM, 6 / MarioGame.PPM));
         fdef.shape = head;
         fdef.filter.categoryBits = MARIO_HEAD.getValue();
         fdef.isSensor = true;

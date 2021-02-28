@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.sprites.tileObjects;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
@@ -20,6 +20,6 @@ public class Brick extends TileObject implements HeadHittable {
         getCell().setTile(null);
         Hud.addScore(200);
 
-        MarioBros.manager.get("audio/sounds/breakblock.wav", Sound.class).play();
+        MarioGame.manager.get("audio/sounds/breakblock.wav", Sound.class).play();
     }
 }

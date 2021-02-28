@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.scenes;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -32,7 +32,7 @@ public class Hud implements Disposable {
         timeCount = 0;
         score = 0;
 
-        viewport = new FitViewport(MarioBros.V_WIDTH, MarioBros.V_HEIGHT, new OrthographicCamera());
+        viewport = new FitViewport(MarioGame.V_WIDTH, MarioGame.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, sb);
 
         Table table = new Table();

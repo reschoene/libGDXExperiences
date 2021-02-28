@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.sprites.tileObjects;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.scenes.MapLayers;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -37,7 +37,7 @@ public abstract class TileObject {
     protected void createFixture() {
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
-        shape.setAsBox(bounds.getWidth()/2 / MarioBros.PPM, bounds.getHeight()/2 / MarioBros.PPM);
+        shape.setAsBox(bounds.getWidth()/2 / MarioGame.PPM, bounds.getHeight()/2 / MarioGame.PPM);
         fdef.shape = shape;
         fdef.filter.categoryBits = categoryBits;
         fixture = body.createFixture(fdef);
@@ -46,7 +46,7 @@ public abstract class TileObject {
     protected void createBody() {
         BodyDef bdef = new BodyDef();
         bdef.type = BodyDef.BodyType.StaticBody;
-        bdef.position.set((bounds.getX() + bounds.getWidth()/2) / MarioBros.PPM, (bounds.getY() + bounds.getHeight()/2) / MarioBros.PPM);
+        bdef.position.set((bounds.getX() + bounds.getWidth()/2) / MarioGame.PPM, (bounds.getY() + bounds.getHeight()/2) / MarioGame.PPM);
         body = world.createBody(bdef);
     }
 
@@ -59,8 +59,8 @@ public abstract class TileObject {
     public TiledMapTileLayer.Cell getCell(){
         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(MapLayers.GRAPHIC.getIdx());
 
-        int x = (int) (body.getPosition().x * MarioBros.PPM / 16);
-        int y = (int) (body.getPosition().y * MarioBros.PPM / 16);
+        int x = (int) (body.getPosition().x * MarioGame.PPM / 16);
+        int y = (int) (body.getPosition().y * MarioGame.PPM / 16);
 
         return layer.getCell(x,y);
     }

@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.sprites.enemies;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -28,7 +28,7 @@ public class Goomba extends Enemy {
             frames.add(new TextureRegion(screen.getAtlas().findRegion("goomba"), i * 16, 0, 16, 16));
         walkAnimation = new Animation(0.4f, frames);
         stateTime = 0;
-        setBounds(getX(), getY(), 16 / MarioBros.PPM, 16 / MarioBros.PPM);
+        setBounds(getX(), getY(), 16 / MarioGame.PPM, 16 / MarioGame.PPM);
     }
 
     public void update(float dt) {
@@ -57,7 +57,7 @@ public class Goomba extends Enemy {
         FixtureDef fdef = new FixtureDef();
         fdef.restitution = 0.008f; //a small restitution just to avoid it stuck on a collision
         CircleShape shape = new CircleShape();
-        shape.setRadius(6 / MarioBros.PPM);
+        shape.setRadius(6 / MarioGame.PPM);
 
         //categoryBits defines whats fixture is
         //maskBits defines whats this fixture collides with
@@ -70,10 +70,10 @@ public class Goomba extends Enemy {
 
         PolygonShape head = new PolygonShape();
         Vector2[] vertices = new Vector2[4];
-        vertices[0] = new Vector2(-5, 8).scl(1 / MarioBros.PPM);
-        vertices[1] = new Vector2(5, 8).scl(1 / MarioBros.PPM);
-        vertices[2] = new Vector2(-3, 3).scl(1 / MarioBros.PPM);
-        vertices[3] = new Vector2(3, 3).scl(1 / MarioBros.PPM);
+        vertices[0] = new Vector2(-5, 8).scl(1 / MarioGame.PPM);
+        vertices[1] = new Vector2(5, 8).scl(1 / MarioGame.PPM);
+        vertices[2] = new Vector2(-3, 3).scl(1 / MarioGame.PPM);
+        vertices[3] = new Vector2(3, 3).scl(1 / MarioGame.PPM);
         head.set(vertices);
 
         fdef.shape = head;

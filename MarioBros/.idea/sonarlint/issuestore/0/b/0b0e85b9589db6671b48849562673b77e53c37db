@@ -1,12 +1,0 @@
-
->
-java:S1170"!Make this final field static too.(å¸¼«8ş„‡‡ı.
-A
-java:S3010"$Remove this assignment of "tileSet".(„ÜÁÿ8Íƒ‡ı.
-c
-java:S1128	"ARemove this unused import 'com.badlogic.gdx.maps.tiled.TiledMap'.(…Ê×úÿÿÿÿ8Şúø®ı.
-N
-java:S1128"1Remove this unused import 'com.badlogic.gdx.Gdx'.(ÉˆÇï8¾«ı‡ı.
-c
-java:S1128"ARemove this unused import 'com.badlogic.gdx.physics.box2d.World'.(ëÊ‰šúÿÿÿÿ8Şúø®ı.
-q	java:S116"URename this field "BLACK_COIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å¸¼«8ş„‡‡ı.

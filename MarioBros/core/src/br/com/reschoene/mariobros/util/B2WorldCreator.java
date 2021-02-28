@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.util;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.scenes.MapLayers;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Goomba;
@@ -43,7 +43,7 @@ public class B2WorldCreator {
         goombas = new Array<>();
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.GOOMBA)){
             Rectangle rect = object.getRectangle();
-            goombas.add(new Goomba(screen, rect.x / MarioBros.PPM, rect.y / MarioBros.PPM));
+            goombas.add(new Goomba(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM));
         }
     }
 

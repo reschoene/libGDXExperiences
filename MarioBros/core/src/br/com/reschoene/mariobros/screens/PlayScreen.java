@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.screens;
 
-import br.com.reschoene.mariobros.MarioBros;
+import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.collison.WorldContactListener;
 import br.com.reschoene.mariobros.scenes.Controller;
 import br.com.reschoene.mariobros.scenes.Hud;
@@ -12,7 +12,6 @@ import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
 import br.com.reschoene.mariobros.util.B2WorldCreator;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
@@ -31,7 +30,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.util.PriorityQueue;
 
 public class PlayScreen implements Screen {
-    private MarioBros game;
+    private MarioGame game;
     private TextureAtlas atlas;
     private OrthographicCamera gamecam;
     private Viewport gamePort;
@@ -60,18 +59,18 @@ public class PlayScreen implements Screen {
     //result of number of ground tiles * width of a ground tile = screen pixels
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
 
-    public PlayScreen(MarioBros game) {
+    public PlayScreen(MarioGame game) {
         atlas = new TextureAtlas("Mario_and_Enemies.atlas");
 
         this.game = game;
         gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(MarioBros.V_WIDTH / MarioBros.PPM, MarioBros.V_HEIGHT / MarioBros.PPM, gamecam);
+        gamePort = new FitViewport(MarioGame.V_WIDTH / MarioGame.PPM, MarioGame.V_HEIGHT / MarioGame.PPM, gamecam);
         hud = new Hud(game.batch);
         controller = new Controller(game.batch);
 
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("map01.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map, 1 / MarioBros.PPM);
+        renderer = new OrthogonalTiledMapRenderer(map, 1 / MarioGame.PPM);
 
         gamecam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2, 0);
 
@@ -85,7 +84,7 @@ public class PlayScreen implements Screen {
 
         world.setContactListener(new WorldContactListener());
 
-        music = MarioBros.manager.get("audio/music/mario_music.ogg", Music.class);
+        music = MarioGame.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
         music.play();
 
@@ -117,7 +116,7 @@ public class PlayScreen implements Screen {
     }
 
     public void handleInput(){
-        if(controller.isUpPressed() && player.b2Body.getLinearVelocity().y == 0)
+        if((controller.isUpPressed() || controller.isDownActionPressed()) && player.b2Body.getLinearVelocity().y == 0)
             player.b2Body.applyLinearImpulse(new Vector2(0, 4f), player.b2Body.getWorldCenter(), true);
         if((controller.isRightPressed()) && (player.b2Body.getLinearVelocity().x <= 2))
             player.b2Body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2Body.getWorldCenter(), true);
@@ -136,7 +135,7 @@ public class PlayScreen implements Screen {
 
         for(Enemy enemy : creator.getGoombas()){
             enemy.update(delta);
-            if (enemy.getX() < player.getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/MarioBros.PPM))
+            if (enemy.getX() < player.getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/ MarioGame.PPM))
                 enemy.b2Body.setActive(true);
         }
 
