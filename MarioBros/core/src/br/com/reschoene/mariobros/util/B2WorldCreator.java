@@ -25,19 +25,19 @@ public class B2WorldCreator {
 
     public void createMapObjects() {
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.COIN))
-            new Coin(screen, object.getRectangle());
+            new Coin(screen, object);
 
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.BRICK))
-            new Brick(screen, object.getRectangle());
+            new Brick(screen, object);
 
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.PIPE))
-            new Pipe(screen, object.getRectangle());
+            new Pipe(screen, object);
 
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.GROUND))
-            new Ground(screen, object.getRectangle());
+            new Ground(screen, object);
 
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.BLOCK))
-            new Block(screen, object.getRectangle());
+            new Block(screen, object);
 
         //create all gombas
         goombas = new Array<>();

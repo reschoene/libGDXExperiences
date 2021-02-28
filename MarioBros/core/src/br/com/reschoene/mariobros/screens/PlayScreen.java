@@ -28,6 +28,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.PriorityQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 
 public class PlayScreen implements Screen {
     private MarioGame game;
@@ -54,7 +55,7 @@ public class PlayScreen implements Screen {
     private B2WorldCreator creator;
 
     private Array<Item> items;
-    private PriorityQueue<ItemDef> itemsToSpawn;
+    private LinkedBlockingDeque<ItemDef> itemsToSpawn;
 
     //result of number of ground tiles * width of a ground tile = screen pixels
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
@@ -86,10 +87,10 @@ public class PlayScreen implements Screen {
 
         music = MarioGame.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
-        music.play();
+        //music.play();
 
         items = new Array<>();
-        itemsToSpawn = new PriorityQueue<>();
+        itemsToSpawn = new LinkedBlockingDeque<>();
 
     }
 
