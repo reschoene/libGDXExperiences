@@ -14,6 +14,7 @@ import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 
 public class Mario extends Sprite {
     private boolean timeToDefineBigMario;
+    private boolean timeToRedefineMario;
 
     public enum State {FALLING, JUMPING, STANDING, RUNNING, GROWING}
 
@@ -68,15 +69,15 @@ public class Mario extends Sprite {
         marioStand = new TextureRegion(screen.getAtlas().findRegion("little_mario"), 0, 0, 16, 16);
         bigMarioStand = new TextureRegion(screen.getAtlas().findRegion("big_mario"), 0, 0, 16, 32);
 
-        defineMario();
+        defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
 
         setBounds(0, 0, 16 / MarioGame.PPM, 16 / MarioGame.PPM);
         setRegion(marioStand);
     }
 
-    private void defineMario() {
+    private void defineMario(Vector2 position) {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(32 / MarioGame.PPM, 32 / MarioGame.PPM);
+        bdef.position.set(position);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2Body = world.createBody(bdef);
 
@@ -92,6 +93,11 @@ public class Mario extends Sprite {
 
         fdef.shape = shape;
         b2Body.createFixture(fdef).setUserData(this);
+
+        if(timeToDefineBigMario){
+            shape.setPosition(new Vector2(0, -14/MarioGame.PPM));
+            b2Body.createFixture(fdef).setUserData(this);
+        }
 
         EdgeShape head = new EdgeShape();
         head.set(new Vector2(-2 / MarioGame.PPM, 6 / MarioGame.PPM), new Vector2(2 / MarioGame.PPM, 6 / MarioGame.PPM));
@@ -102,38 +108,22 @@ public class Mario extends Sprite {
         b2Body.createFixture(fdef).setUserData(this);
     }
 
-    private void defineBigMario() {
+    private void shrinkMario() {
+        Vector2 currentPosition = b2Body.getPosition();
+        world.destroyBody(b2Body);
+
+        defineMario(currentPosition);
+
+        timeToRedefineMario = false;
+    }
+
+    private void growMario() {
         Vector2 currentPosition = b2Body.getPosition();
         //destroy litte body for creating the big mario body
         world.destroyBody(b2Body);
 
-        BodyDef bdef = new BodyDef();
-        bdef.position.set(currentPosition.add(0, 10/MarioGame.PPM));
-        bdef.type = BodyDef.BodyType.DynamicBody;
-        b2Body = world.createBody(bdef);
+        defineMario(currentPosition.add(0, 10/MarioGame.PPM));
 
-        FixtureDef fdef = new FixtureDef();
-        CircleShape shape = new CircleShape();
-        shape.setRadius(6 / MarioGame.PPM);
-
-        //categoryBits defines whats fixture is
-        //maskBits defines whats this fixture collides with
-        fdef.filter.categoryBits = MARIO_BIT.getValue();
-        fdef.filter.maskBits = combine(GROUND_BIT, BLOCK_BIT, COIN_BIT, BRICK_BIT,
-                ENEMY_BIT, OBJECT_BIT, ENEMY_HEAD_BIT, ITEM_BIT);
-
-        fdef.shape = shape;
-        b2Body.createFixture(fdef).setUserData(this);
-        shape.setPosition(new Vector2(0, -14/MarioGame.PPM));
-        b2Body.createFixture(fdef).setUserData(this);
-
-        EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-2 / MarioGame.PPM, 6 / MarioGame.PPM), new Vector2(2 / MarioGame.PPM, 6 / MarioGame.PPM));
-        fdef.shape = head;
-        fdef.filter.categoryBits = MARIO_HEAD_BIT.getValue();
-        fdef.isSensor = true;
-
-        b2Body.createFixture(fdef).setUserData(this);
         timeToDefineBigMario = false;
     }
 
@@ -146,7 +136,9 @@ public class Mario extends Sprite {
         setRegion(getFrame(dt));
 
         if(timeToDefineBigMario)
-            defineBigMario();
+            growMario();
+        if(timeToRedefineMario)
+            shrinkMario();
     }
 
     public TextureRegion getFrame(float dt) {
@@ -208,5 +200,16 @@ public class Mario extends Sprite {
 
     public boolean isBig(){
         return marioIsBig;
+    }
+
+    public void hit() {
+        if(marioIsBig){
+            marioIsBig = false;
+            timeToRedefineMario = true;
+            setBounds(getX(), getY(), getWidth(), getHeight() / 2);
+            MarioGame.manager.get("audio/sounds/powerdown.wav", Sound.class).play();
+        }else{
+            MarioGame.manager.get("audio/sounds/mariodie.wav", Sound.class).play();
+        }
     }
 }

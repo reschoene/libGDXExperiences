@@ -3,6 +3,7 @@ package br.com.reschoene.mariobros.sprites.enemies;
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -92,5 +93,6 @@ public class Goomba extends Enemy {
     @Override
     public void onHeadHit(Mario mario) {
         setToDestroy = true;
+        MarioGame.manager.get("audio/sounds/stomp.wav", Sound.class).play();
     }
 }
