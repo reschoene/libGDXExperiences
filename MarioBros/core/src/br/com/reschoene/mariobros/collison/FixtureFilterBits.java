@@ -1,6 +1,7 @@
 package br.com.reschoene.mariobros.collison;
 
 public enum FixtureFilterBits {
+    NOTHING_BIT(0),
     GROUND_BIT(1),
     MARIO_BIT(2),
     BRICK_BIT(4),

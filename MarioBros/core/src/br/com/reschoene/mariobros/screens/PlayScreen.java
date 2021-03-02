@@ -87,7 +87,7 @@ public class PlayScreen implements Screen {
 
         music = MarioGame.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
-        //music.play();
+        music.play();
 
         items = new Array<>();
         itemsToSpawn = new LinkedBlockingDeque<>();
@@ -117,12 +117,14 @@ public class PlayScreen implements Screen {
     }
 
     public void handleInput(){
-        if((controller.isUpPressed() || controller.isDownActionPressed()) && player.b2Body.getLinearVelocity().y == 0)
-            player.b2Body.applyLinearImpulse(new Vector2(0, 4f), player.b2Body.getWorldCenter(), true);
-        if((controller.isRightPressed()) && (player.b2Body.getLinearVelocity().x <= 2))
-            player.b2Body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2Body.getWorldCenter(), true);
-        if((controller.isLeftPressed()) && (player.b2Body.getLinearVelocity().x >= -2))
-            player.b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2Body.getWorldCenter(), true);
+        if(player.currentState != Mario.State.DEAD) {
+            if ((controller.isUpPressed() || controller.isDownActionPressed()) && player.b2Body.getLinearVelocity().y == 0)
+                player.b2Body.applyLinearImpulse(new Vector2(0, 4f), player.b2Body.getWorldCenter(), true);
+            if ((controller.isRightPressed()) && (player.b2Body.getLinearVelocity().x <= 2))
+                player.b2Body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2Body.getWorldCenter(), true);
+            if ((controller.isLeftPressed()) && (player.b2Body.getLinearVelocity().x >= -2))
+                player.b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2Body.getWorldCenter(), true);
+        }
     }
 
     public void update(float delta){
@@ -143,10 +145,15 @@ public class PlayScreen implements Screen {
         for(Item item: items)
             item.update(delta);
 
-        gamecam.position.x = player.b2Body.getPosition().x;
+        if(player.currentState != Mario.State.DEAD)
+            gamecam.position.x = player.b2Body.getPosition().x;
 
         gamecam.update();
         renderer.setView(gamecam);
+    }
+
+    public boolean gameOver(){
+        return (player.currentState == Mario.State.DEAD && player.getStateTimer() > 3);
     }
 
     @Override
@@ -175,6 +182,11 @@ public class PlayScreen implements Screen {
         hud.stage.draw();
         if(Gdx.app.getType() == Application.ApplicationType.Android)
             controller.draw();
+
+        if(gameOver()){
+            game.setScreen(new GameOverScreen(game));
+            dispose();
+        }
     }
 
     @Override

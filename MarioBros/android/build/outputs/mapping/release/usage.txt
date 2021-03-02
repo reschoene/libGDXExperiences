@@ -28,7 +28,6 @@ com.badlogic.gdx.backends.android.DefaultAndroidInput:
     public float getPressure()
     public float getPressure(int)
     public synchronized boolean isKeyPressed(int)
-    public synchronized boolean isKeyJustPressed(int)
     public boolean isTouched()
     public void setOnscreenKeyboardVisible(boolean)
     public void setOnscreenKeyboardVisible(boolean,com.badlogic.gdx.Input$OnscreenKeyboardType)
@@ -41,7 +40,6 @@ com.badlogic.gdx.backends.android.DefaultAndroidInput:
     public void vibrate(int)
     public void vibrate(long[],int)
     public void cancelVibrate()
-    public boolean justTouched()
     public boolean isButtonPressed(int)
     public boolean isButtonJustPressed(int)
     public void getRotationMatrix(float[])
@@ -835,7 +833,6 @@ com.badlogic.gdx.graphics.g2d.Animation:
     public java.lang.Object[] getKeyFrames()
     public com.badlogic.gdx.graphics.g2d.Animation$PlayMode getPlayMode()
     public void setPlayMode(com.badlogic.gdx.graphics.g2d.Animation$PlayMode)
-    public boolean isAnimationFinished(float)
     public void setFrameDuration(float)
     public float getFrameDuration()
     public float getAnimationDuration()
@@ -1366,7 +1363,6 @@ com.badlogic.gdx.utils.Sort:
     public void sort(com.badlogic.gdx.utils.Array,java.util.Comparator)
     public void sort(java.lang.Object[],java.util.Comparator)
 br.com.reschoene.mariobros.screens.PlayScreen:
-    public void dispose()
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES
 com.badlogic.gdx.graphics.g2d.ParticleEffect:
     public void <init>(com.badlogic.gdx.graphics.g2d.ParticleEffect)
@@ -1400,6 +1396,8 @@ com.badlogic.gdx.backends.android.AndroidApplicationLogger:
     public void debug(java.lang.String,java.lang.String,java.lang.Throwable)
 com.badlogic.gdx.graphics.g3d.particles.influencers.DynamicsModifier$BrownianAcceleration
 com.badlogic.gdx.utils.PooledLinkedList
+br.com.reschoene.mariobros.sprites.tileObjects.Mario:
+    public boolean isDead()
 br.com.reschoene.mariobros.R$drawable
 com.badlogic.gdx.files.FileHandleStream
 com.badlogic.gdx.graphics.g3d.shaders.DepthShader$Config
@@ -2095,7 +2093,6 @@ com.badlogic.gdx.graphics.OrthographicCamera:
 com.badlogic.gdx.scenes.scene2d.ui.TextField$OnscreenKeyboard
 com.badlogic.gdx.graphics.g3d.utils.CameraInputController
 com.badlogic.gdx.maps.MapProperties:
-    public boolean containsKey(java.lang.String)
     public java.lang.Object get(java.lang.String,java.lang.Object,java.lang.Class)
     public void putAll(com.badlogic.gdx.maps.MapProperties)
     public void remove(java.lang.String)
@@ -3025,7 +3022,6 @@ com.badlogic.gdx.backends.android.AndroidMusic:
     public void setVolume(float)
     public float getVolume()
     public void setPan(float,float)
-    public void stop()
     public void setPosition(float)
     public float getPosition()
     public float getDuration()
@@ -3100,10 +3096,8 @@ com.badlogic.gdx.graphics.VertexAttributes$Usage
 com.badlogic.gdx.physics.box2d.CircleShape:
     protected void <init>(long)
     private native void jniGetPosition(long,float[])
-    private native void jniSetPosition(long,float,float)
     public com.badlogic.gdx.physics.box2d.Shape$Type getType()
     public com.badlogic.gdx.math.Vector2 getPosition()
-    public void setPosition(com.badlogic.gdx.math.Vector2)
 com.badlogic.gdx.scenes.scene2d.actions.CountdownEventAction
 com.badlogic.gdx.graphics.g3d.particles.ParticleChannels$TextureRegionInitializer
 com.badlogic.gdx.graphics.g3d.shaders.BaseShader$Setter
@@ -3727,7 +3721,6 @@ com.badlogic.gdx.scenes.scene2d.ui.Table:
     public com.badlogic.gdx.scenes.scene2d.ui.Table pad(float)
     public com.badlogic.gdx.scenes.scene2d.ui.Table pad(float,float,float,float)
     public com.badlogic.gdx.scenes.scene2d.ui.Table align(int)
-    public com.badlogic.gdx.scenes.scene2d.ui.Table center()
     public com.badlogic.gdx.scenes.scene2d.ui.Table debug()
     public com.badlogic.gdx.scenes.scene2d.ui.Table debugTable()
     public com.badlogic.gdx.scenes.scene2d.ui.Table debugCell()
@@ -3775,7 +3768,6 @@ com.badlogic.gdx.graphics.g3d.utils.ShapeCache
 com.badlogic.gdx.graphics.g3d.particles.influencers.ColorInfluencer$Single
 com.badlogic.gdx.audio.Music:
     public abstract void pause()
-    public abstract void stop()
     public abstract boolean isPlaying()
     public abstract boolean isLooping()
     public abstract void setVolume(float)
@@ -4107,12 +4099,10 @@ com.badlogic.gdx.math.Vector2:
     public com.badlogic.gdx.math.Vector2 cpy()
     public float len()
     public float len2()
-    public com.badlogic.gdx.math.Vector2 set(com.badlogic.gdx.math.Vector2)
     public com.badlogic.gdx.math.Vector2 sub(com.badlogic.gdx.math.Vector2)
     public com.badlogic.gdx.math.Vector2 sub(float,float)
     public com.badlogic.gdx.math.Vector2 nor()
     public com.badlogic.gdx.math.Vector2 add(com.badlogic.gdx.math.Vector2)
-    public com.badlogic.gdx.math.Vector2 add(float,float)
     public float dot(com.badlogic.gdx.math.Vector2)
     public float dot(float,float)
     public com.badlogic.gdx.math.Vector2 scl(float,float)
@@ -5156,14 +5146,12 @@ com.badlogic.gdx.Input:
     public abstract int getDeltaY()
     public abstract int getDeltaY(int)
     public abstract boolean isTouched()
-    public abstract boolean justTouched()
     public abstract boolean isTouched(int)
     public abstract float getPressure()
     public abstract float getPressure(int)
     public abstract boolean isButtonPressed(int)
     public abstract boolean isButtonJustPressed(int)
     public abstract boolean isKeyPressed(int)
-    public abstract boolean isKeyJustPressed(int)
     public abstract void getTextInput(com.badlogic.gdx.Input$TextInputListener,java.lang.String,java.lang.String,java.lang.String)
     public abstract void getTextInput(com.badlogic.gdx.Input$TextInputListener,java.lang.String,java.lang.String,java.lang.String,com.badlogic.gdx.Input$OnscreenKeyboardType)
     public abstract void setOnscreenKeyboardVisible(boolean)
@@ -6247,8 +6235,6 @@ com.badlogic.gdx.physics.box2d.PolygonShape:
     private static float[] verts
 com.badlogic.gdx.graphics.g3d.particles.ResourceData:
     private int currentLoadIndex
-br.com.reschoene.mariobros.screens.PlayScreen:
-    private com.badlogic.gdx.physics.box2d.Box2DDebugRenderer b2dr
 com.badlogic.gdx.graphics.g2d.ParticleEffect:
     protected float xSizeScale
     protected float ySizeScale
