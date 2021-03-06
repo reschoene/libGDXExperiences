@@ -1,7 +1,9 @@
 
+7
+java:S1643"Use a StringBuilder instead.(΄΅›·8έεΤ‚ÿ.
 D
 java:S3010!""Remove this assignment of "score".(Κ­Αÿÿÿÿÿ8τέφ†ύ.
 n
 java:S1104"QMake stage a static final constant or non-public and provide accessors if needed.( ϊΰΒ8ς±ζκπ.
-I
-java:S3010,"'Remove this assignment of "scoreLabel".(’Δ«βϊÿÿÿÿ8τέφ†ύ.
+B
+java:S3010"'Remove this assignment of "scoreLabel".(πμη8τέφ†ύ.

@@ -1,7 +1,9 @@
 
-m
-java:S1104"PMake type a static final constant or non-public and provide accessors if needed.(…•Ø8£ˆÏ¤ş.
-q
-java:S1104"TMake position a static final constant or non-public and provide accessors if needed.( Ú˜ˆ8¢ˆÏ¤ş.
-{
-java:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(²¬ç„üÿÿÿÿ8Ç®„¥ş.
+O
+java:S3740"/Provide the parametrized type for this generic.(‡¢¿‹şÿÿÿÿ8·Ëí‚ÿ.
+t
+java:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(‡ÕÔÏ8·Ëí‚ÿ.
+o
+java:S1104"TMake position a static final constant or non-public and provide accessors if needed.( Ú˜ˆ8¢ˆÏ¤ş.
+k
+java:S1104"PMake type a static final constant or non-public and provide accessors if needed.(…•Ø8£ˆÏ¤ş.

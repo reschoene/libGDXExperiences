@@ -8,7 +8,8 @@ public enum MapLayers {
     COIN(4),
     BRICK(5),
     BLOCK(6),
-    GOOMBA(7);
+    GOOMBA(7),
+    TURTLE(8);
 
     private final int idx;
 

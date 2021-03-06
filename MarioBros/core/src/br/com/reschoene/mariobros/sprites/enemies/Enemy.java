@@ -18,7 +18,7 @@ public abstract class Enemy extends Sprite implements HeadHittable {
         this.screen = screen;
         setPosition(x, y);
         defineEnemy();
-        velocity = new Vector2(1,0);
+        velocity = new Vector2(getDefaultXVelocity(),0);
         b2Body.setActive(false);
     }
 
@@ -32,4 +32,6 @@ public abstract class Enemy extends Sprite implements HeadHittable {
     }
 
     public abstract void update(float delta);
+
+    public abstract float getDefaultXVelocity();
 }

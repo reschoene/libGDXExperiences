@@ -1,6 +1,4 @@
 
-b
-2core/src/br/com/reschoene/mariobros/MarioBros.java,c/0/c064b8e207cf4a12e15c9159a85019284029f983
 s
 Cdesktop/src/br/com/reschoene/mariobros/desktop/DesktopLauncher.java,1/5/1584853256c10c884bd7c27bface80836a5aa026
 D
@@ -61,3 +59,7 @@ K
 android/AndroidManifest.xml,b/6/b6e80bbb653825d148c932c2be8032f5092fba92
 j
 :core/src/br/com/reschoene/mariobros/scenes/Controller.java,8/1/819f0b8a791b0844c5e2fbb0a41667ed1aae5069
+b
+2core/src/br/com/reschoene/mariobros/MarioGame.java,e/a/ea6443f0e4fa997b730afad127624f4e717abc94
+o
+?core/src/br/com/reschoene/mariobros/screens/GameOverScreen.java,c/e/ce0f1be02ecd55ae79504a05ccb86110d34cc0d8

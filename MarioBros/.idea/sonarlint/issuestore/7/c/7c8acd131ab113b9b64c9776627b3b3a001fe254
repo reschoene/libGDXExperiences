@@ -1,2 +1,4 @@
 
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÒÖËÂùÿÿÿÿ8íÉŠ¤ş.
+Y
+java:S1128"<Remove this unused import 'com.badlogic.gdx.math.Rectangle'.(»ÒîŸ8ì–¸Èş.

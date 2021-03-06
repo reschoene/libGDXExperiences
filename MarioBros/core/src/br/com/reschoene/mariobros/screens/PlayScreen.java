@@ -27,7 +27,6 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import java.util.PriorityQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class PlayScreen implements Screen {
@@ -136,7 +135,7 @@ public class PlayScreen implements Screen {
         player.update(delta);
         hud.update(delta);
 
-        for(Enemy enemy : creator.getGoombas()){
+        for(Enemy enemy : creator.getEnemies()){
             enemy.update(delta);
             if (enemy.getX() < player.getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/ MarioGame.PPM))
                 enemy.b2Body.setActive(true);
@@ -171,7 +170,7 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
 
-        for(Enemy enemy : creator.getGoombas())
+        for(Enemy enemy : creator.getEnemies())
             enemy.draw(game.batch);
 
         for(Item item: items)
