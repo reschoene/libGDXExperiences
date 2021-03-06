@@ -117,12 +117,12 @@ public class PlayScreen implements Screen {
 
     public void handleInput(){
         if(player.currentState != Mario.State.DEAD) {
-            if ((controller.isUpPressed() || controller.isDownActionPressed()) && player.b2Body.getLinearVelocity().y == 0)
-                player.b2Body.applyLinearImpulse(new Vector2(0, 4f), player.b2Body.getWorldCenter(), true);
-            if ((controller.isRightPressed()) && (player.b2Body.getLinearVelocity().x <= 2))
-                player.b2Body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2Body.getWorldCenter(), true);
-            if ((controller.isLeftPressed()) && (player.b2Body.getLinearVelocity().x >= -2))
-                player.b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2Body.getWorldCenter(), true);
+            if ((controller.isUpPressed() || controller.isDownActionPressed()))
+                player.jump();
+            if (controller.isRightPressed())
+                player.moveRight();;
+            if (controller.isLeftPressed())
+                player.moveLeft();
         }
     }
 

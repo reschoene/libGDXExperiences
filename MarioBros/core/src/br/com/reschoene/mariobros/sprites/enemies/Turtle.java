@@ -100,8 +100,6 @@ public class Turtle extends Enemy {
         if(currentState != State.STANDING_SHELL){
             currentState = State.STANDING_SHELL;
             velocity.x = 0;
-        }else{
-            kick(mario.getX() <= this.getX()? KICK_RIGHT_SPEED: KICK_LEFT_SPEED);
         }
     }
 

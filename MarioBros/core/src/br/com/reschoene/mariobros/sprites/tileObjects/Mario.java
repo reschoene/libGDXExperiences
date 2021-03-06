@@ -255,11 +255,22 @@ public class Mario extends Sprite {
         }
     }
 
-    public boolean isDead() {
-        return marioIsDead;
-    }
-
     public float getStateTimer() {
         return stateTimer;
+    }
+
+    public void jump() {
+        if (b2Body.getLinearVelocity().y == 0 && stateTimer > 0.01) //0.01 just to not stuck with head on block
+            b2Body.applyLinearImpulse(new Vector2(0, 4f), b2Body.getWorldCenter(), true);
+    }
+
+    public void moveRight(){
+        if (b2Body.getLinearVelocity().x <= 2)
+            b2Body.applyLinearImpulse(new Vector2(0.1f, 0), b2Body.getWorldCenter(), true);
+    }
+
+    public void moveLeft(){
+        if (b2Body.getLinearVelocity().x >= -2)
+            b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), b2Body.getWorldCenter(), true);
     }
 }
