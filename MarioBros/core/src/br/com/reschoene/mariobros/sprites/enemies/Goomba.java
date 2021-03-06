@@ -34,4 +34,12 @@ public class Goomba extends DestroyableEnemy {
     public float getDefaultXVelocity() {
         return 0.4f;
     }
+
+    @Override
+    public void onEnemyHit(Enemy enemy) {
+        if(enemy instanceof Turtle && ((Turtle)enemy).getCurrentState() == Turtle.State.MOVING_SHELL)
+            setToDestroy = true;
+        else
+            reverseVelocity(true, false);
+    }
 }

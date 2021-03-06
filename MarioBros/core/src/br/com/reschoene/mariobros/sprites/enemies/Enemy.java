@@ -77,4 +77,6 @@ public abstract class Enemy extends Sprite implements HeadHittable {
     public abstract float getDefaultXVelocity();
 
     public abstract void onHeadHit(Mario mario);
+
+    public abstract void onEnemyHit(Enemy enemy);
 }

@@ -39,8 +39,8 @@ public class WorldContactListener implements ContactListener {
             ((Enemy) objs.get(0)).reverseVelocity(true, false);
         }
         else if (cDef == combine(ENEMY_BIT, ENEMY_BIT)){
-            ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
-            ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
+            ((Enemy)fixA.getUserData()).onEnemyHit((Enemy)fixB.getUserData());
+            ((Enemy)fixB.getUserData()).onEnemyHit((Enemy)fixA.getUserData());
         }
         else if (cDef == combine(MARIO_BIT, ENEMY_BIT)){
             objs = getObjsByFilterType(fixA, fixB, MARIO_BIT);

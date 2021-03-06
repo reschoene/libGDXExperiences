@@ -1,10 +1,15 @@
 package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.utils.Array;
 
 public class Turtle extends Enemy {
@@ -14,10 +19,12 @@ public class Turtle extends Enemy {
     public static final float KICK_LEFT_SPEED  = -2f;
     public static final float KICK_RIGHT_SPEED = 2f;
 
-    public enum State{WALKING, STANDING_SHELL, MOVING_SHELL}
+    public enum State{WALKING, STANDING_SHELL, MOVING_SHELL, DEAD}
     public State currentState;
     public State previousState;
     private TextureRegion shell;
+    private boolean destroyed;
+    private float deadRotationDegrees;
 
     public Turtle(PlayScreen screen, float x, float y) {
         super(screen, x, y);
@@ -71,7 +78,16 @@ public class Turtle extends Enemy {
         }
 
         setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - 8 / MarioGame.PPM);
-        b2Body.setLinearVelocity(velocity);
+
+        if(currentState == State.DEAD){
+            deadRotationDegrees += 3;
+            rotate(deadRotationDegrees);
+            if(stateTime > 5 && !destroyed){
+                world.destroyBody(b2Body);
+                destroyed = true;
+            }
+        }else
+            b2Body.setLinearVelocity(velocity);
     }
 
     @Override
@@ -89,6 +105,25 @@ public class Turtle extends Enemy {
         }
     }
 
+    @Override
+    public void onEnemyHit(Enemy enemy) {
+        if(enemy instanceof Turtle){
+            if(((Turtle)enemy).currentState == State.MOVING_SHELL && currentState != State.MOVING_SHELL){
+                killed();
+            }else if (currentState == State.MOVING_SHELL && ((Turtle)enemy).currentState == State.WALKING)
+                return;
+            else
+                reverseVelocity(true, false);
+        }else if (currentState != State.MOVING_SHELL)
+            reverseVelocity(true, false);
+    }
+
+    @Override
+    public void draw(Batch batch){
+        if(!destroyed)
+            super.draw(batch);
+    }
+
     public void kick(float speed){
         velocity.x = speed;
         currentState = State.MOVING_SHELL;
@@ -96,5 +131,16 @@ public class Turtle extends Enemy {
 
     public State getCurrentState(){
         return currentState;
+    }
+
+    public void killed(){
+        currentState = State.DEAD;
+        Filter filter = new Filter();
+        filter.maskBits = FixtureFilterBits.NOTHING_BIT.getValue();
+
+        for(Fixture fixture : b2Body.getFixtureList())
+            fixture.setFilterData(filter);
+
+        b2Body.applyLinearImpulse(new Vector2(0, 5f), b2Body.getWorldCenter(), true);
     }
 }
