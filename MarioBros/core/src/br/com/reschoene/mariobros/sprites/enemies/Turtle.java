@@ -7,11 +7,14 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 
-public class Turtle extends DestroyableEnemy {
+public class Turtle extends Enemy {
     private Animation walkAnimation;
     private Array<TextureRegion> frames;
 
-    public enum State{WALKING, SHELL}
+    public static final float KICK_LEFT_SPEED  = -2f;
+    public static final float KICK_RIGHT_SPEED = 2f;
+
+    public enum State{WALKING, STANDING_SHELL, MOVING_SHELL}
     public State currentState;
     public State previousState;
     private TextureRegion shell;
@@ -32,7 +35,8 @@ public class Turtle extends DestroyableEnemy {
         TextureRegion region;
 
         switch (currentState){
-            case SHELL:
+            case STANDING_SHELL:
+            case MOVING_SHELL:
                 region = shell;
                 break;
             case WALKING:
@@ -50,21 +54,24 @@ public class Turtle extends DestroyableEnemy {
     }
 
     @Override
+    protected float getHeadRestitution() {
+        return 1;
+    }
+
+    @Override
     public void update(float delta) {
         setRegion(getFrame(delta));
 
         stateTime = currentState == previousState ? stateTime + delta : 0;
         previousState = currentState;
 
-        if (!destroyed) {
-            if (currentState == State.SHELL && stateTime > 5) {
-                currentState = State.WALKING;
-                velocity.x = getDefaultXVelocity();
-            }
-
-            setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - 8 / MarioGame.PPM);
-            b2Body.setLinearVelocity(velocity);
+        if (currentState == State.STANDING_SHELL && stateTime > 5) {
+            currentState = State.WALKING;
+            velocity.x = getDefaultXVelocity();
         }
+
+        setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - 8 / MarioGame.PPM);
+        b2Body.setLinearVelocity(velocity);
     }
 
     @Override
@@ -74,11 +81,20 @@ public class Turtle extends DestroyableEnemy {
 
     @Override
     public void onHeadHit(Mario mario) {
-        super.onHeadHit(mario);
-
-        if(currentState != State.SHELL){
-            currentState = State.SHELL;
+        if(currentState != State.STANDING_SHELL){
+            currentState = State.STANDING_SHELL;
             velocity.x = 0;
+        }else{
+            kick(mario.getX() <= this.getX()? KICK_RIGHT_SPEED: KICK_LEFT_SPEED);
         }
+    }
+
+    public void kick(float speed){
+        velocity.x = speed;
+        currentState = State.MOVING_SHELL;
+    }
+
+    public State getCurrentState(){
+        return currentState;
     }
 }

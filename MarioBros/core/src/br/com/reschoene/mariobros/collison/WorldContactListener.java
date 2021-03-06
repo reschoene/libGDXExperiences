@@ -44,7 +44,7 @@ public class WorldContactListener implements ContactListener {
         }
         else if (cDef == combine(MARIO_BIT, ENEMY_BIT)){
             objs = getObjsByFilterType(fixA, fixB, MARIO_BIT);
-            ((Mario) objs.get(0)).hit();
+            ((Mario) objs.get(0)).hit((Enemy) objs.get(1));
         }
         else if ((cDef == combine(ITEM_BIT, OBJECT_BIT)) || (cDef == combine(ITEM_BIT, BLOCK_BIT))) {
             objs = getObjsByFilterType(fixA, fixB, ITEM_BIT);

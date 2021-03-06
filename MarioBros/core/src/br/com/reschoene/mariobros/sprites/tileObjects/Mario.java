@@ -4,6 +4,8 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.sprites.enemies.Enemy;
+import br.com.reschoene.mariobros.sprites.enemies.Turtle;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -101,8 +103,8 @@ public class Mario extends Sprite {
         fdef.shape = shape;
         b2Body.createFixture(fdef).setUserData(this);
 
-        if(timeToDefineBigMario){
-            shape.setPosition(new Vector2(0, -14/MarioGame.PPM));
+        if (timeToDefineBigMario) {
+            shape.setPosition(new Vector2(0, -14 / MarioGame.PPM));
             b2Body.createFixture(fdef).setUserData(this);
         }
 
@@ -129,14 +131,14 @@ public class Mario extends Sprite {
         //destroy litte body for creating the big mario body
         world.destroyBody(b2Body);
 
-        defineMario(currentPosition.add(0, 10/MarioGame.PPM));
+        defineMario(currentPosition.add(0, 10 / MarioGame.PPM));
 
         timeToDefineBigMario = false;
     }
 
     public void update(float dt) {
-        if(marioIsBig)
-            setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2 - 6/MarioGame.PPM);
+        if (marioIsBig)
+            setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2 - 6 / MarioGame.PPM);
         else
             setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2);
 
@@ -145,9 +147,9 @@ public class Mario extends Sprite {
 
         setRegion(getFrame(dt));
 
-        if(timeToDefineBigMario)
+        if (timeToDefineBigMario)
             growMario();
-        if(timeToRedefineMario)
+        if (timeToRedefineMario)
             shrinkMario();
     }
 
@@ -161,19 +163,20 @@ public class Mario extends Sprite {
                 break;
             case GROWING:
                 region = (TextureRegion) growMario.getKeyFrame(stateTimer);
-                if(growMario.isAnimationFinished(stateTimer))
+                if (growMario.isAnimationFinished(stateTimer))
                     runGrowAnimation = false;
                 break;
             case JUMPING:
-                region = marioIsBig? bigMarioJump : marioJump;
+                region = marioIsBig ? bigMarioJump : marioJump;
                 break;
             case RUNNING:
-                region = marioIsBig ? (TextureRegion) bigMarioRun.getKeyFrame(stateTimer, true) : (TextureRegion) marioRun.getKeyFrame(stateTimer, true);;
+                region = marioIsBig ? (TextureRegion) bigMarioRun.getKeyFrame(stateTimer, true) : (TextureRegion) marioRun.getKeyFrame(stateTimer, true);
+                ;
                 break;
             case FALLING:
             case STANDING:
             default:
-                region = marioIsBig? bigMarioStand : marioStand;
+                region = marioIsBig ? bigMarioStand : marioStand;
                 break;
         }
 
@@ -191,7 +194,7 @@ public class Mario extends Sprite {
     }
 
     public State getState() {
-        if(marioIsDead)
+        if (marioIsDead)
             return State.DEAD;
         else if (runGrowAnimation)
             return State.GROWING;
@@ -205,54 +208,58 @@ public class Mario extends Sprite {
             return State.STANDING;
     }
 
-    public void grow(){
-        if (!marioIsBig){
+    public void grow() {
+        if (!marioIsBig) {
             runGrowAnimation = true;
             marioIsBig = true;
             timeToDefineBigMario = true;
             setBounds(getX(), getY(), getWidth(), getHeight() * 2);
             MarioGame.manager.get("audio/sounds/powerup.wav", Sound.class).play();
-        }else{
+        } else {
             MarioGame.manager.get("audio/sounds/coin.wav", Sound.class).play();
             Hud.addScore(500);
         }
     }
 
-    public boolean isBig(){
+    public boolean isBig() {
         return marioIsBig;
     }
 
-    public void hit() {
-        if(marioIsBig){
-            marioIsBig = false;
-            timeToRedefineMario = true;
-            setBounds(getX(), getY(), getWidth(), getHeight() / 2);
-            MarioGame.manager.get("audio/sounds/powerdown.wav", Sound.class).play();
-        }else{
-            killMario(true);
+    public void hit(Enemy enemy) {
+        if (enemy instanceof Turtle && ((Turtle) enemy).getCurrentState() == Turtle.State.STANDING_SHELL) {
+            ((Turtle) enemy).kick(this.getX() <= enemy.getX() ? Turtle.KICK_RIGHT_SPEED : Turtle.KICK_LEFT_SPEED);
+        } else {
+            if (marioIsBig) {
+                marioIsBig = false;
+                timeToRedefineMario = true;
+                setBounds(getX(), getY(), getWidth(), getHeight() / 2);
+                MarioGame.manager.get("audio/sounds/powerdown.wav", Sound.class).play();
+            } else {
+                killMario(true);
+            }
         }
     }
 
     private void killMario(boolean animate) {
-        if (!marioIsDead){
+        if (!marioIsDead) {
             MarioGame.manager.get("audio/music/mario_music.ogg", Music.class).stop();
             MarioGame.manager.get("audio/sounds/mariodie.wav", Sound.class).play();
             marioIsDead = true;
             Filter filter = new Filter();
             filter.maskBits = FixtureFilterBits.NOTHING_BIT.getValue();
-            for(Fixture fixture: b2Body.getFixtureList())
+            for (Fixture fixture : b2Body.getFixtureList())
                 fixture.setFilterData(filter);
 
-            if(animate)
+            if (animate)
                 b2Body.applyLinearImpulse(new Vector2(0, 4f), b2Body.getWorldCenter(), true);
         }
     }
 
-    public boolean isDead(){
+    public boolean isDead() {
         return marioIsDead;
     }
 
-    public float getStateTimer(){
+    public float getStateTimer() {
         return stateTimer;
     }
 }
