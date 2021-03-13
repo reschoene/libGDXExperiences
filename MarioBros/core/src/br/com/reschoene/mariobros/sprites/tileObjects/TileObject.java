@@ -4,6 +4,7 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.scenes.MapLayers;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
@@ -45,6 +46,7 @@ public abstract class TileObject {
         fdef.shape = shape;
         fdef.filter.categoryBits = categoryBits;
         fixture = body.createFixture(fdef);
+        fixture.setUserData(this);
     }
 
     protected void createBody() {
@@ -67,5 +69,9 @@ public abstract class TileObject {
         int y = (int) (body.getPosition().y * MarioGame.PPM / 16);
 
         return layer.getCell(x,y);
+    }
+
+    public MapProperties getMapProperties(){
+        return mapObject.getProperties();
     }
 }

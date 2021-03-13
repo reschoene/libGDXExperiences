@@ -26,6 +26,7 @@ public class Mario extends Sprite {
     public State currentState;
     public State previousState;
     private World world;
+    private PlayScreen screen;
     public Body b2Body;
     private TextureRegion marioStand;
     private TextureRegion marioDead;
@@ -44,6 +45,7 @@ public class Mario extends Sprite {
 
     public Mario(PlayScreen screen) {
         this.world = screen.getWorld();
+        this.screen = screen;
 
         currentState = State.STANDING;
         previousState = State.STANDING;
@@ -272,5 +274,9 @@ public class Mario extends Sprite {
     public void moveLeft(){
         if (b2Body.getLinearVelocity().x >= -2)
             b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), b2Body.getWorldCenter(), true);
+    }
+
+    public PlayScreen getScreen(){
+        return screen;
     }
 }

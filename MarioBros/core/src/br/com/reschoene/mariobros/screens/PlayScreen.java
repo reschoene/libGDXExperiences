@@ -55,11 +55,16 @@ public class PlayScreen implements Screen {
 
     private Array<Item> items;
     private LinkedBlockingDeque<ItemDef> itemsToSpawn;
+    private String mapToChange = "";
 
     //result of number of ground tiles * width of a ground tile = screen pixels
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
 
-    public PlayScreen(MarioGame game) {
+    public PlayScreen(MarioGame game){
+        this(game, "map01.tmx");
+    }
+
+    public PlayScreen(MarioGame game, String mapFileName) {
         atlas = new TextureAtlas("Mario_and_Enemies.atlas");
 
         this.game = game;
@@ -69,7 +74,7 @@ public class PlayScreen implements Screen {
         controller = new Controller(game.batch);
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("map01.tmx");
+        map = mapLoader.load(mapFileName);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MarioGame.PPM);
 
         gamecam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2, 0);
@@ -91,6 +96,10 @@ public class PlayScreen implements Screen {
         items = new Array<>();
         itemsToSpawn = new LinkedBlockingDeque<>();
 
+    }
+
+    public void changeMap(String mapToChange){
+        this.mapToChange = mapToChange;
     }
 
     public void spawnItem(ItemDef itemDef){
@@ -186,6 +195,11 @@ public class PlayScreen implements Screen {
             game.setScreen(new GameOverScreen(game));
             dispose();
         }
+
+        if(!"".equals(mapToChange)){
+            game.setScreen(new PlayScreen(game, mapToChange));
+            dispose();
+        }
     }
 
     @Override
@@ -200,6 +214,10 @@ public class PlayScreen implements Screen {
 
     public World getWorld(){
         return world;
+    }
+
+    public MarioGame getGame(){
+        return game;
     }
 
     @Override

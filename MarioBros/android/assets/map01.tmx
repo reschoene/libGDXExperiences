@@ -23,12 +23,20 @@
   <object id="72" x="3056" y="80" width="32"/>
  </objectgroup>
  <objectgroup id="4" name="pipes">
-  <object id="21" x="400" y="160" width="32" height="32"/>
+  <object id="21" x="400" y="160" width="32" height="32">
+   <properties>
+    <property name="GoToPhase" value="map02.tmx"/>
+   </properties>
+  </object>
   <object id="22" x="480" y="144" width="32" height="48"/>
   <object id="23" x="1472" y="160" width="32" height="32"/>
   <object id="24" x="2640" y="128" width="32" height="64"/>
   <object id="25" x="2928" y="160" width="32" height="32"/>
-  <object id="26" x="3760" y="160" width="80" height="32"/>
+  <object id="26" x="3760" y="160" width="80" height="32">
+   <properties>
+    <property name="GoToPhase" value="map01.tmx"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="5" name="coins">
   <object id="87" x="912" y="112" width="16" height="16"/>
