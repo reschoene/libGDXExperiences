@@ -8,7 +8,7 @@ import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Item;
 import br.com.reschoene.mariobros.sprites.items.ItemDef;
 import br.com.reschoene.mariobros.sprites.items.Mushroom;
-import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
+import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.util.B2WorldCreator;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
@@ -30,6 +30,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class PlayScreen implements Screen {
+    private final String mapFileName;
     private MarioGame game;
     private TextureAtlas atlas;
     private OrthographicCamera gamecam;
@@ -56,6 +57,9 @@ public class PlayScreen implements Screen {
     private Array<Item> items;
     private LinkedBlockingDeque<ItemDef> itemsToSpawn;
     private String mapToChange = "";
+    private boolean changeScreenToLives = false;
+    public static int currentWorld = 1;
+    public static int currentPhase = 1;
 
     //result of number of ground tiles * width of a ground tile = screen pixels
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
@@ -65,9 +69,10 @@ public class PlayScreen implements Screen {
     }
 
     public PlayScreen(MarioGame game, String mapFileName) {
-        atlas = new TextureAtlas("Mario_and_Enemies.atlas");
+        atlas = GameAtlas.getAtlas();
 
         this.game = game;
+        this.mapFileName = mapFileName;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MarioGame.V_WIDTH / MarioGame.PPM, MarioGame.V_HEIGHT / MarioGame.PPM, gamecam);
         hud = new Hud(game.batch);
@@ -196,10 +201,20 @@ public class PlayScreen implements Screen {
             dispose();
         }
 
-        if(!"".equals(mapToChange)){
-            game.setScreen(new PlayScreen(game, mapToChange));
+        if(changeScreenToLives && player.getStateTimer() > 2){
+            changeScreenToLives = false;
+            game.setScreen(new InfoScreen(game, player.getLives(), mapFileName));
             dispose();
         }
+
+        if(!"".equals(mapToChange)){
+            game.setScreen(new InfoScreen(game, player.getLives(),  mapToChange));
+            dispose();
+        }
+    }
+
+    public void showLiveScreen() {
+        changeScreenToLives = true;
     }
 
     @Override

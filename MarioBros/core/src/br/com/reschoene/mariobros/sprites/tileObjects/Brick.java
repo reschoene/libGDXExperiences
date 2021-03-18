@@ -4,6 +4,7 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.MapObject;
 

@@ -24,6 +24,8 @@
   <object id="181" x="3792" y="160" width="48" height="32">
    <properties>
     <property name="GoToPhase" value="map02.tmx"/>
+    <property name="phase" type="int" value="2"/>
+    <property name="world" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>

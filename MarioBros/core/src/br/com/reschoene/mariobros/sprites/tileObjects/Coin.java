@@ -4,6 +4,7 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.items.ItemDef;
 import br.com.reschoene.mariobros.sprites.items.Mushroom;
 import com.badlogic.gdx.audio.Sound;

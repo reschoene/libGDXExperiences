@@ -3,7 +3,7 @@ package br.com.reschoene.mariobros.sprites.enemies;
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.screens.PlayScreen;
-import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
+import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -92,7 +92,7 @@ public class Turtle extends Enemy {
 
     @Override
     public float getDefaultXVelocity() {
-        return 0.5f;
+        return -0.5f;
     }
 
     @Override

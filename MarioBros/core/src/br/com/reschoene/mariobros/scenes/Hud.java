@@ -1,6 +1,7 @@
 package br.com.reschoene.mariobros.scenes;
 
 import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.screens.PlayScreen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -42,7 +43,7 @@ public class Hud implements Disposable {
         Label.LabelStyle whiteStyle = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
         countDownLabel = new Label(String.format("%03d", worldTimer), whiteStyle);
         scoreLabel = new Label(String.format("%06d", score), whiteStyle);
-        levelLabel = new Label("1-1", whiteStyle);
+        levelLabel = new Label(String.format("%d-%d", PlayScreen.currentWorld, PlayScreen.currentPhase), whiteStyle);
         timeLabel = new Label("TIME", whiteStyle);
         worldLabel = new Label("WORLD", whiteStyle);
         marioLabel = new Label("MARIO", whiteStyle);

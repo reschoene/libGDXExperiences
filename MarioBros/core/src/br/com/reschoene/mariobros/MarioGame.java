@@ -1,6 +1,7 @@
 package br.com.reschoene.mariobros;
 
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.InfoScreen;
+import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
@@ -34,7 +35,7 @@ public class MarioGame extends Game {
 		manager.load("audio/sounds/mariodie.wav", Sound.class);
 		manager.finishLoading(); //synchronous loading
 
-		setScreen(new PlayScreen(this));
+		setScreen(new InfoScreen(this, Mario.getLives(), "map01.tmx"));
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package br.com.reschoene.mariobros.sprites.items;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
-import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
+import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;

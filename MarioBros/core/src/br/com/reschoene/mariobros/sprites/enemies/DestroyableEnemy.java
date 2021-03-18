@@ -2,7 +2,7 @@ package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
-import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
+import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 

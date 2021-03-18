@@ -1,13 +1,12 @@
 package br.com.reschoene.mariobros.collison;
 
-import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.screens.InfoScreen;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Item;
 import br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable;
-import br.com.reschoene.mariobros.sprites.tileObjects.Mario;
+import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.tileObjects.Pipe;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.physics.box2d.*;
 
@@ -66,6 +65,8 @@ public class WorldContactListener implements ContactListener {
                 if (properties.containsKey("GoToPhase")) {
                     PlayScreen screen = ((Mario) objs.get(1)).getScreen();
                     String mapName = properties.get("GoToPhase", String.class);
+                    PlayScreen.currentWorld = properties.get("world", Integer.class);
+                    PlayScreen.currentPhase = properties.get("phase", Integer.class);
                     screen.changeMap(mapName);
                 }
             }

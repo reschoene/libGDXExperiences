@@ -32,7 +32,7 @@ public class Goomba extends DestroyableEnemy {
 
     @Override
     public float getDefaultXVelocity() {
-        return 0.4f;
+        return -0.4f;
     }
 
     @Override

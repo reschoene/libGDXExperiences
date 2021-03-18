@@ -1,4 +1,4 @@
-package br.com.reschoene.mariobros.sprites.tileObjects;
+package br.com.reschoene.mariobros.sprites;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
@@ -38,6 +38,7 @@ public class Mario extends Sprite {
     private Animation growMario;
 
     private float stateTimer;
+    private static int lives = 3;
     private boolean runningRight;
     private boolean marioIsBig;
     private boolean runGrowAnimation;
@@ -84,6 +85,10 @@ public class Mario extends Sprite {
 
         setBounds(0, 0, 16 / MarioGame.PPM, 16 / MarioGame.PPM);
         setRegion(marioStand);
+    }
+
+    public static void resetLives(){
+        lives = 3;
     }
 
     private void defineMario(Vector2 position) {
@@ -210,6 +215,10 @@ public class Mario extends Sprite {
             return State.STANDING;
     }
 
+    public static int getLives(){
+        return lives;
+    }
+
     public void grow() {
         if (!marioIsBig) {
             runGrowAnimation = true;
@@ -244,6 +253,10 @@ public class Mario extends Sprite {
 
     private void killMario(boolean animate) {
         if (!marioIsDead) {
+            lives--;
+            if (lives > 0)
+                screen.showLiveScreen();
+
             MarioGame.manager.get("audio/music/mario_music.ogg", Music.class).stop();
             MarioGame.manager.get("audio/sounds/mariodie.wav", Sound.class).play();
             marioIsDead = true;
