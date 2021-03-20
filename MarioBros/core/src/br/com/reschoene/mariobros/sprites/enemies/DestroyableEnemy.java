@@ -1,6 +1,7 @@
 package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.audio.Sound;
@@ -24,7 +25,7 @@ public abstract class DestroyableEnemy extends Enemy{
     @Override
     public void onHeadHit(Mario mario) {
         setToDestroy = true;
-        MarioGame.manager.get("audio/sounds/stomp.wav", Sound.class).play();
+        AudioManager.getSoundByName("stomp").play();
     }
 
     @Override

@@ -1,13 +1,13 @@
 package br.com.reschoene.mariobros.sprites;
 
 import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.enemies.Turtle;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -233,9 +233,9 @@ public class Mario extends Sprite {
             marioIsBig = true;
             timeToDefineBigMario = true;
             setBounds(getX(), getY(), getWidth(), getHeight() * 2);
-            MarioGame.manager.get("audio/sounds/powerup.wav", Sound.class).play();
+            AudioManager.getSoundByName("powerUp").play();
         } else {
-            MarioGame.manager.get("audio/sounds/coin.wav", Sound.class).play();
+            AudioManager.getSoundByName("coin").play();
             Hud.addScore(500);
         }
     }
@@ -252,7 +252,7 @@ public class Mario extends Sprite {
                 marioIsBig = false;
                 timeToRedefineMario = true;
                 setBounds(getX(), getY(), getWidth(), getHeight() / 2);
-                MarioGame.manager.get("audio/sounds/powerdown.wav", Sound.class).play();
+                AudioManager.getSoundByName("powerDown").play();
             } else {
                 killMario(true);
             }
@@ -265,8 +265,8 @@ public class Mario extends Sprite {
             if (lives > 0)
                 screen.showLiveScreen();
 
-            MarioGame.manager.get("audio/music/mario_music.ogg", Music.class).stop();
-            MarioGame.manager.get("audio/sounds/mariodie.wav", Sound.class).play();
+            AudioManager.getMusicByMapName(screen.mapFileName).stop();
+            AudioManager.getSoundByName("marioDie").play();
             marioIsDead = true;
             Filter filter = new Filter();
             filter.maskBits = FixtureFilterBits.NOTHING_BIT.getValue();
@@ -284,8 +284,10 @@ public class Mario extends Sprite {
 
     public void jump() {
         if(enabledControls)
-            if (b2Body.getLinearVelocity().y == 0 && stateTimer > 0.01) //0.01 just to not stuck with head on block
+            if (b2Body.getLinearVelocity().y == 0 && stateTimer > 0.01){ //0.01 just to not stuck with head on block
                 b2Body.applyLinearImpulse(new Vector2(0, 4f), b2Body.getWorldCenter(), true);
+                AudioManager.getSoundByName("jump").play();
+            }
     }
 
     public void moveRight(){
@@ -310,7 +312,7 @@ public class Mario extends Sprite {
         timeToExitRight = true;
         b2Body.setLinearVelocity(0, 0);
         screen.getMusic().stop();
-        Music music = MarioGame.manager.get("audio/music/stage_clear.wav", Music.class);
+        Music music = AudioManager.getMusicByMapName("stageClear");
         music.setLooping(false);
         music.play();
     }

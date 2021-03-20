@@ -1,12 +1,18 @@
 package br.com.reschoene.mariobros;
 
+import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.screens.InfoScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class MarioGame extends Game {
 	public static final int V_WIDTH=400;
@@ -23,20 +29,23 @@ public class MarioGame extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 
-		manager = new AssetManager();
-		manager.load("audio/music/mario_music.ogg", Music.class);
-		manager.load("audio/music/stage_clear.wav", Music.class);
-		manager.load("audio/sounds/coin.wav", Sound.class);
-		manager.load("audio/sounds/bump.wav", Sound.class);
-		manager.load("audio/sounds/breakblock.wav", Sound.class);
-		manager.load("audio/sounds/powerup_spawn.wav", Sound.class);
-		manager.load("audio/sounds/powerup.wav", Sound.class);
-		manager.load("audio/sounds/powerdown.wav", Sound.class);
-		manager.load("audio/sounds/stomp.wav", Sound.class);
-		manager.load("audio/sounds/mariodie.wav", Sound.class);
-		manager.finishLoading(); //synchronous loading
+		loadAssetManager();
 
 		setScreen(new InfoScreen(this, Mario.getLives(), "map02.tmx"));
+	}
+
+	private void loadAssetManager() {
+		manager = new AssetManager();
+
+		Iterator<Map.Entry<String, String>> musicFileNames = AudioManager.getMusicByMapName().entrySet().iterator();
+		while (musicFileNames.hasNext())
+			manager.load(musicFileNames.next().getValue(), Music.class);
+
+		Iterator<Map.Entry<String, String>> audioFileNames = AudioManager.getSoundsByName().entrySet().iterator();
+		while (audioFileNames.hasNext())
+			manager.load(audioFileNames.next().getValue(), Sound.class);
+
+		manager.finishLoading(); //synchronous loading
 	}
 
 	@Override

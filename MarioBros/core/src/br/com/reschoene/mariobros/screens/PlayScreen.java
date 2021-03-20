@@ -1,6 +1,7 @@
 package br.com.reschoene.mariobros.screens;
 
 import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.collison.WorldContactListener;
 import br.com.reschoene.mariobros.scenes.Controller;
 import br.com.reschoene.mariobros.scenes.Hud;
@@ -31,7 +32,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class PlayScreen implements Screen {
-    private final String mapFileName;
+    public final String mapFileName;
     private MarioGame game;
     private TextureAtlas atlas;
     private OrthographicCamera gamecam;
@@ -95,7 +96,7 @@ public class PlayScreen implements Screen {
 
         world.setContactListener(new WorldContactListener());
 
-        music = MarioGame.manager.get("audio/music/mario_music.ogg", Music.class);
+        music = AudioManager.getMusicByMapName(mapFileName);
         music.setLooping(true);
         music.play();
 
