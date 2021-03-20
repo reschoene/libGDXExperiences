@@ -82,11 +82,10 @@ public class Mario extends Sprite {
         bigMarioStand = new TextureRegion(screen.getAtlas().findRegion("big_mario"), 0, 0, 16, 32);
 
         marioDead = new TextureRegion(screen.getAtlas().findRegion("little_mario"), 96, 0, 16, 16);
-
-        //defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
+        defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
 
         //debug position (perto bandeira)
-        defineMario(new Vector2(3300 / MarioGame.PPM, 32 / MarioGame.PPM));
+        //defineMario(new Vector2(3300 / MarioGame.PPM, 32 / MarioGame.PPM));
 
         setBounds(0, 0, 16 / MarioGame.PPM, 16 / MarioGame.PPM);
         setRegion(marioStand);

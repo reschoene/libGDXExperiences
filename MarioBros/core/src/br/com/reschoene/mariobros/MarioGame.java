@@ -36,7 +36,7 @@ public class MarioGame extends Game {
 		manager.load("audio/sounds/mariodie.wav", Sound.class);
 		manager.finishLoading(); //synchronous loading
 
-		setScreen(new InfoScreen(this, Mario.getLives(), "map01.tmx"));
+		setScreen(new InfoScreen(this, Mario.getLives(), "map02.tmx"));
 	}
 
 	@Override
