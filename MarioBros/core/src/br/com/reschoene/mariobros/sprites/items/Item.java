@@ -18,10 +18,14 @@ public abstract class Item extends Sprite {
     protected Body b2Body;
 
     public Item(PlayScreen screen, float x, float y){
+        this(screen, x, y, 16/ MarioGame.PPM, 16/ MarioGame.PPM);
+    }
+
+    public Item(PlayScreen screen, float x, float y, float width, float height){
         this.screen = screen;
         this.world = screen.getWorld();
         setPosition(x, y);
-        setBounds(getX(), getY(), 16/ MarioGame.PPM, 16/ MarioGame.PPM);
+        setBounds(getX(), getY(), width, height);
         defineItem();
     }
 

@@ -25,6 +25,7 @@ public class MarioGame extends Game {
 
 		manager = new AssetManager();
 		manager.load("audio/music/mario_music.ogg", Music.class);
+		manager.load("audio/music/stage_clear.wav", Music.class);
 		manager.load("audio/sounds/coin.wav", Sound.class);
 		manager.load("audio/sounds/bump.wav", Sound.class);
 		manager.load("audio/sounds/breakblock.wav", Sound.class);

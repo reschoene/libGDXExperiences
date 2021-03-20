@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="229">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="233">
  <tileset firstgid="1" name="NES - Super Mario Bros - Tileset" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924" columns="33">
   <image source="NES - Super Mario Bros - Tileset.png" trans="ff00ff" width="594" height="504"/>
  </tileset>
@@ -10,7 +10,7 @@
  </layer>
  <layer id="2" name="graphics" width="240" height="13">
   <data encoding="base64" compression="zlib">
-   eJztmF0LgjAUho/STWV27a1EF339gKD6/7+pgjZYOHTK1K3trPeBl2BKbWfn0ZQIuKSyPO+ZEb1U3pnXKQEAqHEOvnXhfD265UR3LY889IzmI/dDriXEXui9wLUnAGhTWfYw7hNhyFU4kEKPcFvDNcJ57gxzkmN6YoXb/gPexOivCdt3OABwp1axgYu/qZO3AsYj61YR7/rVxN/fmP8fg7T5+h/iOlATf3/1Z1y9ju1POA5Sou2uS38LLbG/P+LCUtRwFXkdbXppbL+BLiZ3Xfq7ESlFtvQ//vr26yC+++i5jnPWYNtLU3oONPS569LfUkufv2sxVqikgG+/fuHv1N8Y00tT+w4Mu2tbx4XFOdLbCw37exJjZxV5GEkr+8yc0PNC3OcDKYsyTg==
+   eJztmMsKwjAQRafVje91t0Vc+NwL6v9/kwpmIGKoUdOamEy8By7VtmgyndMXEfBJ5bjfuSC66FyLoEMCANDDOfj2jOTz0aEkOho5lbFH9D18PHguMY6F2QtSewKAJpVjD+M6EYdSRwI59Ii0OewTHOfcMiZeZyZVpB1/IJsU/bXh+g4HAOnUOi5I8Td3ykZAe7huFcmuX03y/U35/hjkzd3/GOeBmsL4OzYSGvMZ16xjcwnHQU403fXp70RlqjKj9N8fSWGgajhMvI4uvdS238AzNnd9+cvXXPO5jL//g7+h/Vqq314FruM3c3DtpS49Bx68cteXvz2drfHZ5u9IrRvr5EBov37hb9f/aNNLXfsOvHfXtY79D9vZV7533unlK3/Xat1GhzcjeWVR2BN7XIj/3ADqvzIU
   </data>
  </layer>
  <objectgroup id="3" name="ground">
@@ -78,6 +78,16 @@
   <object id="212" x="3312" y="96" width="48" height="16"/>
   <object id="213" x="3328" y="80" width="32" height="16"/>
   <object id="214" x="3504" y="176" width="16" height="16"/>
+  <object id="231" x="3510" y="32" width="3" height="144">
+   <properties>
+    <property name="haste" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="232" x="3511" y="160.17" width="23" height="16">
+   <properties>
+    <property name="bandeira" type="int" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="8" name="goombas">
   <object id="215" x="640" y="176" width="16" height="16"/>

@@ -20,6 +20,7 @@ import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 public class Mario extends Sprite {
     private boolean timeToDefineBigMario;
     private boolean timeToRedefineMario;
+    private boolean timeToExitRight;
 
     public enum State {FALLING, JUMPING, STANDING, RUNNING, GROWING, DEAD}
 
@@ -36,6 +37,7 @@ public class Mario extends Sprite {
     private TextureRegion bigMarioJump;
     private Animation bigMarioRun;
     private Animation growMario;
+    private boolean enabledControls = true;
 
     private float stateTimer;
     private static int lives = 3;
@@ -81,7 +83,10 @@ public class Mario extends Sprite {
 
         marioDead = new TextureRegion(screen.getAtlas().findRegion("little_mario"), 96, 0, 16, 16);
 
-        defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
+        //defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
+
+        //debug position (perto bandeira)
+        defineMario(new Vector2(3300 / MarioGame.PPM, 32 / MarioGame.PPM));
 
         setBounds(0, 0, 16 / MarioGame.PPM, 16 / MarioGame.PPM);
         setRegion(marioStand);
@@ -158,6 +163,10 @@ public class Mario extends Sprite {
             growMario();
         if (timeToRedefineMario)
             shrinkMario();
+        if(timeToExitRight){
+            if(b2Body.getLinearVelocity().y == 0)
+                b2Body.setLinearVelocity(1f, 0.0f);
+        }
     }
 
     public TextureRegion getFrame(float dt) {
@@ -275,21 +284,35 @@ public class Mario extends Sprite {
     }
 
     public void jump() {
-        if (b2Body.getLinearVelocity().y == 0 && stateTimer > 0.01) //0.01 just to not stuck with head on block
-            b2Body.applyLinearImpulse(new Vector2(0, 4f), b2Body.getWorldCenter(), true);
+        if(enabledControls)
+            if (b2Body.getLinearVelocity().y == 0 && stateTimer > 0.01) //0.01 just to not stuck with head on block
+                b2Body.applyLinearImpulse(new Vector2(0, 4f), b2Body.getWorldCenter(), true);
     }
 
     public void moveRight(){
-        if (b2Body.getLinearVelocity().x <= 2)
-            b2Body.applyLinearImpulse(new Vector2(0.1f, 0), b2Body.getWorldCenter(), true);
+        if(enabledControls)
+            if (b2Body.getLinearVelocity().x <= 2)
+                b2Body.applyLinearImpulse(new Vector2(0.1f, 0), b2Body.getWorldCenter(), true);
     }
 
     public void moveLeft(){
-        if (b2Body.getLinearVelocity().x >= -2)
-            b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), b2Body.getWorldCenter(), true);
+        if (enabledControls)
+            if (b2Body.getLinearVelocity().x >= -2)
+                b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), b2Body.getWorldCenter(), true);
     }
 
     public PlayScreen getScreen(){
         return screen;
+    }
+
+
+    public void animateExitRight() {
+        enabledControls = false;
+        timeToExitRight = true;
+        b2Body.setLinearVelocity(0, 0);
+        screen.getMusic().stop();
+        Music music = MarioGame.manager.get("audio/music/stage_clear.wav", Music.class);
+        music.setLooping(false);
+        music.play();
     }
 }

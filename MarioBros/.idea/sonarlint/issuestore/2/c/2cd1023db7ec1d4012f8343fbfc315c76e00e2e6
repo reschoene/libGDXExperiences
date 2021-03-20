@@ -1,0 +1,17 @@
+
+D
+java:S1172)")Remove this unused method parameter "dt".(Ê‹¦‘şÿÿÿÿ
+s
+java:S1104"XMake currentState a static final constant or non-public and provide accessors if needed.(›Üİıÿÿÿÿ
+J
+java:S3740"/Provide the parametrized type for this generic.(È‡¤Êÿÿÿÿÿ
+t
+java:S1104"YMake previousState a static final constant or non-public and provide accessors if needed.(“¿æäùÿÿÿÿ
+E
+java:S3740$"/Provide the parametrized type for this generic.( ËŠ
+g
+java:S1871:"LThis branch's code block is the same as the block for the branch on line 56.(ÿ÷ˆ°şÿÿÿÿ
+b
+java:S1192!"GDefine a constant instead of duplicating this literal "turtle" 3 times.(áœÇ¼øÿÿÿÿ
+1
+java:S3626p"Remove this redundant jump.(ûÁİ…

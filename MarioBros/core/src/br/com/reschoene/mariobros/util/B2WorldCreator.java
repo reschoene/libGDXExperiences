@@ -1,13 +1,14 @@
 package br.com.reschoene.mariobros.util;
 
 import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.sprites.tileObjects.Flag;
+import br.com.reschoene.mariobros.sprites.tileObjects.FlagPole;
 import br.com.reschoene.mariobros.scenes.MapLayers;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.enemies.Goomba;
 import br.com.reschoene.mariobros.sprites.enemies.Turtle;
 import br.com.reschoene.mariobros.sprites.tileObjects.*;
-import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
@@ -20,6 +21,7 @@ public class B2WorldCreator {
     private final PlayScreen screen;
     private Array<Goomba> goombas;
     private Array<Turtle> turtles;
+    private Flag flag;
 
     public B2WorldCreator(PlayScreen screen) {
         this.screen = screen;
@@ -40,8 +42,18 @@ public class B2WorldCreator {
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.GROUND))
             new Ground(screen, object);
 
-        for (RectangleMapObject object : getMapObjsByLayer(MapLayers.BLOCK))
-            new Block(screen, object);
+        FlagPole flagPole = null;
+        for (RectangleMapObject object : getMapObjsByLayer(MapLayers.BLOCK)) {
+            if (object.getProperties().containsKey("bandeira"))
+                this.flag = new Flag(screen, object.getRectangle());
+            else if (object.getProperties().containsKey("haste"))
+                flagPole = new FlagPole(screen, object);
+            else
+                new Block(screen, object);
+        }
+        if (this.flag != null && flagPole != null) {
+            flagPole.flag = this.flag;
+        }
 
         //create all gombas
         goombas = new Array<>();
@@ -67,5 +79,9 @@ public class B2WorldCreator {
         enemies.addAll(goombas);
         enemies.addAll(turtles);
         return enemies;
+    }
+
+    public Flag getFlag() {
+        return flag;
     }
 }

@@ -40,20 +40,30 @@ public abstract class TileObject {
     }
 
     protected void createFixture() {
+        FixtureDef fdef = createFixtureDef();
+        fixture = body.createFixture(fdef);
+        fixture.setUserData(this);
+    }
+
+    protected FixtureDef createFixtureDef(){
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         shape.setAsBox(bounds.getWidth()/2 / MarioGame.PPM, bounds.getHeight()/2 / MarioGame.PPM);
         fdef.shape = shape;
         fdef.filter.categoryBits = categoryBits;
-        fixture = body.createFixture(fdef);
-        fixture.setUserData(this);
+        return fdef;
     }
 
     protected void createBody() {
+        BodyDef bdef = createBodyDef();
+        body = world.createBody(bdef);
+    }
+
+    protected BodyDef createBodyDef() {
         BodyDef bdef = new BodyDef();
         bdef.type = BodyDef.BodyType.StaticBody;
         bdef.position.set((bounds.getX() + bounds.getWidth()/2) / MarioGame.PPM, (bounds.getY() + bounds.getHeight()/2) / MarioGame.PPM);
-        body = world.createBody(bdef);
+        return bdef;
     }
 
     public void setCategoryFilter(short filterBit){

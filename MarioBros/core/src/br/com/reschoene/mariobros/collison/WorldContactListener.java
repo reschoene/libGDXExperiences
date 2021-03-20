@@ -1,6 +1,6 @@
 package br.com.reschoene.mariobros.collison;
 
-import br.com.reschoene.mariobros.screens.InfoScreen;
+import br.com.reschoene.mariobros.sprites.tileObjects.FlagPole;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Item;
@@ -69,6 +69,16 @@ public class WorldContactListener implements ContactListener {
                     PlayScreen.currentPhase = properties.get("phase", Integer.class);
                     screen.changeMap(mapName);
                 }
+            }
+        }
+        else if (cDef == combine(MARIO_BIT, BLOCK_BIT)){
+            objs = getObjsByFilterType(fixA, fixB, BLOCK_BIT);
+
+            if (objs.get(0) instanceof FlagPole) {
+                FlagPole flagPole = (FlagPole) objs.get(0);
+                flagPole.flag.goesUp();
+
+                ((Mario)objs.get(1)).animateExitRight();
             }
         }
     }

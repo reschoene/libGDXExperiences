@@ -23,6 +23,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -158,6 +159,9 @@ public class PlayScreen implements Screen {
         for(Item item: items)
             item.update(delta);
 
+        if(creator.getFlag() != null)
+            creator.getFlag().update(delta);
+
         if(player.currentState != Mario.State.DEAD)
             gamecam.position.x = player.b2Body.getPosition().x;
 
@@ -189,6 +193,10 @@ public class PlayScreen implements Screen {
 
         for(Item item: items)
             item.draw(game.batch);
+
+        if(creator.getFlag() != null)
+            creator.getFlag().draw(game.batch);
+
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
@@ -211,6 +219,10 @@ public class PlayScreen implements Screen {
             game.setScreen(new InfoScreen(game, player.getLives(),  mapToChange));
             dispose();
         }
+    }
+
+    public Music getMusic(){
+        return music;
     }
 
     public void showLiveScreen() {
