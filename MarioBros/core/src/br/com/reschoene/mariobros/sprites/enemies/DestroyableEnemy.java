@@ -41,9 +41,7 @@ public abstract class DestroyableEnemy extends Enemy{
             destroyed = true;
             stateTime = 0;
         } else if (!destroyed) {
-            setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2);
-            velocity.y = b2Body.getLinearVelocity().y;
-            b2Body.setLinearVelocity(velocity);
+            handleFalling();
         }
     }
 }

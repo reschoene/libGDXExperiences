@@ -72,6 +72,12 @@ public abstract class Enemy extends Sprite implements HeadHittable {
             velocity.y = -velocity.y;
     }
 
+    protected void handleFalling(){
+        setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2);
+        velocity.y = b2Body.getLinearVelocity().y;
+        b2Body.setLinearVelocity(velocity);
+    }
+
     public abstract void update(float delta);
 
     public abstract float getDefaultXVelocity();

@@ -66,7 +66,7 @@ public class B2WorldCreator {
         turtles = new Array<>();
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.TURTLE)){
             Rectangle rect = object.getRectangle();
-            turtles.add(new Turtle(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM));
+            turtles.add(new Turtle(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM, object.getProperties().containsKey("hasWings")));
         }
     }
 

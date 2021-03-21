@@ -1,29 +1,38 @@
 
-E
-java:S3740A"/Provide the parametrized type for this generic.(ìëØØ
-J
-java:S3740J"/Provide the parametrized type for this generic.(¤ø±şùÿÿÿÿ
-m
-java:S1104"RMake b2Body a static final constant or non-public and provide accessors if needed.(óö¹íşÿÿÿÿ
-t
-java:S1104"YMake previousState a static final constant or non-public and provide accessors if needed.(“¿æäùÿÿÿÿ
-E
-java:S3740;"/Provide the parametrized type for this generic.(‰ñİ
-8
-java:S1116µ"Remove this empty statement.(Åñ­õşÿÿÿÿ
-s
-java:S1104"XMake currentState a static final constant or non-public and provide accessors if needed.(›Üİıÿÿÿÿ
-E
-java:S3740!"/Provide the parametrized type for this generic.(ÍÜÆ
-J
-java:S3740&"/Provide the parametrized type for this generic.(¥Û›‚ùÿÿÿÿ
-h
-java:S1192:"MDefine a constant instead of duplicating this literal "little_mario" 4 times.(ú‚ÑÚûÿÿÿÿ
+M
+java:S1066Ÿ"/Merge this if statement with the enclosing one.(Ğ®²Š8ò¬Êƒ…/
+]	java:S125X"<This block of commented-out lines of code should be removed.(•ê¨Àøÿÿÿÿ8œƒ©……/
 `
-java:S1192@"JDefine a constant instead of duplicating this literal "big_mario" 7 times.(‘ÌĞ
+java:S1192B"JDefine a constant instead of duplicating this literal "big_mario" 7 times.(‘ÌĞ
 T
-java:S2696€"6Make the enclosing method "static" or remove this set.(€áÖ¬8Õşß“„/
+java:S2696ˆ"6Make the enclosing method "static" or remove this set.(€áÖ¬8Õşß“„/
+M
+java:S1066¦"/Merge this if statement with the enclosing one.(ê­á¦8ùˆ”……/
+J
+java:S3740'"/Provide the parametrized type for this generic.(¥Û›‚ùÿÿÿÿ
+h
+java:S1192<"MDefine a constant instead of duplicating this literal "little_mario" 4 times.(ú‚ÑÚûÿÿÿÿ
+s
+java:S1104"XMake currentState a static final constant or non-public and provide accessors if needed.(›Üİıÿÿÿÿ
+t
+java:S1104"YMake previousState a static final constant or non-public and provide accessors if needed.(“¿æäùÿÿÿÿ
 E
-java:S3740%"/Provide the parametrized type for this generic.(Ş´æ
+java:S3740&"/Provide the parametrized type for this generic.(Ş´æ
+E
+java:S3740="/Provide the parametrized type for this generic.(‰ñİ
+J
+java:S3740L"/Provide the parametrized type for this generic.(¤ø±şùÿÿÿÿ
+M
+java:S1066­"/Merge this if statement with the enclosing one.(ØÁ¥ü8Ì€Êƒ…/
+8
+java:S1116½"Remove this empty statement.(Åñ­õşÿÿÿÿ
+m
+java:S1104"RMake b2Body a static final constant or non-public and provide accessors if needed.(óö¹íşÿÿÿÿ
+E
+java:S3740""/Provide the parametrized type for this generic.(ÍÜÆ
+E
+java:S3740C"/Provide the parametrized type for this generic.(ìëØØ
+M
+java:S1066§"/Merge this if statement with the enclosing one.(Ø¼©8Ì€Êƒ…/
 n
-java:S3776£"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ê‹¦‘şÿÿÿÿ
+java:S3776«"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ê‹¦‘şÿÿÿÿ

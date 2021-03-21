@@ -14,27 +14,38 @@ import com.badlogic.gdx.utils.Array;
 
 public class Turtle extends Enemy {
     private Animation walkAnimation;
-    private Array<TextureRegion> frames;
+    private Animation flyingAnimation;
+    private Array<TextureRegion> walkingFrames;
+    private Array<TextureRegion> flyingFrames;
 
     public static final float KICK_LEFT_SPEED  = -2f;
     public static final float KICK_RIGHT_SPEED = 2f;
 
-    public enum State{WALKING, STANDING_SHELL, MOVING_SHELL, DEAD}
+    public enum State{WALKING, FLYING, STANDING_SHELL, MOVING_SHELL, DEAD}
     public State currentState;
     public State previousState;
     private TextureRegion shell;
     private boolean destroyed;
     private float deadRotationDegrees;
+    private boolean hasWings;
 
-    public Turtle(PlayScreen screen, float x, float y) {
+    public Turtle(PlayScreen screen, float x, float y, boolean hasWings) {
         super(screen, x, y);
 
-        frames = new Array<>();
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("turtle"), 0, 0, 16, 24));
-        frames.add(new TextureRegion(screen.getAtlas().findRegion("turtle"), 16, 0, 16, 24));
+        this.hasWings = hasWings;
+
+        walkingFrames = new Array<>();
+        walkingFrames.add(new TextureRegion(screen.getAtlas().findRegion("turtle"), 0, 0, 16, 24));
+        walkingFrames.add(new TextureRegion(screen.getAtlas().findRegion("turtle"), 16, 0, 16, 24));
+        walkAnimation = new Animation(0.2f, walkingFrames);
+
+        flyingFrames = new Array<>();
+        flyingFrames.add(new TextureRegion(screen.getAtlas().findRegion("turtle"), 32, 0, 16, 24));
+        flyingFrames.add(new TextureRegion(screen.getAtlas().findRegion("turtle"), 48, 0, 16, 24));
+        flyingAnimation = new Animation(0.2f, flyingFrames);
+
         shell = new TextureRegion(screen.getAtlas().findRegion("turtle"), 64, 0, 16, 24);
-        walkAnimation = new Animation(0.2f, frames);
-        currentState = previousState = State.WALKING;
+        currentState = previousState = (hasWings ? State.FLYING : State.WALKING);
         setBounds(getX(), getY(), 16/ MarioGame.PPM, 24 / MarioGame.PPM);
     }
 
@@ -45,6 +56,9 @@ public class Turtle extends Enemy {
             case STANDING_SHELL:
             case MOVING_SHELL:
                 region = shell;
+                break;
+            case FLYING:
+                region = (TextureRegion) flyingAnimation.getKeyFrame(stateTime, true);
                 break;
             case WALKING:
             default:
@@ -77,6 +91,13 @@ public class Turtle extends Enemy {
             velocity.x = getDefaultXVelocity();
         }
 
+        if (hasWings && currentState == State.WALKING)
+            currentState = State.FLYING;
+
+        //by default, if handleFalling is not called, it will fly
+        if (!hasWings)
+            handleFalling();
+
         setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - 8 / MarioGame.PPM);
 
         if(currentState == State.DEAD){
@@ -98,8 +119,14 @@ public class Turtle extends Enemy {
     @Override
     public void onHeadHit(Mario mario) {
         if(currentState != State.STANDING_SHELL){
-            currentState = State.STANDING_SHELL;
-            velocity.x = 0;
+            if (hasWings){
+                currentState = State.WALKING;
+                hasWings = false;
+            }
+            else{
+                currentState = State.STANDING_SHELL;
+                velocity.x = 0;
+            }
         }
     }
 
