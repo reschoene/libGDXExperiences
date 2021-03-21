@@ -25,7 +25,6 @@ public class Turtle extends Enemy {
     public State currentState;
     public State previousState;
     private TextureRegion shell;
-    private boolean destroyed;
     private float deadRotationDegrees;
     private boolean hasWings;
 
@@ -81,6 +80,9 @@ public class Turtle extends Enemy {
 
     @Override
     public void update(float delta) {
+        if (destroyed)
+            return;
+
         setRegion(getFrame(delta));
 
         stateTime = currentState == previousState ? stateTime + delta : 0;
@@ -105,6 +107,7 @@ public class Turtle extends Enemy {
             rotate(deadRotationDegrees);
             if(stateTime > 5 && !destroyed){
                 world.destroyBody(b2Body);
+                b2Body = null;
                 destroyed = true;
             }
         }else
@@ -141,6 +144,11 @@ public class Turtle extends Enemy {
                 reverseVelocity(true, false);
         }else if (currentState != State.MOVING_SHELL)
             reverseVelocity(true, false);
+    }
+
+    @Override
+    public void onFireBallHit() {
+        killed();
     }
 
     @Override

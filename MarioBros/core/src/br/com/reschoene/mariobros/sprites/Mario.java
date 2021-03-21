@@ -7,8 +7,10 @@ import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.enemies.Turtle;
+import br.com.reschoene.mariobros.sprites.items.FirePower;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -45,6 +47,8 @@ public class Mario extends Sprite {
     private boolean marioIsBig;
     private boolean runGrowAnimation;
     private boolean marioIsDead;
+
+    private FirePower firePower;
 
     public Mario(PlayScreen screen) {
         this.world = screen.getWorld();
@@ -89,6 +93,9 @@ public class Mario extends Sprite {
 
         setBounds(0, 0, 16 / MarioGame.PPM, 16 / MarioGame.PPM);
         setRegion(marioStand);
+
+        firePower = new FirePower();
+        firePower.setActive(true);
     }
 
     public static void resetLives(){
@@ -131,6 +138,7 @@ public class Mario extends Sprite {
     private void shrinkMario() {
         Vector2 currentPosition = b2Body.getPosition();
         world.destroyBody(b2Body);
+        b2Body = null;
 
         defineMario(currentPosition);
 
@@ -141,6 +149,7 @@ public class Mario extends Sprite {
         Vector2 currentPosition = b2Body.getPosition();
         //destroy litte body for creating the big mario body
         world.destroyBody(b2Body);
+        b2Body = null;
 
         defineMario(currentPosition.add(0, 10 / MarioGame.PPM));
 
@@ -166,6 +175,8 @@ public class Mario extends Sprite {
             if(b2Body.getLinearVelocity().y == 0)
                 b2Body.setLinearVelocity(1f, 0.0f);
         }
+
+        firePower.update(dt);
     }
 
     public TextureRegion getFrame(float dt) {
@@ -282,6 +293,15 @@ public class Mario extends Sprite {
         return stateTimer;
     }
 
+    public void fire(){
+        if (enabledControls)
+            firePower.fire(screen, b2Body, runningRight);
+    }
+
+    public void setFirePowerActiveState(boolean activeState){
+        firePower.setActive(activeState);
+    }
+
     public void jump() {
         if(enabledControls)
             if (b2Body.getLinearVelocity().y == 0 && stateTimer > 0.01){ //0.01 just to not stuck with head on block
@@ -315,5 +335,11 @@ public class Mario extends Sprite {
         Music music = AudioManager.getMusicByMapName("stageClear");
         music.setLooping(false);
         music.play();
+    }
+
+    @Override
+    public void draw(Batch batch){
+        super.draw(batch);
+        firePower.draw(batch);
     }
 }

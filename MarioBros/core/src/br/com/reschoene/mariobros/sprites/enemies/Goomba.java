@@ -42,4 +42,9 @@ public class Goomba extends DestroyableEnemy {
         else
             reverseVelocity(true, false);
     }
+
+    @Override
+    public void onFireBallHit() {
+        setToDestroy = true;
+    }
 }

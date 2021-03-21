@@ -2,6 +2,8 @@ br/com/reschoene/mariobros/util/B2WorldCreator.java
  br.com.reschoene.mariobros.util.B2WorldCreator
 br/com/reschoene/mariobros/sprites/items/Mushroom.java
  br.com.reschoene.mariobros.sprites.items.Mushroom
+br/com/reschoene/mariobros/sprites/items/FirePower.java
+ br.com.reschoene.mariobros.sprites.items.FirePower
 br/com/reschoene/mariobros/audio/AudioManager.java
  br.com.reschoene.mariobros.audio.AudioManager
 br/com/reschoene/mariobros/scenes/MapLayers.java
@@ -59,8 +61,12 @@ br/com/reschoene/mariobros/scenes/Hud.java
  br.com.reschoene.mariobros.scenes.Hud
 br/com/reschoene/mariobros/screens/InfoScreen.java
  br.com.reschoene.mariobros.screens.InfoScreen
+br/com/reschoene/mariobros/sprites/items/FireBall.java
+ br.com.reschoene.mariobros.sprites.items.FireBall
 br/com/reschoene/mariobros/MarioGame.java
  br.com.reschoene.mariobros.MarioGame
+br/com/reschoene/mariobros/sprites/items/Flower.java
+ br.com.reschoene.mariobros.sprites.items.Flower
 br/com/reschoene/mariobros/sprites/tileObjects/Coin.java
  br.com.reschoene.mariobros.sprites.tileObjects.Coin
 br/com/reschoene/mariobros/sprites/tileObjects/Pipe.java

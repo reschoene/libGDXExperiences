@@ -17,6 +17,7 @@ public abstract class Enemy extends Sprite implements HeadHittable {
     protected final PlayScreen screen;
     public Body b2Body;
     public Vector2 velocity;
+    public boolean destroyed;
 
     public Enemy(PlayScreen screen, float x, float y){
         this.world = screen.getWorld();
@@ -42,7 +43,7 @@ public abstract class Enemy extends Sprite implements HeadHittable {
         //maskBits defines whats this fixture collides with
         fdef.filter.categoryBits = ENEMY_BIT.getValue();
         fdef.filter.maskBits = combine(GROUND_BIT, ENEMY_BIT, BLOCK_BIT, COIN_BIT,
-                BRICK_BIT, OBJECT_BIT, MARIO_BIT);
+                BRICK_BIT, OBJECT_BIT, MARIO_BIT, FIREBALL_BIT);
 
         fdef.shape = shape;
         b2Body.createFixture(fdef).setUserData(this);
@@ -83,6 +84,8 @@ public abstract class Enemy extends Sprite implements HeadHittable {
     public abstract float getDefaultXVelocity();
 
     public abstract void onHeadHit(Mario mario);
+
+    public abstract void onFireBallHit();
 
     public abstract void onEnemyHit(Enemy enemy);
 }

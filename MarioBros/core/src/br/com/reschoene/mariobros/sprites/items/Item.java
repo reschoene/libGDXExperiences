@@ -35,6 +35,7 @@ public abstract class Item extends Sprite {
     public void update(float dt){
         if(setToDestroy && !destroyed){
             world.destroyBody(b2Body);
+            b2Body = null;
             destroyed = true;
         }
     }

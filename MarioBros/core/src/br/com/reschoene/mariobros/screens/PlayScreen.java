@@ -6,6 +6,7 @@ import br.com.reschoene.mariobros.collison.WorldContactListener;
 import br.com.reschoene.mariobros.scenes.Controller;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
+import br.com.reschoene.mariobros.sprites.items.Flower;
 import br.com.reschoene.mariobros.sprites.items.Item;
 import br.com.reschoene.mariobros.sprites.items.ItemDef;
 import br.com.reschoene.mariobros.sprites.items.Mushroom;
@@ -117,7 +118,10 @@ public class PlayScreen implements Screen {
         if(!itemsToSpawn.isEmpty()){
             ItemDef itemDef = itemsToSpawn.poll();
             if(itemDef.type == Mushroom.class){
-                items.add(new Mushroom(this, itemDef.position.x, itemDef.position.y));
+                if (!player.isBig())
+                    items.add(new Mushroom(this, itemDef.position.x, itemDef.position.y));
+                else
+                    items.add(new Flower(this, itemDef.position.x-0.08f, itemDef.position.y-0.08f));
             }
         }
     }
@@ -139,6 +143,8 @@ public class PlayScreen implements Screen {
                 player.moveRight();;
             if (controller.isLeftPressed())
                 player.moveLeft();
+            if (controller.isRightActionPressed())
+                player.fire();
         }
     }
 
@@ -153,8 +159,13 @@ public class PlayScreen implements Screen {
 
         for(Enemy enemy : creator.getEnemies()){
             enemy.update(delta);
-            if (enemy.getX() < player.getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/ MarioGame.PPM))
-                enemy.b2Body.setActive(true);
+
+            if(!enemy.destroyed)
+                if (enemy.getX() < player.getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/ MarioGame.PPM)) {
+                    if(enemy.b2Body == null)
+                        System.out.println("hehehe");
+                    enemy.b2Body.setActive(true);
+                }
         }
 
         for(Item item: items)

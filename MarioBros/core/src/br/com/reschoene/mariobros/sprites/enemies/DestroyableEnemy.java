@@ -1,15 +1,12 @@
 package br.com.reschoene.mariobros.sprites.enemies;
 
-import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 public abstract class DestroyableEnemy extends Enemy{
     protected boolean setToDestroy;
-    protected boolean destroyed;
 
     public DestroyableEnemy(PlayScreen screen, float x, float y) {
         super(screen, x, y);
@@ -38,6 +35,7 @@ public abstract class DestroyableEnemy extends Enemy{
     protected void handleDestroy() {
         if (setToDestroy && !destroyed) {
             world.destroyBody(b2Body);
+            b2Body = null;
             destroyed = true;
             stateTime = 0;
         } else if (!destroyed) {
