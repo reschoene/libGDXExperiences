@@ -2,6 +2,7 @@ package br.com.reschoene.mariobros.screens;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.sprites.Mario;
+import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -52,7 +53,7 @@ public class GameOverScreen implements Screen {
     @Override
     public void render(float delta) {
         if(Gdx.input.justTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-            Mario.resetLives();
+            GameState.reset();
             PlayScreen.currentWorld=1;
             PlayScreen.currentPhase=1;
             game.setScreen(new InfoScreen(game, Mario.getLives(), "map01.tmx"));

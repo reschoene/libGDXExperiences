@@ -1,26 +1,29 @@
 
+M
+java:S1066¤"/Merge this if statement with the enclosing one.(æ˜†µ8ÿÀĞ°…/
 ¤
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ·öÅûÿÿÿÿ8­€…/
-u
-java:S1104?"XMake currentWorld a static final constant or non-public and provide accessors if needed.(ñš¯Ğ8Ôö“„/
-u
-java:S1104@"XMake currentPhase a static final constant or non-public and provide accessors if needed.(”åÚ™8ìØö“„/
-^	java:S125º"<This block of commented-out lines of code should be removed.(ßÉ£‹ûÿÿÿÿ8­€…/
-O
-java:S1444?"2Make this "public static currentWorld" field final(ñš¯Ğ8Ôö“„/
+java:S1186‘"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ğ£²¾ÿÿÿÿÿ8Ô…à°…/
+V	java:S106¦"9Replace this use of System.out or System.err by a logger.(ò‡ØÖ8Ô…à°…/
 _
-java:S1128"BRemove this unused import 'com.badlogic.gdx.scenes.scene2d.Stage'.(ãµ‚8¹ß’€…/
-8
-java:S1116‹"Remove this empty statement.(âƒ¬Ûüÿÿÿÿ
-˜
-java:S1186‚"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Àİì
-Ÿ
-java:S1186ü"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü³Í8­€…/
-¤
-java:S1186†"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ğ£²¾ÿÿÿÿÿ8­€…/
-R
-java:S2209×"5Change this instance-reference to a static reference.(ıÎ‰U8ŸÑìˆ…/
-S
-java:S2209Ü"5Change this instance-reference to a static reference.(”ÔıÅ8ŸÑìˆ…/
+java:S1128"BRemove this unused import 'com.badlogic.gdx.scenes.scene2d.Stage'.(ãµ‚8¹ß’€…/
 O
-java:S1444@"2Make this "public static currentPhase" field final(”åÚ™8ìØö“„/
+java:S1444A"2Make this "public static currentPhase" field final(”åÚ™8ìØö“„/
+^	java:S125Å"<This block of commented-out lines of code should be removed.(ßÉ£‹ûÿÿÿÿ8Ô…à°…/
+¤
+java:S1186Œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ·öÅûÿÿÿÿ8Ô…à°…/
+R
+java:S2209â"5Change this instance-reference to a static reference.(ıÎ‰U8Ô…à°…/
+O
+java:S1444@"2Make this "public static currentWorld" field final(ñš¯Ğ8Ôö“„/
+˜
+java:S1186†"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Àİì
+8
+java:S1116"Remove this empty statement.(âƒ¬Ûüÿÿÿÿ
+u
+java:S1104A"XMake currentPhase a static final constant or non-public and provide accessors if needed.(”åÚ™8ìØö“„/
+S
+java:S2209ç"5Change this instance-reference to a static reference.(”ÔıÅ8Ô…à°…/
+u
+java:S1104@"XMake currentWorld a static final constant or non-public and provide accessors if needed.(ñš¯Ğ8Ôö“„/
+Ÿ
+java:S1186‡"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü³Í8Ô…à°…/

@@ -9,7 +9,7 @@ public class GameAtlas {
 
     public static TextureAtlas getAtlas(){
         if (textureAtlas == null)
-            textureAtlas = new TextureAtlas("Mario_and_Enemies.atlas");
+            textureAtlas = new TextureAtlas("MarioSpriteSheet.atlas");
         return textureAtlas;
     }
 }

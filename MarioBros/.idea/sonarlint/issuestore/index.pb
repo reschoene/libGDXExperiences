@@ -49,3 +49,13 @@ q
 Acore/src/br/com/reschoene/mariobros/sprites/tileObjects/Coin.java,f/5/f5d682a1b590cd48e52a04b210f6df5dda379f6d
 k
 ;core/src/br/com/reschoene/mariobros/audio/AudioManager.java,b/6/b609355897f5afc26d8ce7efc26f8c18ab6f0cc2
+s
+Ccore/src/br/com/reschoene/mariobros/collison/FixtureFilterBits.java,e/e/ee6c77a197f116661425bb03fb593adc03942880
+j
+:core/src/br/com/reschoene/mariobros/scenes/Controller.java,8/1/819f0b8a791b0844c5e2fbb0a41667ed1aae5069
+m
+=core/src/br/com/reschoene/mariobros/sprites/items/Flower.java,3/6/3662f24e5ea49728b75b6f40c375a35b532ead03
+p
+@core/src/br/com/reschoene/mariobros/sprites/items/FirePower.java,b/3/b38ffe264a8f80aa12cb2098ae8e0af6724002c1
+o
+?core/src/br/com/reschoene/mariobros/sprites/items/FireBall.java,5/3/532d2a28dd271c3666959e9790c0bc6c80118b83

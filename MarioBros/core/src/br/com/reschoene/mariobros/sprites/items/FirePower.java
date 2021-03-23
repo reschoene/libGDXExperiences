@@ -1,6 +1,7 @@
 package br.com.reschoene.mariobros.sprites.items;
 
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Array;
@@ -48,6 +49,11 @@ public class FirePower {
     }
 
     public void setActive(boolean active){
+        GameState.hasFirePower = active;
         this.active = active;
+    }
+
+    public boolean isActive(){
+        return this.active;
     }
 }

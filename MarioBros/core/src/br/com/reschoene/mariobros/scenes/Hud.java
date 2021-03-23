@@ -2,6 +2,7 @@ package br.com.reschoene.mariobros.scenes;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -19,7 +20,6 @@ public class Hud implements Disposable {
 
     private Integer worldTimer;
     private float timeCount;
-    private static Integer score;
 
     Label countDownLabel;
     static Label scoreLabel;
@@ -31,7 +31,6 @@ public class Hud implements Disposable {
     public Hud(SpriteBatch sb){
         worldTimer = 300;
         timeCount = 0;
-        score = 0;
 
         viewport = new FitViewport(MarioGame.V_WIDTH, MarioGame.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, sb);
@@ -42,7 +41,7 @@ public class Hud implements Disposable {
 
         Label.LabelStyle whiteStyle = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
         countDownLabel = new Label(String.format("%03d", worldTimer), whiteStyle);
-        scoreLabel = new Label(String.format("%06d", score), whiteStyle);
+        scoreLabel = new Label(String.format("%06d", GameState.score), whiteStyle);
         levelLabel = new Label(String.format("%d-%d", PlayScreen.currentWorld, PlayScreen.currentPhase), whiteStyle);
         timeLabel = new Label("TIME", whiteStyle);
         worldLabel = new Label("WORLD", whiteStyle);
@@ -69,8 +68,8 @@ public class Hud implements Disposable {
     }
 
     public static void addScore(int value){
-        score += value;
-        scoreLabel.setText(String.format("%06d", score));
+        GameState.score += value;
+        scoreLabel.setText(String.format("%06d", GameState.score));
     }
 
     @Override

@@ -162,8 +162,6 @@ public class PlayScreen implements Screen {
 
             if(!enemy.destroyed)
                 if (enemy.getX() < player.getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/ MarioGame.PPM)) {
-                    if(enemy.b2Body == null)
-                        System.out.println("hehehe");
                     enemy.b2Body.setActive(true);
                 }
         }
