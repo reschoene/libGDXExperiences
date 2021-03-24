@@ -59,3 +59,5 @@ p
 @core/src/br/com/reschoene/mariobros/sprites/items/FirePower.java,b/3/b38ffe264a8f80aa12cb2098ae8e0af6724002c1
 o
 ?core/src/br/com/reschoene/mariobros/sprites/items/FireBall.java,5/3/532d2a28dd271c3666959e9790c0bc6c80118b83
+g
+7core/src/br/com/reschoene/mariobros/util/GameState.java,d/c/dcb8f08b97a519512798775afa0c2752ef00de06

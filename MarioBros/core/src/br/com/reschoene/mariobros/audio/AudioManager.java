@@ -51,6 +51,8 @@ public class AudioManager {
         musicByMapName.put("stageClear", "audio/music/stage_clear.wav");
         musicByMapName.put("map01.tmx", "audio/music/mario_music.ogg");
         musicByMapName.put("map02.tmx", "audio/music/underworld.mp3");
+        musicByMapName.put("map03.tmx", "audio/music/underworld.mp3");
+        musicByMapName.put("map04.tmx", "audio/music/underworld.mp3");
     }
 
     public static Map<String, String> getMusicByMapName(){
