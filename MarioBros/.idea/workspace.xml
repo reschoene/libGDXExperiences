@@ -21,22 +21,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/MarioGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/MarioGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/collison/WorldContactListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/collison/WorldContactListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Hud.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Hud.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/GameOverScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/GameOverScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/InfoScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/InfoScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/PlayScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/PlayScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/map03.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/map03.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/tileObjects/Flag.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/tileObjects/Flag.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/util/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/util/GameState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/MarioGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/MarioGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/collison/WorldContactListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/collison/WorldContactListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/scenes/Hud.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/scenes/Hud.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/GameOverScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/GameOverScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/InfoScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/InfoScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/PlayScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/PlayScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/Mario.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/Mario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Flag.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Flag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build/libs/desktop-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/libs/desktop-1.0.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,5 +169,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/TileObject.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

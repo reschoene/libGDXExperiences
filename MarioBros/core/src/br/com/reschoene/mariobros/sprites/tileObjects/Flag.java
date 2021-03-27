@@ -5,6 +5,7 @@ import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.items.Item;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -23,7 +24,7 @@ public class Flag extends Item {
                 bounds.height / MarioGame.PPM);
 
         velocity = new Vector2(0, 0);
-        setRegion(new Texture("MarioGFX/flag.png"));
+        setRegion(new TextureRegion(screen.getAtlas().findRegion("flag"), 0, 0, 50, 34));
     }
 
     @Override

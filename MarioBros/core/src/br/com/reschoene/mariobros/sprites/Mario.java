@@ -108,10 +108,13 @@ public class Mario extends Sprite {
         fireMarioStand = new TextureRegion(screen.getAtlas().findRegion("mariofire"), 0, 0, 18, 32);
 
         marioDead = new TextureRegion(screen.getAtlas().findRegion("little_mario"), 96, 0, 16, 16);
-        defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
+        //defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
 
         //debug position (perto bandeira)
         //defineMario(new Vector2(3300 / MarioGame.PPM, 32 / MarioGame.PPM));
+
+        //debug position (terceira fase meio moedas)
+        defineMario(new Vector2(2960 / MarioGame.PPM, 200 / MarioGame.PPM));
 
         setBounds(0, 0, 16 / MarioGame.PPM, 16 / MarioGame.PPM);
         setRegion(marioStand);
