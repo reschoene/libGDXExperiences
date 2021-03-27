@@ -31,7 +31,7 @@ public class MarioGame extends Game {
 
 		loadAssetManager();
 
-		setScreen(new InfoScreen(this, Mario.getLives(), "map03.tmx"));
+		setScreen(new InfoScreen(this, Mario.getLives(), "map01.tmx"));
 	}
 
 	private void loadAssetManager() {

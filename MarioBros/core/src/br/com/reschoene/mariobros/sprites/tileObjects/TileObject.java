@@ -81,6 +81,10 @@ public abstract class TileObject {
         return layer.getCell(x,y);
     }
 
+    public com.badlogic.gdx.maps.tiled.TiledMapTileSet getTileSet(){
+        return map.getTileSets().getTileSet("NES - Super Mario Bros - Tileset");
+    }
+
     public MapProperties getMapProperties(){
         return mapObject.getProperties();
     }

@@ -30,8 +30,8 @@ public class B2WorldCreator {
     }
 
     public void createMapObjects() {
-        for (RectangleMapObject object : getMapObjsByLayer(MapLayers.COIN))
-            new Coin(screen, object);
+        for (RectangleMapObject object : getMapObjsByLayer(MapLayers.BRICK_COIN))
+            new BrickCoin(screen, object);
 
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.BRICK))
             new Brick(screen, object);
@@ -68,6 +68,11 @@ public class B2WorldCreator {
             Rectangle rect = object.getRectangle();
             turtles.add(new Turtle(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM, object.getProperties().containsKey("hasWings")));
         }
+
+        //create all coins
+        turtles = new Array<>();
+        for (RectangleMapObject object : getMapObjsByLayer(MapLayers.COIN))
+            new Coin(screen, object);
     }
 
     private Array<RectangleMapObject> getMapObjsByLayer(MapLayers mapLayer){

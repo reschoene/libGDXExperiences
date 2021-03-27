@@ -5,11 +5,12 @@ public enum MapLayers {
     GRAPHIC(1),
     GROUND(2),
     PIPE(3),
-    COIN(4),
+    BRICK_COIN(4),
     BRICK(5),
     BLOCK(6),
     GOOMBA(7),
-    TURTLE(8);
+    TURTLE(8),
+    COIN(9);
 
     private final int idx;
 

@@ -10,21 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e574147-19fe-427d-b39f-96e09ca43786" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/android/assets/map03.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/0765278740985fbfd321bdf9c1b5c535efced1ea" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/0765278740985fbfd321bdf9c1b5c535efced1ea" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/BrickCoin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Hittable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2cd1023db7ec1d4012f8343fbfc315c76e00e2e6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2cd1023db7ec1d4012f8343fbfc315c76e00e2e6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/0/40db2284b0615326c14f116203eeb4c44b839420" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/0/40db2284b0615326c14f116203eeb4c44b839420" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/532d2a28dd271c3666959e9790c0bc6c80118b83" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/532d2a28dd271c3666959e9790c0bc6c80118b83" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/e/9ee1f7e9051124382123de308da6879b25fb91d4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/e/9ee1f7e9051124382123de308da6879b25fb91d4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/3/b38ffe264a8f80aa12cb2098ae8e0af6724002c1" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/3/b38ffe264a8f80aa12cb2098ae8e0af6724002c1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/6/b609355897f5afc26d8ce7efc26f8c18ab6f0cc2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/6/b609355897f5afc26d8ce7efc26f8c18ab6f0cc2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/9/c93e920f9d87bcec743ffd723ad443c7caa933ee" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/9/c93e920f9d87bcec743ffd723ad443c7caa933ee" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/e/ce0f1be02ecd55ae79504a05ccb86110d34cc0d8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/e/ce0f1be02ecd55ae79504a05ccb86110d34cc0d8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dcb8f08b97a519512798775afa0c2752ef00de06" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dcb8f08b97a519512798775afa0c2752ef00de06" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/ea6443f0e4fa997b730afad127624f4e717abc94" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/ea6443f0e4fa997b730afad127624f4e717abc94" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fdbc77492cb3ed36b4f244cec87de197e09740b8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fdbc77492cb3ed36b4f244cec87de197e09740b8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/map02 (copy).tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/map01.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/map01.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/assets/map02.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/map02.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/map03.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/map03.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/MarioGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/MarioGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/audio/AudioManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/audio/AudioManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/collison/WorldContactListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/collison/WorldContactListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/scenes/Hud.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/scenes/Hud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/scenes/MapLayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/scenes/MapLayers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Coin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/TileObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/TileObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/B2WorldCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/B2WorldCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/GameState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +51,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>

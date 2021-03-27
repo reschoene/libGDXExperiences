@@ -6,6 +6,7 @@ import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Item;
 import br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable;
 import br.com.reschoene.mariobros.sprites.Mario;
+import br.com.reschoene.mariobros.sprites.tileObjects.Hittable;
 import br.com.reschoene.mariobros.sprites.tileObjects.Pipe;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.physics.box2d.*;
@@ -29,9 +30,12 @@ public class WorldContactListener implements ContactListener {
             objs = getObjsByFilterType(fixA, fixB, BRICK_BIT);
             ((HeadHittable) objs.get(0)).onHeadHit((Mario) objs.get(1));
         }
-        else if (cDef == combine(MARIO_HEAD_BIT, COIN_BIT)){
+        else if ((cDef == combine( MARIO_BIT, COIN_BIT)) || (cDef == combine( MARIO_HEAD_BIT, COIN_BIT))){
             objs = getObjsByFilterType(fixA, fixB, COIN_BIT);
-            ((HeadHittable) objs.get(0)).onHeadHit((Mario) objs.get(1));
+            if(objs.get(0) instanceof  Hittable)
+                ((Hittable) objs.get(0)).onHit((Mario) objs.get(1));
+            else if(objs.get(0) instanceof  HeadHittable)
+                ((HeadHittable) objs.get(0)).onHeadHit((Mario) objs.get(1));
         }
         else if (cDef == combine(MARIO_BIT, ENEMY_HEAD_BIT)){
             objs = getObjsByFilterType(fixA, fixB, ENEMY_HEAD_BIT);
