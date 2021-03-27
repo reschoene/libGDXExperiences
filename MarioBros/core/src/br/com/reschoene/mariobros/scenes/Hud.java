@@ -2,8 +2,6 @@ package br.com.reschoene.mariobros.scenes;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.audio.AudioManager;
-import br.com.reschoene.mariobros.screens.GameAtlas;
-import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -49,7 +47,7 @@ public class Hud implements Disposable {
 
         countDownLabel = new Label(String.format("%03d", worldTimer), whiteStyle);
         scoreLabel = new Label(String.format("%06d", GameState.score), whiteStyle);
-        levelLabel = new Label(String.format("%d-%d", PlayScreen.currentWorld, PlayScreen.currentPhase), whiteStyle);
+        levelLabel = new Label(String.format("%d-%d", GameState.currentWorld, GameState.currentPhase), whiteStyle);
         coinLabel = new Label(String.format("%02d", GameState.coins), whiteStyle);
 
         timeLabel = new Label("TIME", whiteStyle);

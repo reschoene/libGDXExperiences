@@ -8,6 +8,7 @@ import br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.tileObjects.Hittable;
 import br.com.reschoene.mariobros.sprites.tileObjects.Pipe;
+import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.physics.box2d.*;
 
@@ -32,9 +33,9 @@ public class WorldContactListener implements ContactListener {
         }
         else if ((cDef == combine( MARIO_BIT, COIN_BIT)) || (cDef == combine( MARIO_HEAD_BIT, COIN_BIT))){
             objs = getObjsByFilterType(fixA, fixB, COIN_BIT);
-            if(objs.get(0) instanceof  Hittable)
+            if ((objs.get(0) instanceof Hittable) && (cDef == combine( MARIO_BIT, COIN_BIT)))
                 ((Hittable) objs.get(0)).onHit((Mario) objs.get(1));
-            else if(objs.get(0) instanceof  HeadHittable)
+            else if ((objs.get(0) instanceof  HeadHittable) && (cDef == combine( MARIO_HEAD_BIT, COIN_BIT)))
                 ((HeadHittable) objs.get(0)).onHeadHit((Mario) objs.get(1));
         }
         else if (cDef == combine(MARIO_BIT, ENEMY_HEAD_BIT)){
@@ -72,10 +73,10 @@ public class WorldContactListener implements ContactListener {
                 MapProperties properties = ((Pipe) objs.get(0)).getMapProperties();
                 if (properties.containsKey("GoToPhase")) {
                     PlayScreen screen = ((Mario) objs.get(1)).getScreen();
-                    String mapName = properties.get("GoToPhase", String.class);
-                    PlayScreen.currentWorld = properties.get("world", Integer.class);
-                    PlayScreen.currentPhase = properties.get("phase", Integer.class);
-                    screen.changeMap(mapName);
+                    GameState.currentMapFileName = properties.get("GoToPhase", String.class);
+                    GameState.currentWorld = properties.get("world", Integer.class);
+                    GameState.currentPhase = properties.get("phase", Integer.class);
+                    screen.changeMap();
                 }
             }
         }

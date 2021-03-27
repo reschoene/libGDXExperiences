@@ -5,13 +5,14 @@ import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.collison.WorldContactListener;
 import br.com.reschoene.mariobros.scenes.Controller;
 import br.com.reschoene.mariobros.scenes.Hud;
+import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Flower;
 import br.com.reschoene.mariobros.sprites.items.Item;
 import br.com.reschoene.mariobros.sprites.items.ItemDef;
 import br.com.reschoene.mariobros.sprites.items.Mushroom;
-import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.util.B2WorldCreator;
+import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -25,7 +26,6 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -59,23 +59,17 @@ public class PlayScreen implements Screen {
 
     private Array<Item> items;
     private LinkedBlockingDeque<ItemDef> itemsToSpawn;
-    private String mapToChange = "";
+    private boolean hasMapToChange = false;
     private boolean changeScreenToLives = false;
-    public static int currentWorld = 1;
-    public static int currentPhase = 1;
 
     //result of number of ground tiles * width of a ground tile = screen pixels
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
 
-    public PlayScreen(MarioGame game){
-        this(game, "map01.tmx");
-    }
-
-    public PlayScreen(MarioGame game, String mapFileName) {
+    public PlayScreen(MarioGame game) {
         atlas = GameAtlas.getAtlas();
 
         this.game = game;
-        this.mapFileName = mapFileName;
+        this.mapFileName = GameState.currentMapFileName;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MarioGame.V_WIDTH / MarioGame.PPM, MarioGame.V_HEIGHT / MarioGame.PPM, gamecam);
         hud = new Hud(game.batch);
@@ -106,8 +100,8 @@ public class PlayScreen implements Screen {
 
     }
 
-    public void changeMap(String mapToChange){
-        this.mapToChange = mapToChange;
+    public void changeMap(){
+        this.hasMapToChange = true;
     }
 
     public void spawnItem(ItemDef itemDef){
@@ -221,12 +215,13 @@ public class PlayScreen implements Screen {
 
         if(changeScreenToLives && player.getStateTimer() > 2){
             changeScreenToLives = false;
-            game.setScreen(new InfoScreen(game, player.getLives(), mapFileName));
+            game.setScreen(new InfoScreen(game));
             dispose();
         }
 
-        if(!"".equals(mapToChange)){
-            game.setScreen(new InfoScreen(game, player.getLives(),  mapToChange));
+        if(hasMapToChange){
+            hasMapToChange = false;
+            game.setScreen(new InfoScreen(game));
             dispose();
         }
     }

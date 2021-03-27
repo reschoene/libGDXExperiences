@@ -2,8 +2,6 @@ package br.com.reschoene.mariobros;
 
 import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.screens.InfoScreen;
-import br.com.reschoene.mariobros.sprites.Mario;
-import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
@@ -12,7 +10,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 public class MarioGame extends Game {
 	public static final int V_WIDTH=400;
@@ -31,7 +28,7 @@ public class MarioGame extends Game {
 
 		loadAssetManager();
 
-		setScreen(new InfoScreen(this, Mario.getLives(), "map01.tmx"));
+		setScreen(new InfoScreen(this));
 	}
 
 	private void loadAssetManager() {
