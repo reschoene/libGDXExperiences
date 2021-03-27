@@ -1,19 +1,37 @@
 
+H
+java:S1444"+Make this "public static coins" field final(ª—ë8ßÜŸ‡/
+t
+java:S1104"XMake hasFirePower a static final constant or non-public and provide accessors if needed.(¸Ú×[8ÒÜûŠ†/
+€
+java:S1104	"^Make currentMapFileName a static final constant or non-public and provide accessors if needed.(‘ÈŞßûÿÿÿÿ8£ºÿ ‡/
+Z
+java:S1444	"8Make this "public static currentMapFileName" field final(‘ÈŞßûÿÿÿÿ8£ºÿ ‡/
+n
+java:S1104"QMake coins a static final constant or non-public and provide accessors if needed.(ª—ë8ßÜŸ‡/
+O
+java:S1444
+"2Make this "public static currentWorld" field final(ñš¯Ğ8ãÅˆ¡‡/
+H
+java:S1444"+Make this "public static score" field final(ÒÅœ¹8€À‹†/
+u
+java:S1104
+"XMake currentWorld a static final constant or non-public and provide accessors if needed.(ñš¯Ğ8ãÅˆ¡‡/
+\
+java:S1118":Add a private constructor to hide the implicit public one.(›êÖÙûÿÿÿÿ8óÕùŠ†/
+n
+java:S1104"QMake lives a static final constant or non-public and provide accessors if needed.(¨¯ŠŠ8óÕùŠ†/
+z
+java:S1104"XMake currentPhase a static final constant or non-public and provide accessors if needed.(éÆÃØÿÿÿÿÿ8ãÅˆ¡‡/
+T
+java:S1444"2Make this "public static currentPhase" field final(éÆÃØÿÿÿÿÿ8ãÅˆ¡‡/
+M
+java:S1444"+Make this "public static isBig" field final(ëùã³úÿÿÿÿ8óÕùŠ†/
+H
+java:S1444"+Make this "public static lives" field final(¨¯ŠŠ8óÕùŠ†/
+n
+java:S1104"QMake score a static final constant or non-public and provide accessors if needed.(ÒÅœ¹8€À‹†/
 N
 java:S1444"2Make this "public static hasFirePower" field final(¸Ú×[8ÒÜûŠ†/
 s
 java:S1104"QMake isBig a static final constant or non-public and provide accessors if needed.(ëùã³úÿÿÿÿ8óÕùŠ†/
-t
-java:S1104"XMake hasFirePower a static final constant or non-public and provide accessors if needed.(¸Ú×[8ÒÜûŠ†/
-n
-java:S1104"QMake score a static final constant or non-public and provide accessors if needed.(ÒÅœ¹8€À‹†/
-n
-java:S1104"QMake lives a static final constant or non-public and provide accessors if needed.(¨¯ŠŠ8óÕùŠ†/
-\
-java:S1118":Add a private constructor to hide the implicit public one.(›êÖÙûÿÿÿÿ8óÕùŠ†/
-H
-java:S1444"+Make this "public static score" field final(ÒÅœ¹8€À‹†/
-H
-java:S1444"+Make this "public static lives" field final(¨¯ŠŠ8óÕùŠ†/
-M
-java:S1444"+Make this "public static isBig" field final(ëùã³úÿÿÿÿ8óÕùŠ†/

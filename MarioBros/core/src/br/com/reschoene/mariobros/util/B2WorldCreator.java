@@ -70,7 +70,6 @@ public class B2WorldCreator {
         }
 
         //create all coins
-        turtles = new Array<>();
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.COIN))
             new Coin(screen, object);
     }

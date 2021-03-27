@@ -61,3 +61,13 @@ o
 ?core/src/br/com/reschoene/mariobros/sprites/items/FireBall.java,5/3/532d2a28dd271c3666959e9790c0bc6c80118b83
 g
 7core/src/br/com/reschoene/mariobros/util/GameState.java,d/c/dcb8f08b97a519512798775afa0c2752ef00de06
+i
+9core/src/br/com/reschoene/mariobros/scenes/MapLayers.java,e/b/eb1d465bec329179ed54375f334e2c9429866582
+y
+Icore/src/br/com/reschoene/mariobros/sprites/tileObjects/HeadHittable.java,2/6/26c8039947ddd9ff71b5f64092dc59211702b3c4
+q
+Acore/src/br/com/reschoene/mariobros/sprites/tileObjects/Pipe.java,c/4/c49010caea4a1830f7f61881ac2e14f65fbab93c
+v
+Fcore/src/br/com/reschoene/mariobros/sprites/tileObjects/BrickCoin.java,2/e/2edb7aaa0d2e1967eed857280c049051642d2b5e
+u
+Ecore/src/br/com/reschoene/mariobros/sprites/tileObjects/Hittable.java,c/b/cba4da180d2f89b58e814894fcca0b40531fbce2

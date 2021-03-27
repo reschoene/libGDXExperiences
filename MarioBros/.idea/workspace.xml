@@ -10,84 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e574147-19fe-427d-b39f-96e09ca43786" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ControlGFX/TexturePackerControlProject.tpproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ControlGFX/actionBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ControlGFX/controlActionLightPurple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ControlGFX/controlActionPurple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ControlGFX/downArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ControlGFX/leftArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ControlGFX/rightArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ControlGFX/upArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/appIco.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/controller/Control.atlas" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/controller/Control.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/maps/NES - Super Mario Bros - Tileset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/maps/NES - Super Mario Bros - Tileset.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/maps/map01.tmx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/maps/map02.tmx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/maps/map03.tmx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/maps/map04.tmx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/sprites/MarioSpriteSheet.atlas" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/assets/sprites/MarioSpriteSheet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/MarioSpriteSheet.atlas" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/MarioSpriteSheet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/NES - Super Mario Bros - Tileset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/NES - Super Mario Bros - Tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/actionBackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/appIco2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/controlActionLightPurple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/controlActionPurple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/downArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/leftArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/map01.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/map02.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/map03.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/rightArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/upArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/scenes/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/GameAtlas.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/GameAtlas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/PlayScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/screens/PlayScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/maps/map04.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/maps/map04.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/util/B2WorldCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/util/B2WorldCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/util/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/util/GameState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/scenes/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/scenes/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/GameAtlas.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/GameAtlas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/PlayScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/PlayScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/libs/desktop-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/libs/desktop-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/MarioSpriteSheet.atlas" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/MarioSpriteSheet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/NES - Super Mario Bros - Tileset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/NES - Super Mario Bros - Tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/actionBackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/appIco2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/controlActionLightPurple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/controlActionPurple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/downArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/leftArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/map01.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/map02.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/map03.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/rightArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/upArrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/Mario.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/Mario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/B2WorldCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/B2WorldCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/maps/map04.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/resources/main/maps/map04.tmx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,6 +174,11 @@
           <url>file://$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/TileObject.java</url>
           <line>75</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/enemies/Turtle.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
