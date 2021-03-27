@@ -6,6 +6,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -31,7 +33,11 @@ public class Controller implements Disposable {
     private boolean leftActionPressed;
     private boolean rightActionPressed;
 
+    private TextureAtlas textureAtlas;
+
     public Controller(SpriteBatch sb){
+        this.textureAtlas = new TextureAtlas("controller/Control.atlas");
+
         this.viewport = new FitViewport(MarioGame.V_WIDTH, MarioGame.V_HEIGHT, new OrthographicCamera());
         this.stage = new Stage(viewport, sb);
 
@@ -102,7 +108,7 @@ public class Controller implements Disposable {
 
         Gdx.input.setInputProcessor(stage);
 
-        Image upImg = new Image(new Texture("upArrow.png"));
+        Image upImg = new Image(new TextureRegion(textureAtlas.findRegion("upArrow"), 0, 0, 80, 80));
         upImg.setSize(SIZE_BTN, SIZE_BTN);
         upImg.addListener(new InputListener() {
 
@@ -118,7 +124,7 @@ public class Controller implements Disposable {
             }
         });
 
-        Image downImg = new Image(new Texture("downArrow.png"));
+        Image downImg = new Image(new TextureRegion(textureAtlas.findRegion("downArrow"), 0, 0, 80, 80));
         downImg.setSize(SIZE_BTN, SIZE_BTN);
         downImg.addListener(new InputListener() {
 
@@ -134,7 +140,7 @@ public class Controller implements Disposable {
             }
         });
 
-        Image rightImg = new Image(new Texture("rightArrow.png"));
+        Image rightImg = new Image(new TextureRegion(textureAtlas.findRegion("rightArrow"), 0, 0, 80, 80));
         rightImg.setSize(SIZE_BTN, SIZE_BTN);
         rightImg.addListener(new InputListener() {
 
@@ -150,7 +156,7 @@ public class Controller implements Disposable {
             }
         });
 
-        Image leftImg = new Image(new Texture("leftArrow.png"));
+        Image leftImg = new Image(new TextureRegion(textureAtlas.findRegion("leftArrow"), 0, 0, 80, 80));
         leftImg.setSize(SIZE_BTN, SIZE_BTN);
         leftImg.addListener(new InputListener() {
 
@@ -166,7 +172,7 @@ public class Controller implements Disposable {
             }
         });
 
-        Image upActionImg = new Image(new Texture("controlActionLightPurple.png"));
+        Image upActionImg = new Image(new TextureRegion(textureAtlas.findRegion("controlActionLightPurple"), 0, 0, 80, 81));
         upActionImg.setSize(SIZE_BTN, SIZE_BTN);
         upActionImg.addListener(new InputListener() {
             @Override
@@ -181,7 +187,7 @@ public class Controller implements Disposable {
             }
         });
 
-        Image leftActionImg = new Image(new Texture("controlActionLightPurple.png"));
+        Image leftActionImg = new Image(new TextureRegion(textureAtlas.findRegion("controlActionLightPurple"), 0, 0, 80, 81));
         leftActionImg.setSize(SIZE_BTN, SIZE_BTN);
         leftActionImg.addListener(new InputListener() {
             @Override
@@ -196,7 +202,7 @@ public class Controller implements Disposable {
             }
         });
 
-        Image rightActionImg = new Image(new Texture("controlActionPurple.png"));
+        Image rightActionImg = new Image(new TextureRegion(textureAtlas.findRegion("controlActionLightPurple"), 0, 0, 81, 79));
         rightActionImg.setSize(SIZE_BTN, SIZE_BTN);
         rightActionImg.addListener(new InputListener() {
             @Override
@@ -211,7 +217,7 @@ public class Controller implements Disposable {
             }
         });
 
-        Image downActionImg = new Image(new Texture("controlActionPurple.png"));
+        Image downActionImg = new Image(new TextureRegion(textureAtlas.findRegion("controlActionLightPurple"), 0, 0, 81, 79));
         downActionImg.setSize(SIZE_BTN, SIZE_BTN);
         downActionImg.addListener(new InputListener() {
             @Override
@@ -264,7 +270,7 @@ public class Controller implements Disposable {
         tableBackgroundActions.setBounds(0,0,MarioGame.V_WIDTH, MarioGame.V_HEIGHT);
         tableBackgroundActions.bottom().right().padRight(3).padTop(3);
 
-        Image actionBackgroundImg = new Image(new Texture("actionBackground.png"));
+        Image actionBackgroundImg = new Image(new TextureRegion(textureAtlas.findRegion("actionBackground"), 0, 0, 162, 163));
         actionBackgroundImg.setSize(73, 73);
         tableBackgroundActions.add(actionBackgroundImg).size(actionBackgroundImg.getWidth(), actionBackgroundImg.getHeight());;
 

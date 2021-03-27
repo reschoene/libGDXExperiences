@@ -1,7 +1,7 @@
-br/com/reschoene/mariobros/screens/InfoScreen.java
- br.com.reschoene.mariobros.screens.InfoScreen
-br/com/reschoene/mariobros/sprites/tileObjects/Ground.java
- br.com.reschoene.mariobros.sprites.tileObjects.Ground
+br/com/reschoene/mariobros/sprites/items/ItemDef.java
+ br.com.reschoene.mariobros.sprites.items.ItemDef
+br/com/reschoene/mariobros/screens/GameAtlas.java
+ br.com.reschoene.mariobros.screens.GameAtlas
 br/com/reschoene/mariobros/util/GameState.java
  br.com.reschoene.mariobros.util.GameState
 br/com/reschoene/mariobros/audio/AudioManager.java
@@ -10,10 +10,10 @@ br/com/reschoene/mariobros/scenes/MapLayers.java
  br.com.reschoene.mariobros.scenes.MapLayers
 br/com/reschoene/mariobros/MarioGame.java
  br.com.reschoene.mariobros.MarioGame
-br/com/reschoene/mariobros/screens/GameAtlas.java
- br.com.reschoene.mariobros.screens.GameAtlas
-br/com/reschoene/mariobros/sprites/items/FirePower.java
- br.com.reschoene.mariobros.sprites.items.FirePower
+br/com/reschoene/mariobros/scenes/Hud.java
+ br.com.reschoene.mariobros.scenes.Hud
+br/com/reschoene/mariobros/collison/FixtureFilterBits.java
+ br.com.reschoene.mariobros.collison.FixtureFilterBits
 br/com/reschoene/mariobros/scenes/Controller.java
  br.com.reschoene.mariobros.scenes.Controller
  br.com.reschoene.mariobros.scenes.Controller$1
@@ -25,48 +25,30 @@ br/com/reschoene/mariobros/scenes/Controller.java
  br.com.reschoene.mariobros.scenes.Controller$7
  br.com.reschoene.mariobros.scenes.Controller$8
  br.com.reschoene.mariobros.scenes.Controller$9
-br/com/reschoene/mariobros/scenes/Hud.java
- br.com.reschoene.mariobros.scenes.Hud
-br/com/reschoene/mariobros/sprites/tileObjects/Block.java
- br.com.reschoene.mariobros.sprites.tileObjects.Block
-br/com/reschoene/mariobros/collison/FixtureFilterBits.java
- br.com.reschoene.mariobros.collison.FixtureFilterBits
-br/com/reschoene/mariobros/sprites/tileObjects/Pipe.java
- br.com.reschoene.mariobros.sprites.tileObjects.Pipe
-br/com/reschoene/mariobros/sprites/tileObjects/TileObject.java
- br.com.reschoene.mariobros.sprites.tileObjects.TileObject
-br/com/reschoene/mariobros/sprites/items/FireBall.java
- br.com.reschoene.mariobros.sprites.items.FireBall
-br/com/reschoene/mariobros/sprites/items/ItemDef.java
- br.com.reschoene.mariobros.sprites.items.ItemDef
 br/com/reschoene/mariobros/screens/GameOverScreen.java
  br.com.reschoene.mariobros.screens.GameOverScreen
-br/com/reschoene/mariobros/collison/WorldContactListener.java
- br.com.reschoene.mariobros.collison.WorldContactListener
-br/com/reschoene/mariobros/sprites/enemies/Goomba.java
- br.com.reschoene.mariobros.sprites.enemies.Goomba
+br/com/reschoene/mariobros/util/B2WorldCreator.java
+ br.com.reschoene.mariobros.util.B2WorldCreator
 br/com/reschoene/mariobros/sprites/items/Mushroom.java
  br.com.reschoene.mariobros.sprites.items.Mushroom
-br/com/reschoene/mariobros/sprites/items/Flower.java
- br.com.reschoene.mariobros.sprites.items.Flower
+br/com/reschoene/mariobros/sprites/items/FirePower.java
+ br.com.reschoene.mariobros.sprites.items.FirePower
 br/com/reschoene/mariobros/screens/PlayScreen.java
  br.com.reschoene.mariobros.screens.PlayScreen
-br/com/reschoene/mariobros/sprites/tileObjects/BrickCoin.java
- br.com.reschoene.mariobros.sprites.tileObjects.BrickCoin
 br/com/reschoene/mariobros/sprites/items/Item.java
  br.com.reschoene.mariobros.sprites.items.Item
 br/com/reschoene/mariobros/sprites/tileObjects/Brick.java
  br.com.reschoene.mariobros.sprites.tileObjects.Brick
-br/com/reschoene/mariobros/sprites/tileObjects/Hittable.java
- br.com.reschoene.mariobros.sprites.tileObjects.Hittable
+br/com/reschoene/mariobros/sprites/tileObjects/Block.java
+ br.com.reschoene.mariobros.sprites.tileObjects.Block
 br/com/reschoene/mariobros/sprites/enemies/DestroyableEnemy.java
  br.com.reschoene.mariobros.sprites.enemies.DestroyableEnemy
+br/com/reschoene/mariobros/sprites/tileObjects/TileObject.java
+ br.com.reschoene.mariobros.sprites.tileObjects.TileObject
 br/com/reschoene/mariobros/sprites/enemies/Turtle.java
  br.com.reschoene.mariobros.sprites.enemies.Turtle
  br.com.reschoene.mariobros.sprites.enemies.Turtle$1
  br.com.reschoene.mariobros.sprites.enemies.Turtle$State
-br/com/reschoene/mariobros/sprites/tileObjects/FlagPole.java
- br.com.reschoene.mariobros.sprites.tileObjects.FlagPole
 br/com/reschoene/mariobros/sprites/Mario.java
  br.com.reschoene.mariobros.sprites.Mario
  br.com.reschoene.mariobros.sprites.Mario$1
@@ -77,7 +59,25 @@ br/com/reschoene/mariobros/sprites/tileObjects/HeadHittable.java
  br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable
 br/com/reschoene/mariobros/sprites/tileObjects/Flag.java
  br.com.reschoene.mariobros.sprites.tileObjects.Flag
-br/com/reschoene/mariobros/util/B2WorldCreator.java
- br.com.reschoene.mariobros.util.B2WorldCreator
+br/com/reschoene/mariobros/collison/WorldContactListener.java
+ br.com.reschoene.mariobros.collison.WorldContactListener
+br/com/reschoene/mariobros/sprites/enemies/Goomba.java
+ br.com.reschoene.mariobros.sprites.enemies.Goomba
+br/com/reschoene/mariobros/sprites/tileObjects/Ground.java
+ br.com.reschoene.mariobros.sprites.tileObjects.Ground
+br/com/reschoene/mariobros/screens/InfoScreen.java
+ br.com.reschoene.mariobros.screens.InfoScreen
+br/com/reschoene/mariobros/sprites/items/FireBall.java
+ br.com.reschoene.mariobros.sprites.items.FireBall
+br/com/reschoene/mariobros/sprites/items/Flower.java
+ br.com.reschoene.mariobros.sprites.items.Flower
 br/com/reschoene/mariobros/sprites/tileObjects/Coin.java
  br.com.reschoene.mariobros.sprites.tileObjects.Coin
+br/com/reschoene/mariobros/sprites/tileObjects/Hittable.java
+ br.com.reschoene.mariobros.sprites.tileObjects.Hittable
+br/com/reschoene/mariobros/sprites/tileObjects/Pipe.java
+ br.com.reschoene.mariobros.sprites.tileObjects.Pipe
+br/com/reschoene/mariobros/sprites/tileObjects/FlagPole.java
+ br.com.reschoene.mariobros.sprites.tileObjects.FlagPole
+br/com/reschoene/mariobros/sprites/tileObjects/BrickCoin.java
+ br.com.reschoene.mariobros.sprites.tileObjects.BrickCoin

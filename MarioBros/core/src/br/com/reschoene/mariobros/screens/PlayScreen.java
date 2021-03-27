@@ -76,7 +76,7 @@ public class PlayScreen implements Screen {
         controller = new Controller(game.batch);
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load(mapFileName);
+        map = mapLoader.load("maps/"+mapFileName);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MarioGame.PPM);
 
         gamecam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2, 0);

@@ -1,0 +1,55 @@
+
+Control.png
+size: 512, 256
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+actionBackground
+  rotate: false
+  xy: 2, 85
+  size: 162, 163
+  orig: 162, 163
+  offset: 0, 0
+  index: -1
+controlActionLightPurple
+  rotate: false
+  xy: 2, 2
+  size: 80, 81
+  orig: 80, 81
+  offset: 0, 0
+  index: -1
+controlActionPurple
+  rotate: false
+  xy: 166, 169
+  size: 81, 79
+  orig: 81, 79
+  offset: 0, 0
+  index: -1
+downArrow
+  rotate: false
+  xy: 84, 3
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+leftArrow
+  rotate: false
+  xy: 166, 87
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+rightArrow
+  rotate: false
+  xy: 166, 5
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+upArrow
+  rotate: false
+  xy: 249, 168
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
