@@ -142,7 +142,7 @@ public class Mario extends Sprite {
         //maskBits defines whats this fixture collides with
         fdef.filter.categoryBits = MARIO_BIT.getValue();
         fdef.filter.maskBits = combine(GROUND_BIT, BLOCK_BIT, COIN_BIT, BRICK_BIT,
-                ENEMY_BIT, OBJECT_BIT, ENEMY_HEAD_BIT, ITEM_BIT);
+                ENEMY_BIT, OBJECT_BIT, ENEMY_HEAD_BIT, ITEM_BIT, BOWSER_BIT);
 
         fdef.shape = shape;
         b2Body.createFixture(fdef).setUserData(this);

@@ -1,39 +1,32 @@
 package br.com.reschoene.mariobros.util;
 
 import br.com.reschoene.mariobros.MarioGame;
-import br.com.reschoene.mariobros.sprites.enemies.Bowser;
-import br.com.reschoene.mariobros.sprites.tileObjects.Flag;
-import br.com.reschoene.mariobros.sprites.tileObjects.FlagPole;
 import br.com.reschoene.mariobros.scenes.MapLayers;
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.sprites.enemies.Bowser;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.enemies.Goomba;
 import br.com.reschoene.mariobros.sprites.enemies.Turtle;
 import br.com.reschoene.mariobros.sprites.tileObjects.*;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Array;
 
 public class B2WorldCreator {
     private final TiledMap map;
     private final World world;
     private final PlayScreen screen;
-    private final Stage stage;
     private Array<Goomba> goombas;
     private Array<Turtle> turtles;
     private Flag flag;
+    private Bowser bowser;
 
-    public B2WorldCreator(PlayScreen screen, Stage stage) {
+    public B2WorldCreator(PlayScreen screen) {
         this.screen = screen;
         this.world = screen.getWorld();
         this.map = screen.getMap();
-        this.stage = stage;
     }
 
     public void createMapObjects() {
@@ -55,8 +48,10 @@ public class B2WorldCreator {
                 this.flag = new Flag(screen, object.getRectangle());
             else if (object.getProperties().containsKey("haste"))
                 flagPole = new FlagPole(screen, object);
-            else if (object.getProperties().containsKey("bowser"))
-                stage.addActor(new Bowser(object.getRectangle().x, object.getRectangle().y));
+            else if (object.getProperties().containsKey("bowser")){
+                Rectangle rect = object.getRectangle();
+                this.bowser = new Bowser(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM);
+            }
             else
                 new Block(screen, object);
         }
@@ -96,5 +91,9 @@ public class B2WorldCreator {
 
     public Flag getFlag() {
         return flag;
+    }
+
+    public Bowser getBowser() {
+        return bowser;
     }
 }

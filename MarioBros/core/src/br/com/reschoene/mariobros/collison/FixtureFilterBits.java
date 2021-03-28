@@ -13,7 +13,8 @@ public enum FixtureFilterBits {
     BLOCK_BIT(256),
     ITEM_BIT(512),
     MARIO_HEAD_BIT(1024),
-    FIREBALL_BIT(2048);
+    FIREBALL_BIT(2048),
+    BOWSER_BIT(4096);
 
     private final short value;
 

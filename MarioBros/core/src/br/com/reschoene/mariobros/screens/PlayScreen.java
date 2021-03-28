@@ -64,10 +64,6 @@ public class PlayScreen implements Screen {
     private boolean hasMapToChange = false;
     private boolean changeScreenToLives = false;
 
-    private Stage stage;
-    private OrthographicCamera stageCam;
-
-
     //result of number of ground tiles * width of a ground tile = screen pixels
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
 
@@ -77,7 +73,6 @@ public class PlayScreen implements Screen {
         this.game = game;
         this.mapFileName = GameState.currentMapFileName;
         gamecam = new OrthographicCamera();
-        stageCam = new OrthographicCamera();
         gamePort = new FitViewport(MarioGame.V_WIDTH / MarioGame.PPM, MarioGame.V_HEIGHT / MarioGame.PPM, gamecam);
         hud = new Hud(game.batch);
         controller = new Controller(game.batch);
@@ -87,14 +82,11 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MarioGame.PPM);
 
         gamecam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2, 0);
-        stageCam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2, 0);
 
         world = new World(new Vector2(0, -10), true);
         b2dr = new Box2DDebugRenderer();
 
-        this.stage = new Stage(new FitViewport(MarioGame.V_WIDTH, MarioGame.V_HEIGHT, stageCam), game.batch);
-
-        creator = new B2WorldCreator(this, stage);
+        creator = new B2WorldCreator(this);
         creator.createMapObjects();
 
         player = new Mario(this);
@@ -175,15 +167,13 @@ public class PlayScreen implements Screen {
         if(creator.getFlag() != null)
             creator.getFlag().update(delta);
 
-        stage.act(delta);
+        if(creator.getBowser() != null)
+            creator.getBowser().update(delta);
 
-        if(player.currentState != Mario.State.DEAD) {
+        if(player.currentState != Mario.State.DEAD)
             gamecam.position.x = player.b2Body.getPosition().x;
-            stageCam.position.x = player.b2Body.getPosition().x * MarioGame.PPM;
-        }
 
         gamecam.update();
-        stageCam.update();
         renderer.setView(gamecam);
     }
 
@@ -200,7 +190,7 @@ public class PlayScreen implements Screen {
 
         renderer.render();
 
-        //b2dr.render(world, gamecam.combined);
+        b2dr.render(world, gamecam.combined);
 
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
@@ -215,10 +205,10 @@ public class PlayScreen implements Screen {
         if(creator.getFlag() != null)
             creator.getFlag().draw(game.batch);
 
-        game.batch.end();
+        if(creator.getBowser() != null)
+            creator.getBowser().draw(game.batch);
 
-        game.batch.setProjectionMatrix(stageCam.combined);
-        stage.draw();
+        game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
@@ -291,7 +281,6 @@ public class PlayScreen implements Screen {
         renderer.dispose();
         world.dispose();
         b2dr.dispose();
-        stage.dispose();
         hud.dispose();
         controller.dispose();
     }
