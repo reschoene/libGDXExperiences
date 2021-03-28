@@ -1,6 +1,5 @@
 package br.com.reschoene.mariobros.sprites.tileObjects;
 
-import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;

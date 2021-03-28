@@ -17,6 +17,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -26,6 +27,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -62,6 +64,10 @@ public class PlayScreen implements Screen {
     private boolean hasMapToChange = false;
     private boolean changeScreenToLives = false;
 
+    private Stage stage;
+    private OrthographicCamera stageCam;
+
+
     //result of number of ground tiles * width of a ground tile = screen pixels
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
 
@@ -71,6 +77,7 @@ public class PlayScreen implements Screen {
         this.game = game;
         this.mapFileName = GameState.currentMapFileName;
         gamecam = new OrthographicCamera();
+        stageCam = new OrthographicCamera();
         gamePort = new FitViewport(MarioGame.V_WIDTH / MarioGame.PPM, MarioGame.V_HEIGHT / MarioGame.PPM, gamecam);
         hud = new Hud(game.batch);
         controller = new Controller(game.batch);
@@ -80,11 +87,14 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MarioGame.PPM);
 
         gamecam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2, 0);
+        stageCam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2, 0);
 
         world = new World(new Vector2(0, -10), true);
         b2dr = new Box2DDebugRenderer();
 
-        creator = new B2WorldCreator(this);
+        this.stage = new Stage(new FitViewport(MarioGame.V_WIDTH, MarioGame.V_HEIGHT, stageCam), game.batch);
+
+        creator = new B2WorldCreator(this, stage);
         creator.createMapObjects();
 
         player = new Mario(this);
@@ -97,7 +107,6 @@ public class PlayScreen implements Screen {
 
         items = new Array<>();
         itemsToSpawn = new LinkedBlockingDeque<>();
-
     }
 
     public void changeMap(){
@@ -166,10 +175,15 @@ public class PlayScreen implements Screen {
         if(creator.getFlag() != null)
             creator.getFlag().update(delta);
 
-        if(player.currentState != Mario.State.DEAD)
+        stage.act(delta);
+
+        if(player.currentState != Mario.State.DEAD) {
             gamecam.position.x = player.b2Body.getPosition().x;
+            stageCam.position.x = player.b2Body.getPosition().x * MarioGame.PPM;
+        }
 
         gamecam.update();
+        stageCam.update();
         renderer.setView(gamecam);
     }
 
@@ -203,8 +217,12 @@ public class PlayScreen implements Screen {
 
         game.batch.end();
 
+        game.batch.setProjectionMatrix(stageCam.combined);
+        stage.draw();
+
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+
         if(Gdx.app.getType() == Application.ApplicationType.Android)
             controller.draw();
 
@@ -273,6 +291,7 @@ public class PlayScreen implements Screen {
         renderer.dispose();
         world.dispose();
         b2dr.dispose();
+        stage.dispose();
         hud.dispose();
         controller.dispose();
     }
