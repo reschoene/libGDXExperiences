@@ -4,6 +4,8 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.GameAtlas;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
+import br.com.reschoene.mariobros.sprites.enemies.action.ActionManager;
+import br.com.reschoene.mariobros.sprites.enemies.action.Executable;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -12,13 +14,10 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 
 public class Bowser extends DestroyableEnemy {
-    private Animation runningAnimation;
+    private Animation runningLeftAnim, runningRightAnim;
     private TextureRegion standingTexture;
 
     private State currentState;
@@ -26,21 +25,80 @@ public class Bowser extends DestroyableEnemy {
 
     public enum State {STANDING, RUNNING}
 
-    private List<Vector2> movements;
-    private int iMov = 0;
+    private ActionManager actionManager;
 
     public Bowser(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         setBounds(getX(), getY(), 35 / MarioGame.PPM, 32 / MarioGame.PPM);
         loadAnimations();
         b2Body.setActive(true);
-        loadMovements();
+        setActions();
     }
 
-    private void loadMovements() {
-        movements = new ArrayList<>();
-        movements.add(new Vector2(-2, 0));
-        movements.add(new Vector2(2, 0));
+    private void setActions() {
+        actionManager = new ActionManager();
+        actionManager.addAction(2f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(2, 0), b2Body.getWorldCenter(), true);
+            }
+        });
+
+        actionManager.addAction(2f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(-2, 0), b2Body.getWorldCenter(), true);
+            }
+        });
+
+        actionManager.addAction(2f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(2, 0), b2Body.getWorldCenter(), true);
+            }
+        });
+
+        actionManager.addAction(2f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(-2, 4), b2Body.getWorldCenter(), true);
+            }
+        });
+
+        actionManager.addAction(2f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(2, 4), b2Body.getWorldCenter(), true);
+            }
+        });
+
+        actionManager.addAction(1f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(-2, 0), b2Body.getWorldCenter(), true);
+            }
+        });
+
+        actionManager.addAction(1f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(2, 0), b2Body.getWorldCenter(), true);
+            }
+        });
+
+        actionManager.addAction(1f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(-2, 0), b2Body.getWorldCenter(), true);
+            }
+        });
+
+        actionManager.addAction(1f, new Executable() {
+            @Override
+            public void execute() {
+                b2Body.applyLinearImpulse(new Vector2(0, 4), b2Body.getWorldCenter(), true);
+            }
+        });
     }
 
     @Override
@@ -72,7 +130,13 @@ public class Bowser extends DestroyableEnemy {
 
         for (int i = 0; i < 3; i++)
             frames.add(new TextureRegion(GameAtlas.getAtlas().findRegion("bowser"), (i*35), 0, 35, 32));
-        runningAnimation = new Animation(0.1f, frames);
+        runningLeftAnim = new Animation(0.1f, frames);
+
+        frames.clear();
+
+        for (int i = 2; i >= 0; i--)
+            frames.add(new TextureRegion(GameAtlas.getAtlas().findRegion("bowser"), (i*35), 0, 35, 32));
+        runningRightAnim = new Animation(0.1f, frames);
 
         standingTexture = new TextureRegion(GameAtlas.getAtlas().findRegion("bowser"), 35*4, 0, 35, 32);
     }
@@ -80,12 +144,7 @@ public class Bowser extends DestroyableEnemy {
     public void update(float delta) {
         setRegion(getFrame(delta));
         setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight()/2);
-
-        if (b2Body.getLinearVelocity().x == 0){
-            iMov = iMov % movements.size();
-            b2Body.applyLinearImpulse(movements.get(iMov), b2Body.getWorldCenter(), true);
-            iMov++;
-        }
+        actionManager.update(delta);
     }
 
     @Override
@@ -117,7 +176,10 @@ public class Bowser extends DestroyableEnemy {
                 region = standingTexture;
                 break;
             case RUNNING:
-                region = (TextureRegion) runningAnimation.getKeyFrame(stateTime, true);
+                if(b2Body.getLinearVelocity().x > 0)
+                    region = (TextureRegion) runningRightAnim.getKeyFrame(stateTime, true);
+                else
+                    region = (TextureRegion) runningLeftAnim.getKeyFrame(stateTime, true);
                 break;
             default:
                 region = standingTexture;

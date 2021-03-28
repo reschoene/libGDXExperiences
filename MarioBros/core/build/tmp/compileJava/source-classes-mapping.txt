@@ -77,11 +77,26 @@ br/com/reschoene/mariobros/sprites/tileObjects/Coin.java
  br.com.reschoene.mariobros.sprites.tileObjects.Coin
 br/com/reschoene/mariobros/sprites/tileObjects/Hittable.java
  br.com.reschoene.mariobros.sprites.tileObjects.Hittable
+br/com/reschoene/mariobros/sprites/enemies/action/Executable.java
+ br.com.reschoene.mariobros.sprites.enemies.action.Executable
+br/com/reschoene/mariobros/sprites/enemies/action/ActionManaged.java
+ br.com.reschoene.mariobros.sprites.enemies.action.ActionManaged
+br/com/reschoene/mariobros/sprites/enemies/action/ActionManager.java
+ br.com.reschoene.mariobros.sprites.enemies.action.ActionManager
 br/com/reschoene/mariobros/util/B2WorldCreator.java
  br.com.reschoene.mariobros.util.B2WorldCreator
 br/com/reschoene/mariobros/sprites/enemies/Bowser.java
  br.com.reschoene.mariobros.sprites.enemies.Bowser
  br.com.reschoene.mariobros.sprites.enemies.Bowser$1
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$10
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$2
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$3
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$4
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$5
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$6
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$7
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$8
+ br.com.reschoene.mariobros.sprites.enemies.Bowser$9
  br.com.reschoene.mariobros.sprites.enemies.Bowser$State
 br/com/reschoene/mariobros/screens/PlayScreen.java
  br.com.reschoene.mariobros.screens.PlayScreen
