@@ -22,6 +22,8 @@ public class B2WorldCreator {
     private Array<Turtle> turtles;
     private Flag flag;
     private Bowser bowser;
+    private Bridge bridge;
+    private Axe axe;
 
     public B2WorldCreator(PlayScreen screen) {
         this.screen = screen;
@@ -52,11 +54,21 @@ public class B2WorldCreator {
                 Rectangle rect = object.getRectangle();
                 this.bowser = new Bowser(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM);
             }
+            else if (object.getProperties().containsKey("bridge")){
+                Rectangle rect = object.getRectangle();
+                this.bridge = new Bridge(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM, rect.width/ MarioGame.PPM, rect.height/ MarioGame.PPM);
+            }
+            else if (object.getProperties().containsKey("axe"))
+                this.axe = new Axe(screen, object);
             else
                 new Block(screen, object);
         }
         if (this.flag != null && flagPole != null) {
             flagPole.flag = this.flag;
+        }
+
+        if(this.bridge != null && this.axe != null){
+            this.axe.bridge = this.bridge;
         }
 
         //create all gombas
@@ -95,5 +107,9 @@ public class B2WorldCreator {
 
     public Bowser getBowser() {
         return bowser;
+    }
+
+    public Bridge getBridge() {
+        return bridge;
     }
 }

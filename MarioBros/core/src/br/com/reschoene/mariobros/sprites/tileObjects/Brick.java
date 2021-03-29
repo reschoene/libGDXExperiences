@@ -6,6 +6,7 @@ import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 
 public class Brick extends TileObject implements HeadHittable {
     public Brick(PlayScreen screen, MapObject mapObject) {

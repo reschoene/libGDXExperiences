@@ -170,6 +170,9 @@ public class PlayScreen implements Screen {
         if(creator.getBowser() != null)
             creator.getBowser().update(delta);
 
+        if(creator.getBridge() != null)
+            creator.getBridge().update(delta);
+
         if(player.currentState != Mario.State.DEAD)
             gamecam.position.x = player.b2Body.getPosition().x;
 
@@ -190,7 +193,7 @@ public class PlayScreen implements Screen {
 
         renderer.render();
 
-        b2dr.render(world, gamecam.combined);
+        //b2dr.render(world, gamecam.combined);
 
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
@@ -207,6 +210,9 @@ public class PlayScreen implements Screen {
 
         if(creator.getBowser() != null)
             creator.getBowser().draw(game.batch);
+
+        if(creator.getBridge() != null)
+            creator.getBridge().draw(game.batch);
 
         game.batch.end();
 

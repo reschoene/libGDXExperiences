@@ -71,3 +71,11 @@ v
 Fcore/src/br/com/reschoene/mariobros/sprites/tileObjects/BrickCoin.java,2/e/2edb7aaa0d2e1967eed857280c049051642d2b5e
 u
 Ecore/src/br/com/reschoene/mariobros/sprites/tileObjects/Hittable.java,c/b/cba4da180d2f89b58e814894fcca0b40531fbce2
+}
+Mcore/src/br/com/reschoene/mariobros/sprites/enemies/action/ActionManaged.java,7/d/7d141e1e7aa7ad63e98f5ea28e6ba338ecad7165
+z
+Jcore/src/br/com/reschoene/mariobros/sprites/enemies/action/Executable.java,b/3/b378fdd503b7128bb512ac5aa943fba938169436
+}
+Mcore/src/br/com/reschoene/mariobros/sprites/enemies/action/ActionManager.java,4/9/4937abde9cfed66fc74d98e726723db2e95bc2b1
+o
+?core/src/br/com/reschoene/mariobros/sprites/enemies/Bowser.java,c/0/c0b2b3263c08b45d350c4d17bd3e11529e9d130b

@@ -1,13 +1,10 @@
 package br.com.reschoene.mariobros.collison;
 
-import br.com.reschoene.mariobros.sprites.tileObjects.FlagPole;
+import br.com.reschoene.mariobros.sprites.tileObjects.*;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Item;
-import br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable;
 import br.com.reschoene.mariobros.sprites.Mario;
-import br.com.reschoene.mariobros.sprites.tileObjects.Hittable;
-import br.com.reschoene.mariobros.sprites.tileObjects.Pipe;
 import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.physics.box2d.*;
@@ -58,6 +55,10 @@ public class WorldContactListener implements ContactListener {
             objs = getObjsByFilterType(fixA, fixB, ENEMY_BIT);
             ((Enemy) objs.get(0)).onFireBallHit();
         }
+        else if (cDef == combine(FIREBALL_BIT, MARIO_BIT)){
+            objs = getObjsByFilterType(fixA, fixB, MARIO_BIT);
+            ((Mario) objs.get(0)).onFireBallHit();
+        }
         else if ((cDef == combine(ITEM_BIT, OBJECT_BIT)) || (cDef == combine(ITEM_BIT, BLOCK_BIT))) {
             objs = getObjsByFilterType(fixA, fixB, ITEM_BIT);
             ((Item) objs.get(0)).reverseVelocity(true, false);
@@ -88,6 +89,9 @@ public class WorldContactListener implements ContactListener {
                 flagPole.flag.goesUp();
 
                 ((Mario)objs.get(1)).animateExitRight();
+            }else if (objs.get(0) instanceof Axe){
+                Axe axe = (Axe) objs.get(0);
+                axe.cutBridge();
             }
         }
     }

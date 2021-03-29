@@ -2,6 +2,7 @@ package br.com.reschoene.mariobros.sprites.items;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -12,6 +13,7 @@ import com.badlogic.gdx.utils.Array;
 import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 
 public class FireBall extends Sprite {
+    private final Sprite owner;
     private PlayScreen screen;
     private World world;
     private Array<TextureRegion> frames;
@@ -22,10 +24,11 @@ public class FireBall extends Sprite {
     private boolean fireRight;
     private Body b2body;
 
-    public FireBall(PlayScreen screen, float x, float y, boolean fireRight){
+    public FireBall(PlayScreen screen, float x, float y, boolean fireRight, Sprite owner){
         this.fireRight = fireRight;
         this.screen = screen;
         this.world = screen.getWorld();
+        this.owner = owner;
 
         frames = new Array<TextureRegion>();
         for(int i = 0; i < 4; i++){
@@ -52,7 +55,11 @@ public class FireBall extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(3 / MarioGame.PPM);
         fdef.filter.categoryBits = FIREBALL_BIT.getValue();
-        fdef.filter.maskBits = combine(GROUND_BIT, COIN_BIT, BLOCK_BIT, BRICK_BIT, ENEMY_BIT, OBJECT_BIT);
+
+        if (owner instanceof Mario)
+            fdef.filter.maskBits = combine(GROUND_BIT, COIN_BIT, BLOCK_BIT, BRICK_BIT, ENEMY_BIT, OBJECT_BIT);
+        else
+            fdef.filter.maskBits = combine(GROUND_BIT, COIN_BIT, BLOCK_BIT, BRICK_BIT, OBJECT_BIT, MARIO_BIT);
 
         fdef.shape = shape;
         fdef.restitution = 1;

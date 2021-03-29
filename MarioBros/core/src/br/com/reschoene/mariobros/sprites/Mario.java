@@ -124,7 +124,7 @@ public class Mario extends Sprite {
             setBounds(getX(), getY(), getWidth(), getHeight() * 2);
         }
 
-        firePower = new FirePower();
+        firePower = new FirePower(this, screen);
         firePower.setActive(GameState.hasFirePower);
     }
 
@@ -142,7 +142,7 @@ public class Mario extends Sprite {
         //maskBits defines whats this fixture collides with
         fdef.filter.categoryBits = MARIO_BIT.getValue();
         fdef.filter.maskBits = combine(GROUND_BIT, BLOCK_BIT, COIN_BIT, BRICK_BIT,
-                ENEMY_BIT, OBJECT_BIT, ENEMY_HEAD_BIT, ITEM_BIT, BOWSER_BIT);
+                ENEMY_BIT, OBJECT_BIT, ENEMY_HEAD_BIT, ITEM_BIT, FIREBALL_BIT);
 
         fdef.shape = shape;
         b2Body.createFixture(fdef).setUserData(this);
@@ -171,7 +171,7 @@ public class Mario extends Sprite {
 
         defineMario(currentPosition);
 
-        firePower.setActive(false);
+        firePower.setActive(true);
     }
 
     private void growMario() {
@@ -297,15 +297,23 @@ public class Mario extends Sprite {
         if (enemy instanceof Turtle && ((Turtle) enemy).getCurrentState() == Turtle.State.STANDING_SHELL) {
             ((Turtle) enemy).kick(this.getX() <= enemy.getX() ? Turtle.KICK_RIGHT_SPEED : Turtle.KICK_LEFT_SPEED);
         } else {
-            if (GameState.isBig) {
-                GameState.isBig = false;
-                timeToRedefineMario = true;
-                setBounds(getX(), getY(), getWidth(), getHeight() / 2);
-                AudioManager.getSoundByName("powerDown").play();
-            } else {
-                killMario(true);
-            }
+            sufferDamage();
         }
+    }
+
+    private void sufferDamage() {
+        if (GameState.isBig) {
+            GameState.isBig = false;
+            timeToRedefineMario = true;
+            setBounds(getX(), getY(), getWidth(), getHeight() / 2);
+            AudioManager.getSoundByName("powerDown").play();
+        } else {
+            killMario(true);
+        }
+    }
+
+    public void onFireBallHit(){
+        sufferDamage();
     }
 
     private void killMario(boolean animate) {
@@ -333,7 +341,7 @@ public class Mario extends Sprite {
 
     public void fire() {
         if (enabledControls)
-            firePower.fire(screen, b2Body, runningRight);
+            firePower.fire(b2Body.getPosition(), runningRight);
     }
 
     public void activateFirePower() {

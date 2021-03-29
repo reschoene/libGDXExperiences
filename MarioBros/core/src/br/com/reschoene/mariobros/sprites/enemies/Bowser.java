@@ -1,17 +1,18 @@
 package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.screens.GameAtlas;
 import br.com.reschoene.mariobros.screens.PlayScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.enemies.action.ActionManager;
 import br.com.reschoene.mariobros.sprites.enemies.action.Executable;
+import br.com.reschoene.mariobros.sprites.items.FirePower;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 
 import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
@@ -19,13 +20,20 @@ import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 public class Bowser extends DestroyableEnemy {
     private Animation runningLeftAnim, runningRightAnim;
     private TextureRegion standingTexture;
+    private TextureRegion firingTexture;
 
     private State currentState;
     private State previousState;
+    private boolean isDead;
+    private boolean firing;
 
-    public enum State {STANDING, RUNNING}
+    public enum State {DEAD, STANDING, RUNNING, FIRING}
 
     private ActionManager actionManager;
+
+    private FirePower firePower;
+
+    private int bowserLife = 100;
 
     public Bowser(PlayScreen screen, float x, float y) {
         super(screen, x, y);
@@ -33,10 +41,13 @@ public class Bowser extends DestroyableEnemy {
         loadAnimations();
         b2Body.setActive(true);
         setActions();
+        firePower = new FirePower(this, screen);
+        firePower.setActive(true);
     }
 
     private void setActions() {
         actionManager = new ActionManager();
+
         actionManager.addAction(2f, new Executable() {
             @Override
             public void execute() {
@@ -54,6 +65,24 @@ public class Bowser extends DestroyableEnemy {
         actionManager.addAction(2f, new Executable() {
             @Override
             public void execute() {
+                firing = true;
+                firePower.fire(b2Body.getPosition(), false);
+            }
+        });
+
+        for(int i=0; i<4; i++) {
+            actionManager.addAction(0.05f, new Executable() {
+                @Override
+                public void execute() {
+                    firePower.fire(b2Body.getPosition(), false);
+                }
+            });
+        }
+
+        actionManager.addAction(2f, new Executable() {
+            @Override
+            public void execute() {
+                firing = false;
                 b2Body.applyLinearImpulse(new Vector2(2, 0), b2Body.getWorldCenter(), true);
             }
         });
@@ -114,9 +143,9 @@ public class Bowser extends DestroyableEnemy {
 
         //categoryBits defines whats fixture is
         //maskBits defines whats this fixture collides with
-        fdef.filter.categoryBits = BOWSER_BIT.getValue();
+        fdef.filter.categoryBits = ENEMY_BIT.getValue();
         fdef.filter.maskBits = combine(GROUND_BIT, BLOCK_BIT, COIN_BIT, BRICK_BIT,
-                ENEMY_BIT, OBJECT_BIT, ENEMY_HEAD_BIT, ITEM_BIT, MARIO_BIT);
+                ENEMY_BIT, OBJECT_BIT, ENEMY_HEAD_BIT, ITEM_BIT, MARIO_BIT, FIREBALL_BIT);
 
         fdef.shape = shape;
         b2Body.createFixture(fdef).setUserData(this);
@@ -138,13 +167,18 @@ public class Bowser extends DestroyableEnemy {
             frames.add(new TextureRegion(GameAtlas.getAtlas().findRegion("bowser"), (i*35), 0, 35, 32));
         runningRightAnim = new Animation(0.1f, frames);
 
-        standingTexture = new TextureRegion(GameAtlas.getAtlas().findRegion("bowser"), 35*4, 0, 35, 32);
+        standingTexture = new TextureRegion(GameAtlas.getAtlas().findRegion("bowser"), 0, 0, 35, 32);
+        firingTexture = new TextureRegion(GameAtlas.getAtlas().findRegion("bowser"), 35*4, 0, 35, 32);
     }
 
     public void update(float delta) {
         setRegion(getFrame(delta));
         setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight()/2);
         actionManager.update(delta);
+        firePower.update(delta);
+
+        if (b2Body.getPosition().y < 0)
+            killBowser(false);
     }
 
     @Override
@@ -154,7 +188,23 @@ public class Bowser extends DestroyableEnemy {
 
     @Override
     public void onFireBallHit() {
+        bowserLife--;
 
+        if(bowserLife <= 0)
+            killBowser(true);
+    }
+
+    private void killBowser(boolean animate) {
+        if (!isDead) {
+            isDead = true;
+            Filter filter = new Filter();
+            filter.maskBits = FixtureFilterBits.NOTHING_BIT.getValue();
+            for (Fixture fixture : b2Body.getFixtureList())
+                fixture.setFilterData(filter);
+
+            if (animate)
+                b2Body.applyLinearImpulse(new Vector2(0, 4f), b2Body.getWorldCenter(), true);
+        }
     }
 
     @Override
@@ -175,6 +225,9 @@ public class Bowser extends DestroyableEnemy {
             case STANDING:
                 region = standingTexture;
                 break;
+            case FIRING:
+                region = firingTexture;
+                break;
             case RUNNING:
                 if(b2Body.getLinearVelocity().x > 0)
                     region = (TextureRegion) runningRightAnim.getKeyFrame(stateTime, true);
@@ -193,9 +246,20 @@ public class Bowser extends DestroyableEnemy {
     }
 
     public State getState() {
-        if (Math.abs(b2Body.getLinearVelocity().x) == 0)
+        if (isDead)
+            return State.DEAD;
+        else if (firing)
+            return State.FIRING;
+        else if (Math.abs(b2Body.getLinearVelocity().x) == 0)
             return State.STANDING;
         else
             return State.RUNNING;
+    }
+
+    @Override
+    public void draw(Batch batch) {
+        super.draw(batch);
+
+        firePower.draw(batch);
     }
 }
