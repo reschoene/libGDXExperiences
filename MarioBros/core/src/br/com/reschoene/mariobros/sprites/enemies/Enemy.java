@@ -1,7 +1,7 @@
 package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.MarioGame;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.tileObjects.HeadHittable;
 import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -14,12 +14,12 @@ import static br.com.reschoene.mariobros.collison.FixtureFilterBits.ENEMY_HEAD_B
 public abstract class Enemy extends Sprite implements HeadHittable {
     protected float stateTime;
     protected final World world;
-    protected final PlayScreen screen;
+    protected final LevelScreen screen;
     public Body b2Body;
     public Vector2 velocity;
     public boolean destroyed;
 
-    public Enemy(PlayScreen screen, float x, float y){
+    public Enemy(LevelScreen screen, float x, float y){
         this.world = screen.getWorld();
         this.screen = screen;
         setPosition(x, y);
@@ -77,6 +77,10 @@ public abstract class Enemy extends Sprite implements HeadHittable {
         setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2);
         velocity.y = b2Body.getLinearVelocity().y;
         b2Body.setLinearVelocity(velocity);
+    }
+
+    public void setActive(boolean active) {
+        b2Body.setActive(active);
     }
 
     public abstract void update(float delta);

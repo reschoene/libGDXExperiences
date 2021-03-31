@@ -1,7 +1,7 @@
 package br.com.reschoene.mariobros.sprites.items;
 
 import br.com.reschoene.mariobros.MarioGame;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -11,7 +11,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 
 public class Mushroom extends Item{
-    public Mushroom(PlayScreen screen, float x, float y) {
+    public Mushroom(LevelScreen screen, float x, float y) {
         super(screen, x, y);
         setRegion(screen.getAtlas().findRegion("mushroom"), 0, 0, 16, 16);
         velocity = new Vector2(0.7f, 0);

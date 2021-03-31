@@ -1,7 +1,7 @@
 package br.com.reschoene.mariobros.sprites.items;
 
 import br.com.reschoene.mariobros.MarioGame;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -14,7 +14,7 @@ import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 
 public class FireBall extends Sprite {
     private final Sprite owner;
-    private PlayScreen screen;
+    private LevelScreen screen;
     private World world;
     private Array<TextureRegion> frames;
     private Animation fireAnimation;
@@ -24,7 +24,7 @@ public class FireBall extends Sprite {
     private boolean fireRight;
     private Body b2body;
 
-    public FireBall(PlayScreen screen, float x, float y, boolean fireRight, Sprite owner){
+    public FireBall(LevelScreen screen, float x, float y, boolean fireRight, Sprite owner){
         this.fireRight = fireRight;
         this.screen = screen;
         this.world = screen.getWorld();

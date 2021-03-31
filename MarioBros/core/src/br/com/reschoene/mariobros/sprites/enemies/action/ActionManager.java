@@ -6,6 +6,7 @@ import java.util.List;
 public class ActionManager {
     private final List<ActionManaged> actions;
     private int actionIdxToProcess = 0;
+    private boolean active;
 
     public ActionManager(){
         this.actions = new ArrayList<>();
@@ -15,8 +16,12 @@ public class ActionManager {
         actions.add(new ActionManaged(timeToExecute, action));
     }
 
+    public void setActive(boolean active){
+        this.active = active;
+    }
+
     public void update(float dt){
-        if (actions.get(actionIdxToProcess).process(dt)){
+        if (active && actions.get(actionIdxToProcess).process(dt)){
             actionIdxToProcess++;
             actionIdxToProcess = (actionIdxToProcess % actions.size());
         }

@@ -2,7 +2,7 @@ package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -28,7 +28,7 @@ public class Turtle extends Enemy {
     private float deadRotationDegrees;
     private boolean hasWings;
 
-    public Turtle(PlayScreen screen, float x, float y, boolean hasWings) {
+    public Turtle(LevelScreen screen, float x, float y, boolean hasWings) {
         super(screen, x, y);
 
         this.hasWings = hasWings;

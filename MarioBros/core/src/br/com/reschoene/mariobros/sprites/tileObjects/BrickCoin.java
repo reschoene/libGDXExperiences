@@ -4,7 +4,7 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.scenes.Hud;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.items.ItemDef;
 import br.com.reschoene.mariobros.sprites.items.Mushroom;
@@ -16,7 +16,7 @@ public class BrickCoin extends TileObject implements HeadHittable{
     private static TiledMapTileSet tileSet;
     private final int BLACK_COIN = 28;
 
-    public BrickCoin(PlayScreen screen, MapObject mapObject) {
+    public BrickCoin(LevelScreen screen, MapObject mapObject) {
         super(screen, mapObject, FixtureFilterBits.COIN_BIT.getValue());
         tileSet = getTileSet();
         fixture.setUserData(this);

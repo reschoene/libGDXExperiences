@@ -6,7 +6,6 @@ import br.com.reschoene.mariobros.collison.WorldContactListener;
 import br.com.reschoene.mariobros.scenes.Controller;
 import br.com.reschoene.mariobros.scenes.Hud;
 import br.com.reschoene.mariobros.sprites.Mario;
-import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Flower;
 import br.com.reschoene.mariobros.sprites.items.Item;
 import br.com.reschoene.mariobros.sprites.items.ItemDef;
@@ -17,7 +16,6 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -27,14 +25,13 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.concurrent.LinkedBlockingDeque;
 
-public class PlayScreen implements Screen {
+public class LevelScreen implements Screen {
     public final String mapFileName;
     private MarioGame game;
     private TextureAtlas atlas;
@@ -64,10 +61,7 @@ public class PlayScreen implements Screen {
     private boolean hasMapToChange = false;
     private boolean changeScreenToLives = false;
 
-    //result of number of ground tiles * width of a ground tile = screen pixels
-    private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
-
-    public PlayScreen(MarioGame game) {
+    public LevelScreen(MarioGame game) {
         atlas = GameAtlas.getAtlas();
 
         this.game = game;
@@ -143,41 +137,30 @@ public class PlayScreen implements Screen {
         }
     }
 
-    public void update(float delta){
+    public void update(float dt){
         handleInput();
         handleSpawnItems();
 
         world.step(1/60f /*60 times per second*/, 6, 2);
 
-        player.update(delta);
-        hud.update(delta);
-
-        for(Enemy enemy : creator.getEnemies()){
-            enemy.update(delta);
-
-            if(!enemy.destroyed)
-                if (enemy.getX() < player.getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/ MarioGame.PPM)) {
-                    enemy.b2Body.setActive(true);
-                }
-        }
+        player.update(dt);
+        hud.update(dt);
 
         for(Item item: items)
-            item.update(delta);
+            item.update(dt);
 
-        if(creator.getFlag() != null)
-            creator.getFlag().update(delta);
+        creator.update(dt);
 
-        if(creator.getBowser() != null)
-            creator.getBowser().update(delta);
+        alignCameraToPlayer();
 
-        if(creator.getBridge() != null)
-            creator.getBridge().update(delta);
+        renderer.setView(gamecam);
+    }
 
+    private void alignCameraToPlayer() {
         if(player.currentState != Mario.State.DEAD)
             gamecam.position.x = player.b2Body.getPosition().x;
 
         gamecam.update();
-        renderer.setView(gamecam);
     }
 
     public boolean gameOver(){
@@ -199,20 +182,10 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
 
-        for(Enemy enemy : creator.getEnemies())
-            enemy.draw(game.batch);
+        creator.draw(game.batch);
 
         for(Item item: items)
             item.draw(game.batch);
-
-        if(creator.getFlag() != null)
-            creator.getFlag().draw(game.batch);
-
-        if(creator.getBowser() != null)
-            creator.getBowser().draw(game.batch);
-
-        if(creator.getBridge() != null)
-            creator.getBridge().draw(game.batch);
 
         game.batch.end();
 
@@ -289,5 +262,9 @@ public class PlayScreen implements Screen {
         b2dr.dispose();
         hud.dispose();
         controller.dispose();
+    }
+
+    public Mario getPlayer() {
+        return player;
     }
 }

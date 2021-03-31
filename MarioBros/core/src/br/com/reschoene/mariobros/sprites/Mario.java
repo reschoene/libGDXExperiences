@@ -4,7 +4,7 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.scenes.Hud;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.enemies.Turtle;
 import br.com.reschoene.mariobros.sprites.items.FirePower;
@@ -30,7 +30,7 @@ public class Mario extends Sprite {
     public State currentState;
     public State previousState;
     private World world;
-    private PlayScreen screen;
+    private LevelScreen screen;
     public Body b2Body;
     private TextureRegion marioStand;
     private TextureRegion marioDead;
@@ -54,7 +54,7 @@ public class Mario extends Sprite {
 
     private FirePower firePower;
 
-    public Mario(PlayScreen screen) {
+    public Mario(LevelScreen screen) {
         this.world = screen.getWorld();
         this.screen = screen;
 
@@ -379,7 +379,7 @@ public class Mario extends Sprite {
                 b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), b2Body.getWorldCenter(), true);
     }
 
-    public PlayScreen getScreen() {
+    public LevelScreen getScreen() {
         return screen;
     }
 

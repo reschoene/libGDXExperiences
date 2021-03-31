@@ -2,7 +2,7 @@ package br.com.reschoene.mariobros.sprites.tileObjects;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.scenes.MapLayers;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -20,10 +20,10 @@ public abstract class TileObject {
     protected Body body;
     protected Fixture fixture;
     protected short categoryBits = 0x0001;
-    protected PlayScreen screen;
+    protected LevelScreen screen;
     protected MapObject mapObject;
 
-    public TileObject(PlayScreen screen, MapObject mapObject, short categoryBits) {
+    public TileObject(LevelScreen screen, MapObject mapObject, short categoryBits) {
         this.mapObject = mapObject;
         this.screen = screen;
         this.world = screen.getWorld();
@@ -35,7 +35,7 @@ public abstract class TileObject {
         this.createFixture();
     }
 
-    public TileObject(PlayScreen screen, MapObject mapObject) {
+    public TileObject(LevelScreen screen, MapObject mapObject) {
         this(screen, mapObject, (short) 0x0001);
     }
 

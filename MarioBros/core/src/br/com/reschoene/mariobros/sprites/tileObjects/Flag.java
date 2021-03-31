@@ -1,10 +1,9 @@
 package br.com.reschoene.mariobros.sprites.tileObjects;
 
 import br.com.reschoene.mariobros.MarioGame;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.items.Item;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -16,7 +15,7 @@ import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 import static br.com.reschoene.mariobros.collison.FixtureFilterBits.BRICK_BIT;
 
 public class Flag extends Item {
-    public Flag(PlayScreen screen, Rectangle bounds) {
+    public Flag(LevelScreen screen, Rectangle bounds) {
         super(screen,
                 bounds.x / MarioGame.PPM,
                 bounds.y / MarioGame.PPM,

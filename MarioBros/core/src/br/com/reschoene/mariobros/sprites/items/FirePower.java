@@ -1,25 +1,24 @@
 package br.com.reschoene.mariobros.sprites.items;
 
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Array;
 
 public class FirePower {
     private static final int MAX_FIREBALLS_PER_TRIGGER = 10;
     private static final float TIME_BETWEEN_FIRES = 0.5f;
     private final Sprite owner;
-    private final PlayScreen screen;
+    private final LevelScreen screen;
 
     private boolean active = false;
 
     private Array<FireBall> fireballs;
     private float timeSinceLastFire = 0.0f;
 
-    public FirePower(Sprite owner, PlayScreen screen){
+    public FirePower(Sprite owner, LevelScreen screen){
         this.owner = owner;
         this.screen = screen;
         fireballs = new Array<>();

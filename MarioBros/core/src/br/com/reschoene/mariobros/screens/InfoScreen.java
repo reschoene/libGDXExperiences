@@ -61,7 +61,7 @@ public class InfoScreen implements Screen {
         screenTime += delta;
 
         if(screenTime > 2) {
-            game.setScreen(new PlayScreen((MarioGame) game));
+            game.setScreen(new LevelScreen((MarioGame) game));
             dispose();
         }
 

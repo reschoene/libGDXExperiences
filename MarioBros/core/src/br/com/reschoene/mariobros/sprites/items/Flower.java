@@ -1,7 +1,7 @@
 package br.com.reschoene.mariobros.sprites.items;
 
 import br.com.reschoene.mariobros.MarioGame;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -12,7 +12,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
 
 public class Flower extends Item{
-    public Flower(PlayScreen screen, float x, float y) {
+    public Flower(LevelScreen screen, float x, float y) {
         super(screen, x, y);
 
         setRegion(new TextureRegion(screen.getAtlas().findRegion("fireflower")));

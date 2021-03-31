@@ -2,12 +2,13 @@ package br.com.reschoene.mariobros.util;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.scenes.MapLayers;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Bowser;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.enemies.Goomba;
 import br.com.reschoene.mariobros.sprites.enemies.Turtle;
 import br.com.reschoene.mariobros.sprites.tileObjects.*;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
@@ -17,7 +18,7 @@ import com.badlogic.gdx.utils.Array;
 public class B2WorldCreator {
     private final TiledMap map;
     private final World world;
-    private final PlayScreen screen;
+    private final LevelScreen screen;
     private Array<Goomba> goombas;
     private Array<Turtle> turtles;
     private Flag flag;
@@ -25,7 +26,10 @@ public class B2WorldCreator {
     private Bridge bridge;
     private Axe axe;
 
-    public B2WorldCreator(PlayScreen screen) {
+    //result of number of ground tiles * width of a ground tile = screen pixels
+    private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
+
+    public B2WorldCreator(LevelScreen screen) {
         this.screen = screen;
         this.world = screen.getWorld();
         this.map = screen.getMap();
@@ -98,18 +102,35 @@ public class B2WorldCreator {
         Array<Enemy> enemies = new Array<>();
         enemies.addAll(goombas);
         enemies.addAll(turtles);
+        enemies.add(bowser);
         return enemies;
     }
 
-    public Flag getFlag() {
-        return flag;
+    public void draw(SpriteBatch batch) {
+        for(Enemy enemy : getEnemies())
+            enemy.draw(batch);
+
+        if(flag != null)
+            flag.draw(batch);
+
+        if(bridge != null)
+            bridge.draw(batch);
     }
 
-    public Bowser getBowser() {
-        return bowser;
-    }
+    public void update(float dt) {
+        for(Enemy enemy : getEnemies()){
+            enemy.update(dt);
 
-    public Bridge getBridge() {
-        return bridge;
+            if(!enemy.destroyed)
+                if (enemy.getX() < screen.getPlayer().getX() + (DISTANCE_TO_ACTIVATE_ENEMIES/ MarioGame.PPM)) {
+                    enemy.setActive(true);
+                }
+        }
+
+        if(flag != null)
+            flag.update(dt);
+
+        if(bridge != null)
+            bridge.update(dt);
     }
 }

@@ -3,7 +3,7 @@ package br.com.reschoene.mariobros.sprites.enemies;
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.screens.GameAtlas;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.enemies.action.ActionManager;
 import br.com.reschoene.mariobros.sprites.enemies.action.Executable;
@@ -35,14 +35,12 @@ public class Bowser extends DestroyableEnemy {
 
     private int bowserLife = 100;
 
-    public Bowser(PlayScreen screen, float x, float y) {
+    public Bowser(LevelScreen screen, float x, float y) {
         super(screen, x, y);
         setBounds(getX(), getY(), 35 / MarioGame.PPM, 32 / MarioGame.PPM);
         loadAnimations();
-        b2Body.setActive(true);
         setActions();
         firePower = new FirePower(this, screen);
-        firePower.setActive(true);
     }
 
     private void setActions() {
@@ -171,14 +169,31 @@ public class Bowser extends DestroyableEnemy {
         firingTexture = new TextureRegion(GameAtlas.getAtlas().findRegion("bowser"), 35*4, 0, 35, 32);
     }
 
-    public void update(float delta) {
-        setRegion(getFrame(delta));
-        setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight()/2);
-        actionManager.update(delta);
-        firePower.update(delta);
+    @Override
+    protected void handleFalling(){
+        //do nothing, for avoid problems with this method
+    }
 
-        if (b2Body.getPosition().y < 0)
-            killBowser(false);
+    @Override
+    public void setActive(boolean active) {
+        super.setActive(active);
+        actionManager.setActive(active);
+        firePower.setActive(active);
+    }
+
+    @Override
+    public void update(float delta) {
+        super.update(delta);
+
+        if (!destroyed) {
+            setRegion(getFrame(delta));
+            setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2);
+            actionManager.update(delta);
+            firePower.update(delta);
+
+            if (b2Body.getPosition().y < -10)
+                setToDestroy = true;
+        }
     }
 
     @Override
@@ -203,7 +218,7 @@ public class Bowser extends DestroyableEnemy {
                 fixture.setFilterData(filter);
 
             if (animate)
-                b2Body.applyLinearImpulse(new Vector2(0, 4f), b2Body.getWorldCenter(), true);
+                b2Body.applyLinearImpulse(new Vector2(0, 10f), b2Body.getWorldCenter(), true);
         }
     }
 

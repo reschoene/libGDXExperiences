@@ -1,7 +1,7 @@
 package br.com.reschoene.mariobros.sprites.enemies;
 
 import br.com.reschoene.mariobros.MarioGame;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
@@ -10,7 +10,7 @@ public class Goomba extends DestroyableEnemy {
     private Animation walkAnimation;
     private Array<TextureRegion> frames;
 
-    public Goomba(PlayScreen screen, float x, float y) {
+    public Goomba(LevelScreen screen, float x, float y) {
         super(screen, x, y);
 
         frames = new Array<>();

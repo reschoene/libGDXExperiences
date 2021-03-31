@@ -1,7 +1,7 @@
 package br.com.reschoene.mariobros.collison;
 
 import br.com.reschoene.mariobros.sprites.tileObjects.*;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.enemies.Enemy;
 import br.com.reschoene.mariobros.sprites.items.Item;
 import br.com.reschoene.mariobros.sprites.Mario;
@@ -73,7 +73,7 @@ public class WorldContactListener implements ContactListener {
             if (objs.get(0) instanceof Pipe) {
                 MapProperties properties = ((Pipe) objs.get(0)).getMapProperties();
                 if (properties.containsKey("GoToPhase")) {
-                    PlayScreen screen = ((Mario) objs.get(1)).getScreen();
+                    LevelScreen screen = ((Mario) objs.get(1)).getScreen();
                     GameState.currentMapFileName = properties.get("GoToPhase", String.class);
                     GameState.currentWorld = properties.get("world", Integer.class);
                     GameState.currentPhase = properties.get("phase", Integer.class);

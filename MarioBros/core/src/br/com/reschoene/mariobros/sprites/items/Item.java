@@ -1,7 +1,7 @@
 package br.com.reschoene.mariobros.sprites.items;
 
 import br.com.reschoene.mariobros.MarioGame;
-import br.com.reschoene.mariobros.screens.PlayScreen;
+import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -10,18 +10,18 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 
 public abstract class Item extends Sprite {
-    protected PlayScreen screen;
+    protected LevelScreen screen;
     protected World world;
     protected Vector2 velocity;
     protected boolean setToDestroy;
     protected boolean destroyed;
     protected Body b2Body;
 
-    public Item(PlayScreen screen, float x, float y){
+    public Item(LevelScreen screen, float x, float y){
         this(screen, x, y, 16/ MarioGame.PPM, 16/ MarioGame.PPM);
     }
 
-    public Item(PlayScreen screen, float x, float y, float width, float height){
+    public Item(LevelScreen screen, float x, float y, float width, float height){
         this.screen = screen;
         this.world = screen.getWorld();
         setPosition(x, y);
@@ -37,6 +37,7 @@ public abstract class Item extends Sprite {
             world.destroyBody(b2Body);
             b2Body = null;
             destroyed = true;
+            System.out.println("destroida");
         }
     }
 
