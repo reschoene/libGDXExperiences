@@ -45,87 +45,32 @@ public class Bowser extends DestroyableEnemy {
 
     private void setActions() {
         actionManager = new ActionManager();
+        actionManager.addAction(2f, () -> applyImpulse( 2, 0));
+        actionManager.addAction(2f, () -> applyImpulse(-2, 0));
 
-        actionManager.addAction(2f, new Executable() {
-            @Override
-            public void execute() {
-                b2Body.applyLinearImpulse(new Vector2(2, 0), b2Body.getWorldCenter(), true);
-            }
+        actionManager.addAction(2f, () -> {
+            firing = true;
+            fire();
         });
 
-        actionManager.addAction(2f, new Executable() {
-            @Override
-            public void execute() {
-                b2Body.applyLinearImpulse(new Vector2(-2, 0), b2Body.getWorldCenter(), true);
-            }
+        for(int i=0; i<4; i++)
+            actionManager.addAction(0.05f, () -> fire());
+
+        actionManager.addAction(2f, () -> {
+            firing = false;
+            applyImpulse(2, 0);
         });
 
-        actionManager.addAction(2f, new Executable() {
-            @Override
-            public void execute() {
-                firing = true;
-                firePower.fire(b2Body.getPosition(), false);
-            }
-        });
+        actionManager.addAction(2f, () -> applyImpulse(-2, 4));
+        actionManager.addAction(2f, () -> applyImpulse( 2, 4));
+        actionManager.addAction(1f, () -> applyImpulse(-2, 0));
+        actionManager.addAction(1f, () -> applyImpulse( 2, 0));
+        actionManager.addAction(1f, () -> applyImpulse(-2, 0));
+        actionManager.addAction(1f, () -> applyImpulse( 0, 4));
+    }
 
-        for(int i=0; i<4; i++) {
-            actionManager.addAction(0.05f, new Executable() {
-                @Override
-                public void execute() {
-                    firePower.fire(b2Body.getPosition(), false);
-                }
-            });
-        }
-
-        actionManager.addAction(2f, new Executable() {
-            @Override
-            public void execute() {
-                firing = false;
-                b2Body.applyLinearImpulse(new Vector2(2, 0), b2Body.getWorldCenter(), true);
-            }
-        });
-
-        actionManager.addAction(2f, new Executable() {
-            @Override
-            public void execute() {
-                b2Body.applyLinearImpulse(new Vector2(-2, 4), b2Body.getWorldCenter(), true);
-            }
-        });
-
-        actionManager.addAction(2f, new Executable() {
-            @Override
-            public void execute() {
-                b2Body.applyLinearImpulse(new Vector2(2, 4), b2Body.getWorldCenter(), true);
-            }
-        });
-
-        actionManager.addAction(1f, new Executable() {
-            @Override
-            public void execute() {
-                b2Body.applyLinearImpulse(new Vector2(-2, 0), b2Body.getWorldCenter(), true);
-            }
-        });
-
-        actionManager.addAction(1f, new Executable() {
-            @Override
-            public void execute() {
-                b2Body.applyLinearImpulse(new Vector2(2, 0), b2Body.getWorldCenter(), true);
-            }
-        });
-
-        actionManager.addAction(1f, new Executable() {
-            @Override
-            public void execute() {
-                b2Body.applyLinearImpulse(new Vector2(-2, 0), b2Body.getWorldCenter(), true);
-            }
-        });
-
-        actionManager.addAction(1f, new Executable() {
-            @Override
-            public void execute() {
-                b2Body.applyLinearImpulse(new Vector2(0, 4), b2Body.getWorldCenter(), true);
-            }
-        });
+    private void fire() {
+        firePower.fire(b2Body.getPosition(), false);
     }
 
     @Override
@@ -218,7 +163,7 @@ public class Bowser extends DestroyableEnemy {
                 fixture.setFilterData(filter);
 
             if (animate)
-                b2Body.applyLinearImpulse(new Vector2(0, 10f), b2Body.getWorldCenter(), true);
+                applyImpulse(0, 10f);
         }
     }
 

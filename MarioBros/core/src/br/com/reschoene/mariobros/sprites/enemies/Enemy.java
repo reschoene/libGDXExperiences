@@ -79,6 +79,10 @@ public abstract class Enemy extends Sprite implements HeadHittable {
         b2Body.setLinearVelocity(velocity);
     }
 
+    protected void applyImpulse(float x, float y) {
+        b2Body.applyLinearImpulse(new Vector2(x, y), b2Body.getWorldCenter(), true);
+    }
+
     public void setActive(boolean active) {
         b2Body.setActive(active);
     }
