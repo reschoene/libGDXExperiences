@@ -45,31 +45,37 @@ public class Bowser extends DestroyableEnemy {
 
     private void setActions() {
         actionManager = new ActionManager();
-        actionManager.addAction(2f, () -> applyImpulse( 2, 0));
-        actionManager.addAction(2f, () -> applyImpulse(-2, 0));
+        actionManager.addAction(1f, () -> applyImpulse( 3, 0));
 
-        actionManager.addAction(2f, () -> {
-            firing = true;
-            fire();
-        });
+        configureFire(5, 1f, 0.05f);
 
-        for(int i=0; i<4; i++)
-            actionManager.addAction(0.05f, () -> fire());
+        actionManager.addAction(0.5f, () -> applyImpulse(-3, 0));
 
-        actionManager.addAction(2f, () -> {
-            firing = false;
-            applyImpulse(2, 0);
-        });
+        configureFire(5, 2f, 0.05f);
 
+        actionManager.addAction(0.5f, () -> applyImpulse(3, 0));
         actionManager.addAction(2f, () -> applyImpulse(-2, 4));
         actionManager.addAction(2f, () -> applyImpulse( 2, 4));
-        actionManager.addAction(1f, () -> applyImpulse(-2, 0));
-        actionManager.addAction(1f, () -> applyImpulse( 2, 0));
-        actionManager.addAction(1f, () -> applyImpulse(-2, 0));
+        actionManager.addAction(1f, () -> applyImpulse(-3, 0));
+        actionManager.addAction(1f, () -> applyImpulse( 0, 4));
+        actionManager.addAction(1f, () -> applyImpulse( 3, 0));
+        actionManager.addAction(1f, () -> applyImpulse(-3, 0));
         actionManager.addAction(1f, () -> applyImpulse( 0, 4));
     }
 
-    private void fire() {
+    private void configureFire(int count, float timeFirst, float timeBetween) {
+        for(int i=0; i<count; i++) {
+            int idx = i;
+            actionManager.addAction((idx == 0? timeFirst:timeBetween), () -> fire(idx, count-1));
+        }
+    }
+
+    private void fire(int idx, int lastIdx) {
+        if (idx == 0)
+            firing = true;
+        else if (idx == lastIdx)
+            firing = false;
+
         firePower.fire(b2Body.getPosition(), false);
     }
 
