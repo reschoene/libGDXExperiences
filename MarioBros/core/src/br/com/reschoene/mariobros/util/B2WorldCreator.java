@@ -25,6 +25,7 @@ public class B2WorldCreator {
     private Bowser bowser;
     private Bridge bridge;
     private Axe axe;
+    private Princess princess;
 
     //result of number of ground tiles * width of a ground tile = screen pixels
     private static final int DISTANCE_TO_ACTIVATE_ENEMIES = 224;
@@ -50,20 +51,20 @@ public class B2WorldCreator {
 
         FlagPole flagPole = null;
         for (RectangleMapObject object : getMapObjsByLayer(MapLayers.BLOCK)) {
+            Rectangle rect = object.getRectangle();
+
             if (object.getProperties().containsKey("bandeira"))
                 this.flag = new Flag(screen, object.getRectangle());
             else if (object.getProperties().containsKey("haste"))
                 flagPole = new FlagPole(screen, object);
-            else if (object.getProperties().containsKey("bowser")){
-                Rectangle rect = object.getRectangle();
+            else if (object.getProperties().containsKey("bowser"))
                 this.bowser = new Bowser(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM);
-            }
-            else if (object.getProperties().containsKey("bridge")){
-                Rectangle rect = object.getRectangle();
+            else if (object.getProperties().containsKey("bridge"))
                 this.bridge = new Bridge(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM, rect.width/ MarioGame.PPM, rect.height/ MarioGame.PPM);
-            }
             else if (object.getProperties().containsKey("axe"))
                 this.axe = new Axe(screen, object);
+            else if (object.getProperties().containsKey("princess"))
+                this.princess = new Princess(screen, rect.x / MarioGame.PPM, rect.y / MarioGame.PPM, rect.width / MarioGame.PPM, rect.height / MarioGame.PPM);
             else
                 new Block(screen, object);
         }
@@ -115,6 +116,9 @@ public class B2WorldCreator {
 
         if(bridge != null)
             bridge.draw(batch);
+
+        if(princess != null)
+            princess.draw(batch);
     }
 
     public void update(float dt) {
@@ -132,5 +136,8 @@ public class B2WorldCreator {
 
         if(bridge != null)
             bridge.update(dt);
+
+        if(princess != null)
+            princess.update(dt);
     }
 }

@@ -92,6 +92,9 @@ public class WorldContactListener implements ContactListener {
             }else if (objs.get(0) instanceof Axe){
                 Axe axe = (Axe) objs.get(0);
                 axe.cutBridge();
+            }else if (objs.get(0) instanceof Princess){
+                Mario mario = (Mario) objs.get(1);
+                mario.onFoundPrincess();
             }
         }
     }

@@ -383,6 +383,10 @@ public class Mario extends Sprite {
         return screen;
     }
 
+    public void onFoundPrincess() {
+        b2Body.setLinearVelocity(0f, 0.0f);
+        timeToExitRight = false;
+    }
 
     public void animateExitRight() {
         enabledControls = false;
