@@ -6,12 +6,10 @@ import br.com.reschoene.mariobros.screens.GameAtlas;
 import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.enemies.action.ActionManager;
-import br.com.reschoene.mariobros.sprites.enemies.action.Executable;
 import br.com.reschoene.mariobros.sprites.items.FirePower;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 
@@ -47,23 +45,29 @@ public class Bowser extends DestroyableEnemy {
         actionManager = new ActionManager();
         actionManager.addAction(1f, () -> applyImpulse( 3, 0));
 
-        configureFire(5, 1f, 0.05f);
+        addFireActions(5, 1f, 0.05f);
 
         actionManager.addAction(0.5f, () -> applyImpulse(-3, 0));
 
-        configureFire(5, 2f, 0.05f);
+        addFireActions(5, 2f, 0.05f);
 
         actionManager.addAction(0.5f, () -> applyImpulse(3, 0));
         actionManager.addAction(2f, () -> applyImpulse(-2, 4));
-        actionManager.addAction(2f, () -> applyImpulse( 2, 4));
-        actionManager.addAction(1f, () -> applyImpulse(-3, 0));
+
+        addFireActions(5, 1f, 0.05f);
+
+        actionManager.addAction(0.5f, () -> applyImpulse( 0, 4));
+
+        actionManager.addAction(2f, () -> applyImpulse( 1, 4));
+
+        actionManager.addAction(1f, () -> applyImpulse(-2, 0));
         actionManager.addAction(1f, () -> applyImpulse( 0, 4));
         actionManager.addAction(1f, () -> applyImpulse( 3, 0));
         actionManager.addAction(1f, () -> applyImpulse(-3, 0));
         actionManager.addAction(1f, () -> applyImpulse( 0, 4));
     }
 
-    private void configureFire(int count, float timeFirst, float timeBetween) {
+    private void addFireActions(int count, float timeFirst, float timeBetween) {
         for(int i=0; i<count; i++) {
             int idx = i;
             actionManager.addAction((idx == 0? timeFirst:timeBetween), () -> fire(idx, count-1));
@@ -142,8 +146,10 @@ public class Bowser extends DestroyableEnemy {
             actionManager.update(delta);
             firePower.update(delta);
 
-            if (b2Body.getPosition().y < -10)
+            if (b2Body.getPosition().y < -10) {
+                this.screen.getPlayer().animateExitRight();
                 setToDestroy = true;
+            }
         }
     }
 

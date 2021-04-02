@@ -2,7 +2,6 @@ package br.com.reschoene.mariobros.screens;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.scenes.Controller;
-import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.Color;
@@ -69,15 +68,15 @@ public class GameOverScreen implements Screen {
 
     private void handleInput(){
         if (controller.isUpPressed())
-            startGame(false);
+            continueGame();
         else if (controller.isDownPressed()){
             dispose();
             Gdx.app.exit();
         }
     }
 
-    private void startGame(boolean fromBeginning){
-        GameState.reset(false);
+    private void continueGame(){
+        GameState.reset(true);
         game.setScreen(new InfoScreen(game));
         dispose();
     }

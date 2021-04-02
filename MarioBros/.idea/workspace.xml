@@ -18,12 +18,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/05cf07173aea334867af828ef2e10afb834ab060" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/05cf07173aea334867af828ef2e10afb834ab060" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/1366c07369a2ccc0cffab0f725572d93790d6ade" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/1366c07369a2ccc0cffab0f725572d93790d6ade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/e/9ee1f7e9051124382123de308da6879b25fb91d4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/e/9ee1f7e9051124382123de308da6879b25fb91d4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/2/b2c51245debd2c7e3c609544f8d91eceda7e177c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/2/b2c51245debd2c7e3c609544f8d91eceda7e177c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c0b2b3263c08b45d350c4d17bd3e11529e9d130b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c0b2b3263c08b45d350c4d17bd3e11529e9d130b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/9/c93e920f9d87bcec743ffd723ad443c7caa933ee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/f/ef7bf4c4d9ddb3877c1227adb7cb33ad6282dd4d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/f/ef7bf4c4d9ddb3877c1227adb7cb33ad6282dd4d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/6/f641439b90da3fcb751d5cf1ae08928ef49622da" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/6/f641439b90da3fcb751d5cf1ae08928ef49622da" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/enemies/Bowser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/enemies/Bowser$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/enemies/Bowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/enemies/Bowser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/GameOverScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/screens/GameOverScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/enemies/Bowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/enemies/Bowser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Axe.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Axe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

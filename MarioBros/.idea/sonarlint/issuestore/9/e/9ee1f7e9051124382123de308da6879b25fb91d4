@@ -1,59 +1,59 @@
 
-L
-java:S3740E"/Provide the parametrized type for this generic.(‰ñİ8­¤ıŠ†/
-g
-java:S1192J"JDefine a constant instead of duplicating this literal "big_mario" 6 times.(‘ÌĞ8­¤ıŠ†/
-L
-java:S3740."/Provide the parametrized type for this generic.(Á¶¬ø8­¤ıŠ†/
-M
-java:S1066ì"/Merge this if statement with the enclosing one.(Ø¼©8­¤ıŠ†/
-T
-java:S2696™"6Make the enclosing method "static" or remove this set.(ÓÚ«8ş…‹†/
-T
-java:S2696­"6Make the enclosing method "static" or remove this set.(ŠºğÏ8àù™‹†/
-{
-java:S1104"YMake previousState a static final constant or non-public and provide accessors if needed.(“¿æäùÿÿÿÿ8­¤ıŠ†/
-t
-java:S1104""RMake b2Body a static final constant or non-public and provide accessors if needed.(óö¹íşÿÿÿÿ8­¤ıŠ†/
+j
+java:S1192"JDefine a constant instead of duplicating this literal "mariofire" 4 times.(ÊÓşÿÿÿÿ8­¤ıŠ†/
+J
+java:S1066"/Merge this if statement with the enclosing one.(ê­á¦8­¤ıŠ†/
+J
+java:S3740"/Provide the parametrized type for this generic.(Á¶¬ø8­¤ıŠ†/
+_
+java:S3358"DExtract this nested ternary operation into an independent statement.(Â¼«„8­¤ıŠ†/
+J
+java:S3740"/Provide the parametrized type for this generic.(éùìµ8­¤ıŠ†/
+J
+java:S3740"/Provide the parametrized type for this generic.(ÍÜÆ8­¤ıŠ†/
+m
+java:S1192"MDefine a constant instead of duplicating this literal "little_mario" 4 times.(ú‚ÑÚûÿÿÿÿ8­¤ıŠ†/
+O
+java:S3740"/Provide the parametrized type for this generic.(¥Û›‚ùÿÿÿÿ8¶øí©…/
+V	java:S125"<This block of commented-out lines of code should be removed.(¢ßÎ†8ÕÊ“ş‡/
+_
+java:S3358"DExtract this nested ternary operation into an independent statement.(ƒíÿ…8­¤ıŠ†/
+^
+java:S3358"DExtract this nested ternary operation into an independent statement.(¶ø³w8­¤ıŠ†/
+O
+java:S3740"/Provide the parametrized type for this generic.(¤ø±şùÿÿÿÿ8­¤ıŠ†/
+J
+java:S1066"/Merge this if statement with the enclosing one.(Ğ®²Š8­¤ıŠ†/
 Q
-java:S3740Z"/Provide the parametrized type for this generic.(¤ø±şùÿÿÿÿ8­¤ıŠ†/
-M
-java:S1066Ê"/Merge this if statement with the enclosing one.(ê­á¦8­¤ıŠ†/
-M
-java:S1066ò"/Merge this if statement with the enclosing one.(ØÁ¥ü8­¤ıŠ†/
-E
-java:S3740+"/Provide the parametrized type for this generic.(Ş´æ
+java:S2696"6Make the enclosing method "static" or remove this set.(öÔĞ§8ú™‹†/
+q
+java:S1104"XMake currentState a static final constant or non-public and provide accessors if needed.(›Üİıÿÿÿÿ
+J
+java:S1066"/Merge this if statement with the enclosing one.(Ø¼©8­¤ıŠ†/
+O
+java:S3740"/Provide the parametrized type for this generic.(œ­ğıÿÿÿÿ8­¤ıŠ†/
 Q
-java:S3740-"/Provide the parametrized type for this generic.(¥Û›‚ùÿÿÿÿ8¶øí©…/
-a
-java:S3358ï"DExtract this nested ternary operation into an independent statement.(¶ø³w8­¤ıŠ†/
-L
-java:S3740Q"/Provide the parametrized type for this generic.(éùìµ8­¤ıŠ†/
+java:S2696"6Make the enclosing method "static" or remove this set.(ŠºğÏ8„íïş‡/
+J
+java:S3740"/Provide the parametrized type for this generic.(ìëØØ8­¤ıŠ†/
+y
+java:S1104"YMake previousState a static final constant or non-public and provide accessors if needed.(“¿æäùÿÿÿÿ8­¤ıŠ†/
+J
+java:S1066"/Merge this if statement with the enclosing one.(ØÁ¥ü8­¤ıŠ†/
+<
+java:S1116"Remove this empty statement.(Åñ­õşÿÿÿÿ8­¤ıŠ†/
+[	java:S125"<This block of commented-out lines of code should be removed.(•ê¨Àøÿÿÿÿ8ş¡ó¤‡/
+O
+java:S3740"/Provide the parametrized type for this generic.(Æ­„›úÿÿÿÿ8Ç«‰†/
+r
+java:S1104"RMake b2Body a static final constant or non-public and provide accessors if needed.(óö¹íşÿÿÿÿ8­¤ıŠ†/
+C
+java:S3740"/Provide the parametrized type for this generic.(Ş´æ
+J
+java:S3740"/Provide the parametrized type for this generic.(‰ñİ8­¤ıŠ†/
+e
+java:S1192"JDefine a constant instead of duplicating this literal "big_mario" 6 times.(‘ÌĞ8­¤ıŠ†/
+r
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(Ê‹¦‘şÿÿÿÿ8­¤ıŠ†/
 Q
-java:S3740,"/Provide the parametrized type for this generic.(Æ­„›úÿÿÿÿ8Ç«‰†/
-?
-java:S1116ê"Remove this empty statement.(Åñ­õşÿÿÿÿ8­¤ıŠ†/
-Q
-java:S3740d"/Provide the parametrized type for this generic.(œ­ğıÿÿÿÿ8­¤ıŠ†/
-L
-java:S3740%"/Provide the parametrized type for this generic.(ÍÜÆ8­¤ıŠ†/
-b
-java:S3358ä"DExtract this nested ternary operation into an independent statement.(Â¼«„8­¤ıŠ†/
-b
-java:S3358è"DExtract this nested ternary operation into an independent statement.(ƒíÿ…8­¤ıŠ†/
-T
-java:S2696¹"6Make the enclosing method "static" or remove this set.(öÔĞ§8ú™‹†/
-o
-java:S1192D"MDefine a constant instead of duplicating this literal "little_mario" 4 times.(ú‚ÑÚûÿÿÿÿ8­¤ıŠ†/
-M
-java:S1066ä"/Merge this if statement with the enclosing one.(Ğ®²Š8­¤ıŠ†/
-s
-java:S1104"XMake currentState a static final constant or non-public and provide accessors if needed.(›Üİıÿÿÿÿ
-l
-java:S1192P"JDefine a constant instead of duplicating this literal "mariofire" 4 times.(ÊÓşÿÿÿÿ8­¤ıŠ†/
-L
-java:S3740K"/Provide the parametrized type for this generic.(ìëØØ8­¤ıŠ†/
-]	java:S125r"<This block of commented-out lines of code should be removed.(•ê¨Àøÿÿÿÿ8ş¡ó¤‡/
-u
-java:S3776Ñ"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(Ê‹¦‘şÿÿÿÿ8­¤ıŠ†/
-]	java:S125u"<This block of commented-out lines of code should be removed.(ú‹´¡ÿÿÿÿÿ8Ğ±€¯‡/
+java:S2696"6Make the enclosing method "static" or remove this set.(ÓÚ«8ş…‹†/

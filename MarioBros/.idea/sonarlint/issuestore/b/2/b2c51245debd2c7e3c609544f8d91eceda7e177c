@@ -1,3 +1,7 @@
 
-D
-java:S1068")Remove this unused "world" private field.(‹âÑïşÿÿÿÿ
+r
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ë®‹ûÿÿÿÿ8öè†€ˆ/
+J
+java:S1066"/Merge this if statement with the enclosing one.(¯—íå8ÖêÔˆ/
+B
+java:S1068")Remove this unused "world" private field.(‹âÑïşÿÿÿÿ

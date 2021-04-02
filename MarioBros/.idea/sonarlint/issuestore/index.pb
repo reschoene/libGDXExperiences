@@ -23,8 +23,6 @@ v
 Fcore/src/br/com/reschoene/mariobros/collison/WorldContactListener.java,4/0/40db2284b0615326c14f116203eeb4c44b839420
 o
 ?core/src/br/com/reschoene/mariobros/screens/GameOverScreen.java,c/e/ce0f1be02ecd55ae79504a05ccb86110d34cc0d8
-k
-;core/src/br/com/reschoene/mariobros/screens/PlayScreen.java,c/9/c93e920f9d87bcec743ffd723ad443c7caa933ee
 r
 Bcore/src/br/com/reschoene/mariobros/sprites/tileObjects/Block.java,7/c/7c8acd131ab113b9b64c9776627b3b3a001fe254
 o
@@ -79,3 +77,13 @@ Jcore/src/br/com/reschoene/mariobros/sprites/enemies/action/Executable.java,b/3
 Mcore/src/br/com/reschoene/mariobros/sprites/enemies/action/ActionManager.java,4/9/4937abde9cfed66fc74d98e726723db2e95bc2b1
 o
 ?core/src/br/com/reschoene/mariobros/sprites/enemies/Bowser.java,c/0/c0b2b3263c08b45d350c4d17bd3e11529e9d130b
+s
+Ccore/src/br/com/reschoene/mariobros/sprites/tileObjects/Bridge.java,f/9/f9aa6865168e47cd89c118f29ecb1ec443f075a7
+p
+@core/src/br/com/reschoene/mariobros/sprites/tileObjects/Axe.java,a/9/a93ff64fc79d827234f3e03d376f6e203b214679
+l
+<core/src/br/com/reschoene/mariobros/screens/LevelScreen.java,4/6/460e2355395e65579d7dc531909c96b811ed98e4
+D
+desktop/build.gradle,b/e/be1e9cdb7c3186d0e3d646af8970493025e38c5d
+A
+html/build.gradle,c/d/cdf49e57e70759a4d5845b1b10a45bb2372ac033
