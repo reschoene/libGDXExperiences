@@ -103,7 +103,10 @@ public class B2WorldCreator {
         Array<Enemy> enemies = new Array<>();
         enemies.addAll(goombas);
         enemies.addAll(turtles);
-        enemies.add(bowser);
+
+        if(bowser != null)
+            enemies.add(bowser);
+
         return enemies;
     }
 

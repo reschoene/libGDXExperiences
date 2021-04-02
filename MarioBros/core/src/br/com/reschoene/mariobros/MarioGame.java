@@ -26,23 +26,9 @@ public class MarioGame extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 
-		loadAssetManager();
+		manager = AudioManager.loadAssetManager();
 
 		setScreen(new InfoScreen(this));
-	}
-
-	private void loadAssetManager() {
-		manager = new AssetManager();
-
-		Iterator<Map.Entry<String, String>> musicFileNames = AudioManager.getMusicByMapName().entrySet().iterator();
-		while (musicFileNames.hasNext())
-			manager.load(musicFileNames.next().getValue(), Music.class);
-
-		Iterator<Map.Entry<String, String>> audioFileNames = AudioManager.getSoundsByName().entrySet().iterator();
-		while (audioFileNames.hasNext())
-			manager.load(audioFileNames.next().getValue(), Sound.class);
-
-		manager.finishLoading(); //synchronous loading
 	}
 
 	@Override

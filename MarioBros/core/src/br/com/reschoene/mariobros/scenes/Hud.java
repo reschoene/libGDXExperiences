@@ -2,7 +2,9 @@ package br.com.reschoene.mariobros.scenes;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.audio.AudioManager;
+import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.util.GameState;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -15,10 +17,11 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Hud implements Disposable {
+    private static boolean active = true;
     public Stage stage;
+    private static Table table;
     private Viewport viewport;
 
-    private Integer worldTimer;
     private float timeCount;
 
     private final float FONT_SCALE = 0.8f;
@@ -31,21 +34,25 @@ public class Hud implements Disposable {
     Label scoreTitleLabel;
     Label coinTitleLabel;
     static Label coinLabel;
+    private static Sound hurry;
+    private static Mario player;
 
-    public Hud(SpriteBatch sb){
-        worldTimer = 300;
+    public Hud(SpriteBatch sb, Mario mario){
+        player = mario;
         timeCount = 0;
+        active = true;
+        GameState.resetWorldTimer();
 
         viewport = new FitViewport(MarioGame.V_WIDTH, MarioGame.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, sb);
 
-        Table table = new Table();
+        table = new Table();
         table.top();
         table.setFillParent(true);
 
         Label.LabelStyle whiteStyle = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
 
-        countDownLabel = new Label(String.format("%03d", worldTimer), whiteStyle);
+        countDownLabel = new Label(String.format("%03d", GameState.worldTimer), whiteStyle);
         scoreLabel = new Label(String.format("%06d", GameState.score), whiteStyle);
         levelLabel = new Label(String.format("%d-%d", GameState.currentWorld, GameState.currentPhase), whiteStyle);
         coinLabel = new Label(String.format("%02d", GameState.coins), whiteStyle);
@@ -77,12 +84,50 @@ public class Hud implements Disposable {
         stage.addActor(table);
     }
 
+    public static void displayCongratMessage() {
+        active = false;
+
+        AudioManager.getSoundByName("win").play();
+
+        Label.LabelStyle yellowStyle = new Label.LabelStyle(new BitmapFont(), Color.YELLOW);
+        Label questLabel = new Label("Your quest is completed, you've saved the princess", yellowStyle);
+        Label congratLabel = new Label("Congratulations!!", yellowStyle);
+
+        questLabel.setFontScale(0.9f);
+        congratLabel.setFontScale(1.1f);
+
+        table.row().colspan(4);
+        table.add(questLabel).padTop(40);
+        table.row().colspan(4);
+        table.add(congratLabel).padTop(10);
+    }
+
     public void update(float dt){
-        timeCount += dt;
-        if (timeCount >= 1){
-            worldTimer--;
-            countDownLabel.setText(String.format("%03d", worldTimer));
-            timeCount = 0;
+        if (active) {
+            timeCount += dt;
+            if (timeCount >= 1) {
+                tic();
+
+                countDownLabel.setText(String.format("%03d", GameState.worldTimer));
+                timeCount = 0;
+            }
+        }
+    }
+
+    private void tic() {
+        GameState.worldTimer--;
+
+        if(GameState.worldTimer == 100){
+            AudioManager.getCurrentMusic().stop();
+            hurry = AudioManager.getSoundByName("hurry");
+            hurry.play();
+        } else if(GameState.worldTimer == 97){
+            hurry.stop();
+        }else if(GameState.worldTimer == 95){
+            AudioManager.getCurrentMusic().play();
+        }else if(GameState.worldTimer == 0){
+            setActive(false);
+            player.killMario(true);
         }
     }
 
@@ -97,11 +142,15 @@ public class Hud implements Disposable {
         if (GameState.coins >= 100){
             GameState.coins = 0;
             GameState.lives++;
-            AudioManager.getSoundByName("powerUp").play();
+            AudioManager.getSoundByName("gainLife").play();
         }else
             AudioManager.getSoundByName("coin").play();
 
         coinLabel.setText(String.format("%02d", GameState.coins));
+    }
+
+    public static void setActive(boolean active){
+        Hud.active = active;
     }
 
     @Override

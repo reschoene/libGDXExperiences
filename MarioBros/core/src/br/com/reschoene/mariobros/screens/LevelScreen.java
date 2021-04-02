@@ -68,7 +68,6 @@ public class LevelScreen implements Screen {
         this.mapFileName = GameState.currentMapFileName;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MarioGame.V_WIDTH / MarioGame.PPM, MarioGame.V_HEIGHT / MarioGame.PPM, gamecam);
-        hud = new Hud(game.batch);
         controller = new Controller(game.batch);
 
         mapLoader = new TmxMapLoader();
@@ -84,12 +83,11 @@ public class LevelScreen implements Screen {
         creator.createMapObjects();
 
         player = new Mario(this);
+        hud = new Hud(game.batch, player);
 
         world.setContactListener(new WorldContactListener());
 
-        music = AudioManager.getMusicByMapName(mapFileName);
-        music.setLooping(true);
-        music.play();
+        AudioManager.getMusicByMapName(mapFileName).play();
 
         items = new Array<>();
         itemsToSpawn = new LinkedBlockingDeque<>();
@@ -211,10 +209,6 @@ public class LevelScreen implements Screen {
             game.setScreen(new InfoScreen(game));
             dispose();
         }
-    }
-
-    public Music getMusic(){
-        return music;
     }
 
     public void showLiveScreen() {

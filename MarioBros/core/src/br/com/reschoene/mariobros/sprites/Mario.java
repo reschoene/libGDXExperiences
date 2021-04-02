@@ -10,12 +10,11 @@ import br.com.reschoene.mariobros.sprites.enemies.Turtle;
 import br.com.reschoene.mariobros.sprites.items.FirePower;
 import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Array;
 
 import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
@@ -316,15 +315,18 @@ public class Mario extends Sprite {
         sufferDamage();
     }
 
-    private void killMario(boolean animate) {
+    public void killMario(boolean animate) {
         if (!marioIsDead) {
+            marioIsDead = true;
+
+            stateTimer = 0;
             GameState.lives--;
             if (GameState.lives > 0)
                 screen.showLiveScreen();
 
-            AudioManager.getMusicByMapName(screen.mapFileName).stop();
+            AudioManager.getCurrentMusic().stop();
             AudioManager.getSoundByName("marioDie").play();
-            marioIsDead = true;
+
             Filter filter = new Filter();
             filter.maskBits = FixtureFilterBits.NOTHING_BIT.getValue();
             for (Fixture fixture : b2Body.getFixtureList())
@@ -386,13 +388,15 @@ public class Mario extends Sprite {
     public void onFoundPrincess() {
         b2Body.setLinearVelocity(0f, 0.0f);
         timeToExitRight = false;
+        Hud.displayCongratMessage();
     }
 
     public void animateExitRight() {
+        Hud.setActive(false);
         enabledControls = false;
         timeToExitRight = true;
         b2Body.setLinearVelocity(0, 0);
-        screen.getMusic().stop();
+        AudioManager.getCurrentMusic().stop();
         Music music = AudioManager.getMusicByMapName("stageClear");
         music.setLooping(false);
         music.play();

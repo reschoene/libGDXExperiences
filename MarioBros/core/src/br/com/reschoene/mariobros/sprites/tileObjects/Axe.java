@@ -1,5 +1,6 @@
 package br.com.reschoene.mariobros.sprites.tileObjects;
 
+import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.collison.FixtureFilterBits;
 import br.com.reschoene.mariobros.screens.LevelScreen;
 import com.badlogic.gdx.maps.MapObject;
@@ -13,6 +14,8 @@ public class Axe extends TileObject{
     }
 
     public void cutBridge(){
+        AudioManager.getSoundByName("bowserFalls").play();
+
         getCell().setTile(null);
 
         Filter filter = new Filter();
