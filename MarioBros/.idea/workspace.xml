@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e574147-19fe-427d-b39f-96e09ca43786" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Princess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -20,11 +19,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TexturePackerProjectMarioAndEnemies.tpproj" beforeDir="false" afterPath="$PROJECT_DIR$/TexturePackerProjectMarioAndEnemies.tpproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/sprites/MarioSpriteSheet.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/MarioSpriteSheet.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/sprites/MarioSpriteSheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/MarioSpriteSheet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/sprites/bridge.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/collison/WorldContactListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/collison/WorldContactListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/Mario.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/Mario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/B2WorldCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/util/B2WorldCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Bridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/tileObjects/Bridge.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

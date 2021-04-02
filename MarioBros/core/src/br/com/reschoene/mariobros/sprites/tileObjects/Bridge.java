@@ -3,8 +3,6 @@ package br.com.reschoene.mariobros.sprites.tileObjects;
 import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.sprites.items.Item;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
@@ -19,7 +17,7 @@ public class Bridge extends Item {
     public Bridge(LevelScreen screen, float x, float y, float width, float height) {
         super(screen, x, y, width, height);
 
-        setRegion(new TextureRegion(new Texture("sprites/bridge.png")));
+        setRegion(screen.getAtlas().findRegion("bridge"), 0, 0, 469, 32);
     }
 
     @Override

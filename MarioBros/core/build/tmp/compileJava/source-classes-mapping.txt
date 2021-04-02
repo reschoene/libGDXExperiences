@@ -35,10 +35,10 @@ br/com/reschoene/mariobros/util/GameState.java
  br.com.reschoene.mariobros.util.GameState
 br/com/reschoene/mariobros/collison/FixtureFilterBits.java
  br.com.reschoene.mariobros.collison.FixtureFilterBits
-br/com/reschoene/mariobros/util/B2WorldCreator.java
- br.com.reschoene.mariobros.util.B2WorldCreator
-br/com/reschoene/mariobros/sprites/tileObjects/Axe.java
- br.com.reschoene.mariobros.sprites.tileObjects.Axe
+br/com/reschoene/mariobros/sprites/tileObjects/FlagPole.java
+ br.com.reschoene.mariobros.sprites.tileObjects.FlagPole
+br/com/reschoene/mariobros/sprites/tileObjects/BrickCoin.java
+ br.com.reschoene.mariobros.sprites.tileObjects.BrickCoin
 br/com/reschoene/mariobros/sprites/items/Mushroom.java
  br.com.reschoene.mariobros.sprites.items.Mushroom
 br/com/reschoene/mariobros/sprites/items/FirePower.java
@@ -91,9 +91,9 @@ br/com/reschoene/mariobros/sprites/tileObjects/Hittable.java
  br.com.reschoene.mariobros.sprites.tileObjects.Hittable
 br/com/reschoene/mariobros/sprites/tileObjects/Pipe.java
  br.com.reschoene.mariobros.sprites.tileObjects.Pipe
-br/com/reschoene/mariobros/sprites/tileObjects/FlagPole.java
- br.com.reschoene.mariobros.sprites.tileObjects.FlagPole
-br/com/reschoene/mariobros/sprites/tileObjects/BrickCoin.java
- br.com.reschoene.mariobros.sprites.tileObjects.BrickCoin
+br/com/reschoene/mariobros/util/B2WorldCreator.java
+ br.com.reschoene.mariobros.util.B2WorldCreator
+br/com/reschoene/mariobros/sprites/tileObjects/Axe.java
+ br.com.reschoene.mariobros.sprites.tileObjects.Axe
 br/com/reschoene/mariobros/sprites/tileObjects/Bridge.java
  br.com.reschoene.mariobros.sprites.tileObjects.Bridge

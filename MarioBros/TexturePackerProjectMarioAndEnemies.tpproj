@@ -32,7 +32,7 @@ limitMemory=true
 useIndexes=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:MarioGFX/big_mario.png,type:Input,regionName:null},{path:MarioGFX/bowser.png,type:Input,regionName:null},{path:MarioGFX/fireball.png,type:Input,regionName:null},{path:MarioGFX/fireflower.png,type:Input,regionName:null},{path:MarioGFX/flag.png,type:Input,regionName:null},{path:MarioGFX/goomba.png,type:Input,regionName:null},{path:MarioGFX/items.png,type:Input,regionName:null},{path:MarioGFX/little_mario.png,type:Input,regionName:null},{path:MarioGFX/mariofire.png,type:Input,regionName:null},{path:MarioGFX/mushroom.png,type:Input,regionName:null},{path:MarioGFX/princess.png,type:Input,regionName:null},{path:MarioGFX/turtle.png,type:Input,regionName:null}]
+inputFiles=[{path:MarioGFX/big_mario.png,type:Input,regionName:null},{path:MarioGFX/bowser.png,type:Input,regionName:null},{path:MarioGFX/fireball.png,type:Input,regionName:null},{path:MarioGFX/fireflower.png,type:Input,regionName:null},{path:MarioGFX/flag.png,type:Input,regionName:null},{path:MarioGFX/goomba.png,type:Input,regionName:null},{path:MarioGFX/items.png,type:Input,regionName:null},{path:MarioGFX/little_mario.png,type:Input,regionName:null},{path:MarioGFX/mariofire.png,type:Input,regionName:null},{path:MarioGFX/mushroom.png,type:Input,regionName:null},{path:MarioGFX/princess.png,type:Input,regionName:null},{path:MarioGFX/turtle.png,type:Input,regionName:null},{path:MarioGFX/bridge.png,type:Input,regionName:null}]
 
 
 -PROJ-
