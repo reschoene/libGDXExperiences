@@ -283,7 +283,7 @@ public class Mario extends Sprite {
             Hud.addScore(500);
             AudioManager.getSoundByName("powerUp").play();
         } else {
-            AudioManager.getSoundByName("coin").play();
+            AudioManager.playSound("coin");
             Hud.addScore(500);
         }
     }
@@ -356,7 +356,7 @@ public class Mario extends Sprite {
                 grow();
             }
         }else{
-            AudioManager.getSoundByName("coin").play();
+            AudioManager.playSound("coin");
             Hud.addScore(500);
         }
     }

@@ -123,8 +123,8 @@ public class Hud implements Disposable {
             hurry.play();
         } else if(GameState.worldTimer == 97){
             hurry.stop();
-        }else if(GameState.worldTimer == 95){
-            AudioManager.getCurrentMusic().play();
+        }else if(GameState.worldTimer == 96){
+            AudioManager.getMusicByMapName(player.getScreen().mapFileName+"_fast").play();
         }else if(GameState.worldTimer == 0){
             setActive(false);
             player.killMario(true);
@@ -144,7 +144,7 @@ public class Hud implements Disposable {
             GameState.lives++;
             AudioManager.getSoundByName("gainLife").play();
         }else
-            AudioManager.getSoundByName("coin").play();
+            AudioManager.playSound("coin");
 
         coinLabel.setText(String.format("%02d", GameState.coins));
     }

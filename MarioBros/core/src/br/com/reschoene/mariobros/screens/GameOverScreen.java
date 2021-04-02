@@ -1,6 +1,7 @@
 package br.com.reschoene.mariobros.screens;
 
 import br.com.reschoene.mariobros.MarioGame;
+import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.scenes.Controller;
 import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.*;
@@ -59,6 +60,8 @@ public class GameOverScreen implements Screen {
         table.add(downToGiveUpLabel).colspan(2).expandX();
 
         stage.addActor(table);
+
+        AudioManager.getSoundByName("gameover").play();
     }
 
     @Override
