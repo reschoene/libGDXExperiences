@@ -1,4 +1,4 @@
-#Tue Mar 02 19:50:14 BRT 2021
+#Fri Apr 02 19:06:02 BRT 2021
 base.0=/mnt/dados/Desenv/libGDXExperiences/MarioBros/android/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

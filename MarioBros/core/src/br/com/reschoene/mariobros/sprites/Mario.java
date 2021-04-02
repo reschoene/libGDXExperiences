@@ -10,11 +10,12 @@ import br.com.reschoene.mariobros.sprites.enemies.Turtle;
 import br.com.reschoene.mariobros.sprites.items.FirePower;
 import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Array;
 
 import static br.com.reschoene.mariobros.collison.FixtureFilterBits.*;
@@ -23,6 +24,8 @@ public class Mario extends Sprite {
     private boolean timeToDefineBigMario;
     private boolean timeToRedefineMario;
     private boolean timeToExitRight;
+
+    private float immortalTimeLeft;
 
     public enum State {FALLING, JUMPING, STANDING, RUNNING, GROWING, FIRING, DEAD}
 
@@ -107,13 +110,13 @@ public class Mario extends Sprite {
         fireMarioStand = new TextureRegion(screen.getAtlas().findRegion("mariofire"), 0, 0, 18, 32);
 
         marioDead = new TextureRegion(screen.getAtlas().findRegion("little_mario"), 96, 0, 16, 16);
-        //defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
+        defineMario(new Vector2(32 / MarioGame.PPM, 32 / MarioGame.PPM));
 
         //debug position (perto bandeira)
         //defineMario(new Vector2(3300 / MarioGame.PPM, 32 / MarioGame.PPM));
 
         //debug position (terceira fase meio moedas)
-        defineMario(new Vector2(2960 / MarioGame.PPM, 200 / MarioGame.PPM));
+        //defineMario(new Vector2(2960 / MarioGame.PPM, 200 / MarioGame.PPM));
 
         setBounds(0, 0, 16 / MarioGame.PPM, 16 / MarioGame.PPM);
         setRegion(marioStand);
@@ -168,9 +171,9 @@ public class Mario extends Sprite {
         world.destroyBody(b2Body);
         b2Body = null;
 
-        defineMario(currentPosition);
+        defineMario(currentPosition.add(0, -10 / MarioGame.PPM));
 
-        firePower.setActive(true);
+        immortalTimeLeft = 1;
     }
 
     private void growMario() {
@@ -187,6 +190,9 @@ public class Mario extends Sprite {
             setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2 - 6 / MarioGame.PPM);
         else
             setPosition(b2Body.getPosition().x - getWidth() / 2, b2Body.getPosition().y - getHeight() / 2);
+
+        if(immortalTimeLeft > 0)
+            immortalTimeLeft -= dt;
 
         if (b2Body.getPosition().y < 0)
             killMario(false);
@@ -295,12 +301,13 @@ public class Mario extends Sprite {
     public void hit(Enemy enemy) {
         if (enemy instanceof Turtle && ((Turtle) enemy).getCurrentState() == Turtle.State.STANDING_SHELL) {
             ((Turtle) enemy).kick(this.getX() <= enemy.getX() ? Turtle.KICK_RIGHT_SPEED : Turtle.KICK_LEFT_SPEED);
-        } else {
+        } else if(immortalTimeLeft <= 0)
             sufferDamage();
-        }
     }
 
     private void sufferDamage() {
+        firePower.setActive(false);
+
         if (GameState.isBig) {
             GameState.isBig = false;
             timeToRedefineMario = true;

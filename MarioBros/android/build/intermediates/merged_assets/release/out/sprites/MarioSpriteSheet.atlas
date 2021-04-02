@@ -1,0 +1,97 @@
+
+MarioSpriteSheet.png
+size: 512, 128
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+big_mario
+  rotate: false
+  xy: 2, 54
+  size: 336, 32
+  orig: 336, 32
+  offset: 0, 0
+  index: -1
+bowser
+  rotate: false
+  xy: 252, 20
+  size: 174, 32
+  orig: 174, 32
+  offset: 0, 0
+  index: -1
+bridge
+  rotate: false
+  xy: 2, 88
+  size: 469, 32
+  orig: 469, 32
+  offset: 0, 0
+  index: -1
+fireball
+  rotate: false
+  xy: 378, 10
+  size: 32, 8
+  orig: 32, 8
+  offset: 0, 0
+  index: -1
+fireflower
+  rotate: false
+  xy: 494, 103
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+flag
+  rotate: false
+  xy: 438, 52
+  size: 50, 34
+  orig: 50, 34
+  offset: 0, 0
+  index: -1
+goomba
+  rotate: false
+  xy: 328, 2
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+items
+  rotate: false
+  xy: 228, 2
+  size: 98, 16
+  orig: 98, 16
+  offset: 0, 0
+  index: -1
+little_mario
+  rotate: false
+  xy: 2, 2
+  size: 224, 16
+  orig: 224, 16
+  offset: 0, 0
+  index: -1
+mariofire
+  rotate: false
+  xy: 2, 20
+  size: 248, 32
+  orig: 248, 32
+  offset: 0, 0
+  index: -1
+mushroom
+  rotate: false
+  xy: 494, 85
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+princess
+  rotate: false
+  xy: 473, 88
+  size: 19, 32
+  orig: 19, 32
+  offset: 0, 0
+  index: -1
+turtle
+  rotate: false
+  xy: 340, 62
+  size: 96, 24
+  orig: 96, 24
+  offset: 0, 0
+  index: -1

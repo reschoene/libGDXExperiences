@@ -39,9 +39,14 @@ public class WorldContactListener implements ContactListener {
             objs = getObjsByFilterType(fixA, fixB, ENEMY_HEAD_BIT);
             ((HeadHittable) objs.get(0)).onHeadHit((Mario) objs.get(1));
         }
-        else if ((cDef == combine(ENEMY_BIT, OBJECT_BIT)) || (cDef == combine(ENEMY_BIT, BLOCK_BIT))){
+        else if ((cDef == combine(ENEMY_BIT, OBJECT_BIT))
+                || (cDef == combine(ENEMY_BIT, BLOCK_BIT))
+                || (cDef == combine(ENEMY_BIT, MARIO_BIT))){
             objs = getObjsByFilterType(fixA, fixB, ENEMY_BIT);
             ((Enemy) objs.get(0)).reverseVelocity(true, false);
+
+            if(objs.get(1) instanceof Mario)
+                ((Mario) objs.get(1)).hit((Enemy) objs.get(0));
         }
         else if (cDef == combine(ENEMY_BIT, ENEMY_BIT)){
             ((Enemy)fixA.getUserData()).onEnemyHit((Enemy)fixB.getUserData());
