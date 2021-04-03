@@ -1,10 +1,20 @@
 
-H
-java:S30103"&Remove this assignment of "coinLabel".(Öö¹şÿÿÿÿÿ8íâŸ‡/
-q	java:S116"URename this field "FONT_SCALE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›¢Ô8úÙõŸ‡/
-g
-java:S1104"QMake stage a static final constant or non-public and provide accessors if needed.( úàÂ
+X
+java:S2696z"6Make the enclosing method "static" or remove this set.(–şÁøÿÿÿÿ8ÓáĞ‰/
 I
-java:S30101"'Remove this assignment of "scoreLabel".(ê¿ÉŞüÿÿÿÿ8ÍÅßŸ‡/
+java:S30108"'Remove this assignment of "scoreLabel".(ê¿ÉŞüÿÿÿÿ8ÍÅßŸ‡/
+?
+java:S30101""Remove this assignment of "table".(á‡Ÿ8ĞÉ¹™‰/
+g
+java:S1104"QMake stage a static final constant or non-public and provide accessors if needed.( úàÂ
+H
+java:S3010:"&Remove this assignment of "coinLabel".(Öö¹şÿÿÿÿÿ8íâŸ‡/
+q	java:S116"URename this field "FONT_SCALE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›¢Ô8úÙõŸ‡/
+@
+java:S3010)"#Remove this assignment of "player".(±”ÁŠ8îç‰/
+S
+java:S2696v"6Make the enclosing method "static" or remove this set.(şìÔ¼8ÓáĞ‰/
 >
-java:S1170"!Make this final field static too.(›¢Ô8úÙõŸ‡/
+java:S1170"!Make this final field static too.(›¢Ô8úÙõŸ‡/
+?
+java:S3010+"#Remove this assignment of "active".(Âê¨H8Œ§š‰/

@@ -1,15 +1,15 @@
 
-œ
-java:S1186}"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‡·ÈÕşÿÿÿÿ
-S
-java:S2696M"6Make the enclosing method "static" or remove this set.(è…ßÈ8ë¢‡/
-X
-java:S2696L"6Make the enclosing method "static" or remove this set.(¸Ûô÷ıÿÿÿÿ8ë¢‡/
-—
-java:S1186s"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ÿ¢Äğ
-S
-java:S2696N"6Make the enclosing method "static" or remove this set.(óâĞş8ë¢‡/
-œ
-java:S1186x"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’Şìõùÿÿÿÿ
+
+java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’Şìõùÿÿÿÿ
 m
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(µİ¦¿úÿÿÿÿ
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(µİ¦¿úÿÿÿÿ
+
+java:S1186‰"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‡·ÈÕşÿÿÿÿ
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ÿ¢Äğ
+X
+java:S2696R"6Make the enclosing method "static" or remove this set.(¸Ûô÷ıÿÿÿÿ8ë¢‡/
+S
+java:S2696T"6Make the enclosing method "static" or remove this set.(óâĞş8ĞÔõ˜‰/
+S
+java:S2696S"6Make the enclosing method "static" or remove this set.(è…ßÈ8ë¢‡/

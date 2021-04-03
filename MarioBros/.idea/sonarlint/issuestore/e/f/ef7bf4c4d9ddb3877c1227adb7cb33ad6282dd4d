@@ -1,4 +1,4 @@
 
-R
-java:S5993"9Change the visibility of this constructor to "protected".(½à»Íüÿÿÿÿ
-X	java:S106"9Replace this use of System.out or System.err by a logger.(‚•»÷üÿÿÿÿ8ï¤ÈÓˆ/
+T
+java:S5993"9Change the visibility of this constructor to "protected".(½à»Íüÿÿÿÿ
+Z	java:S106("9Replace this use of System.out or System.err by a logger.(‚•»÷üÿÿÿÿ8ï¤ÈÓˆ/

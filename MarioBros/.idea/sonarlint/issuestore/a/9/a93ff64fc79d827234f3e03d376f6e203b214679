@@ -1,10 +1,5 @@
 
-b
-java:S1128"BRemove this unused import 'com.badlogic.gdx.physics.box2d.Filter'.(Ñºã úÿÿÿÿ8œÜ²ˆ/
-c
-java:S1128"CRemove this unused import 'com.badlogic.gdx.physics.box2d.Fixture'.(Ø‡õÔşÿÿÿÿ8œÜ²ˆ/
-r
-java:S1104"RMake bridge a static final constant or non-public and provide accessors if needed.(†Ù”öıÿÿÿÿ8öÑ€ˆ/
-Z
-java:S1128":Remove this unused import 'com.badlogic.gdx.math.Vector2'.(•Á‚ ùÿÿÿÿ8œÜ²ˆ/
-r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÒÖËÂùÿÿÿÿ
+t
+java:S1104
+"RMake bridge a static final constant or non-public and provide accessors if needed.(†Ù”öıÿÿÿÿ8öÑ€ˆ/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÒÖËÂùÿÿÿÿ

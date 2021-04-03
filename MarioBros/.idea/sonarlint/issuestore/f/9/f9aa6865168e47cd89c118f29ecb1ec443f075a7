@@ -1,7 +1,7 @@
 
-r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÒÖËÂùÿÿÿÿ
-¡
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ı¦İšøÿÿÿÿ8ïòİ€ˆ/
-l	java:S116"RRename this field "GRAVITY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠÆª8‰ŸÒˆ/
-<
-java:S1170"!Make this final field static too.(ŠÆª8‰ŸÒˆ/
+>
+java:S1170"!Make this final field static too.(ŠÆª8‰ŸÒˆ/
+n	java:S116"RRename this field "GRAVITY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠÆª8‰ŸÒˆ/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÒÖËÂùÿÿÿÿ
+£
+java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ı¦İšøÿÿÿÿ8ïòİ€ˆ/

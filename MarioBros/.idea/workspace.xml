@@ -10,27 +10,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e574147-19fe-427d-b39f-96e09ca43786" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/android/assets/audio/music/main_theme.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/0765278740985fbfd321bdf9c1b5c535efced1ea" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/7/0765278740985fbfd321bdf9c1b5c535efced1ea" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/1366c07369a2ccc0cffab0f725572d93790d6ade" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/1366c07369a2ccc0cffab0f725572d93790d6ade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1e7b2c586f8c4d7927d9b4c9071377f6a7f10ea0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1e7b2c586f8c4d7927d9b4c9071377f6a7f10ea0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/0/40db2284b0615326c14f116203eeb4c44b839420" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/0/40db2284b0615326c14f116203eeb4c44b839420" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/460e2355395e65579d7dc531909c96b811ed98e4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/460e2355395e65579d7dc531909c96b811ed98e4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/a/4af7887e72ad72a1fa2617a9d4e97a3d2c66b12e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/a/4af7887e72ad72a1fa2617a9d4e97a3d2c66b12e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/c/7c8acd131ab113b9b64c9776627b3b3a001fe254" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/c/7c8acd131ab113b9b64c9776627b3b3a001fe254" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/3/93ce9f85ba2ed3e798962a8312dead8c74de4dcb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/3/93ce9f85ba2ed3e798962a8312dead8c74de4dcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/e/9ee1f7e9051124382123de308da6879b25fb91d4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/e/9ee1f7e9051124382123de308da6879b25fb91d4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a93ff64fc79d827234f3e03d376f6e203b214679" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a93ff64fc79d827234f3e03d376f6e203b214679" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/2/b2c51245debd2c7e3c609544f8d91eceda7e177c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/2/b2c51245debd2c7e3c609544f8d91eceda7e177c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/6/b609355897f5afc26d8ce7efc26f8c18ab6f0cc2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/6/b609355897f5afc26d8ce7efc26f8c18ab6f0cc2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c0b2b3263c08b45d350c4d17bd3e11529e9d130b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c0b2b3263c08b45d350c4d17bd3e11529e9d130b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/e/ce0f1be02ecd55ae79504a05ccb86110d34cc0d8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/e/ce0f1be02ecd55ae79504a05ccb86110d34cc0d8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dcb8f08b97a519512798775afa0c2752ef00de06" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/c/dcb8f08b97a519512798775afa0c2752ef00de06" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e482250962e3b3248ae8ec68e55a1fcd2f1aed39" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e482250962e3b3248ae8ec68e55a1fcd2f1aed39" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/ea6443f0e4fa997b730afad127624f4e717abc94" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/ea6443f0e4fa997b730afad127624f4e717abc94" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/f/ef7bf4c4d9ddb3877c1227adb7cb33ad6282dd4d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/f/ef7bf4c4d9ddb3877c1227adb7cb33ad6282dd4d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f5d682a1b590cd48e52a04b210f6df5dda379f6d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f5d682a1b590cd48e52a04b210f6df5dda379f6d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/6/f641439b90da3fcb751d5cf1ae08928ef49622da" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/6/f641439b90da3fcb751d5cf1ae08928ef49622da" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/9/f9aa6865168e47cd89c118f29ecb1ec443f075a7" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/9/f9aa6865168e47cd89c118f29ecb1ec443f075a7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/maps/map02.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/maps/map02.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario$State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/Mario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/bowser_castle.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/audio/music/bowser_castle.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/bowser_castle_fast.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/audio/music/bowser_castle_fast.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/main_theme.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/main_theme_fast.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/audio/music/main_theme_fast.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/overworld.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/audio/music/overworld.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/overworld_fast.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/audio/music/overworld_fast.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/stage_clear_.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/underworld.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/audio/music/underworld.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/audio/music/underworld_fast.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/audio/music/underworld_fast.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/audio/AudioManager$AudioConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/audio/AudioManager$AudioConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/audio/AudioManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/audio/AudioManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/items/FirePower.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/br/com/reschoene/mariobros/sprites/items/FirePower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/collison/WorldContactListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/collison/WorldContactListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/Mario.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/Mario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/audio/AudioManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/audio/AudioManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/items/FirePower.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/br/com/reschoene/mariobros/sprites/items/FirePower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/audio/music/main_theme.ogg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

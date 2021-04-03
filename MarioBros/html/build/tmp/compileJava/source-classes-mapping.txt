@@ -1,0 +1,2 @@
+br/com/reschoene/mariobros/client/HtmlLauncher.java
+ br.com.reschoene.mariobros.client.HtmlLauncher

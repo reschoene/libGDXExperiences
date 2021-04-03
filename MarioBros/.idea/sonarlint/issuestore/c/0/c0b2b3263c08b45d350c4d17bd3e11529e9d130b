@@ -1,21 +1,17 @@
 
-K
-java:S3740"/Provide the parametrized type for this generic.(­øŞ98Ÿ©ËÔˆ/
-\
-java:S2184U"@Cast one of the operands of this integer division to a "double".(üÒò8Ÿ©ËÔˆ/
 Q
-java:S3740o"/Provide the parametrized type for this generic.(¢ë¨Õûÿÿÿÿ8Ÿ©ËÔˆ/
-v
-java:S1128	"YRemove this unused import 'br.com.reschoene.mariobros.sprites.enemies.action.Executable'.(í³ÌÒ8şÓÔÔˆ/
-J
-java:S1659".Declare "runningRightAnim" on a separate line.(­øŞ98Ÿ©ËÔˆ/
+java:S3740s"/Provide the parametrized type for this generic.(¢ë¨Õûÿÿÿÿ8Ÿ©ËÔˆ/
+Q
+java:S3740y"/Provide the parametrized type for this generic.(Ş»îÊıÿÿÿÿ8Ÿ©ËÔˆ/
 d
-java:S1192n"GDefine a constant instead of duplicating this literal "bowser" 4 times.(¬äƒœ8Ÿ©ËÔˆ/
+java:S1192r"GDefine a constant instead of duplicating this literal "bowser" 4 times.(¬äƒœ8Ÿ©ËÔˆ/
 \
-java:S1128":Remove this unused import 'com.badlogic.gdx.math.Vector2'.(•Á‚ ùÿÿÿÿ8–›âÔˆ/
+java:S2184Y"@Cast one of the operands of this integer division to a "double".(üÒò8Ÿ©ËÔˆ/
 K
-java:S3740"/Provide the parametrized type for this generic.(­øŞ98Ÿ©ËÔˆ/
-Q
-java:S3740u"/Provide the parametrized type for this generic.(Ş»îÊıÿÿÿÿ8Ÿ©ËÔˆ/
+java:S3740"/Provide the parametrized type for this generic.(­øŞ98Ÿ©ËÔˆ/
 \
-java:S2184U"@Cast one of the operands of this integer division to a "double".(üÒò8Ÿ©ËÔˆ/
+java:S2184Y"@Cast one of the operands of this integer division to a "double".(üÒò8Ÿ©ËÔˆ/
+J
+java:S1659".Declare "runningRightAnim" on a separate line.(­øŞ98Ÿ©ËÔˆ/
+K
+java:S3740"/Provide the parametrized type for this generic.(­øŞ98Ÿ©ËÔˆ/

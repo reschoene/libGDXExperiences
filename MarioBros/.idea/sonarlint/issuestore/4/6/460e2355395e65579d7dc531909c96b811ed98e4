@@ -1,12 +1,14 @@
 
-<
-java:S1116"Remove this empty statement.(âƒ¬Ûüÿÿÿÿ8”žÿ ‡/
-¡
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ð£²¾ÿÿÿÿÿ8”žÿ ‡/
-œ
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÀÝì8”žÿ ‡/
-œ
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü³Í8”žÿ ‡/
-¡
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ·öÅûÿÿÿÿ8”žÿ ‡/
-[	java:S125"<This block of commented-out lines of code should be removed.(ßÉ£‹ûÿÿÿÿ8ó¿˜ƒˆ/
+¤
+java:S1186÷"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ð£²¾ÿÿÿÿÿ8”žÿ ‡/
+Ÿ
+java:S1186í"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü³Í8”žÿ ‡/
+ž
+java:S1186y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÀÝì8”žÿ ‡/
+K
+java:S10687")Remove this unused "music" private field.(’Ïåýÿÿÿÿ8¹ž¹ž‰/
+¤
+java:S1186ò"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ·öÅûÿÿÿÿ8”žÿ ‡/
+?
+java:S1116‚"Remove this empty statement.(âƒ¬Ûüÿÿÿÿ8”žÿ ‡/
+^	java:S125±"<This block of commented-out lines of code should be removed.(ßÉ£‹ûÿÿÿÿ8ö¹Ò¤‰/

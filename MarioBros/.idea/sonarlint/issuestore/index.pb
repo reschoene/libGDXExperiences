@@ -87,3 +87,7 @@ D
 desktop/build.gradle,b/e/be1e9cdb7c3186d0e3d646af8970493025e38c5d
 A
 html/build.gradle,c/d/cdf49e57e70759a4d5845b1b10a45bb2372ac033
+u
+Ecore/src/br/com/reschoene/mariobros/sprites/tileObjects/Princess.java,5/1/5108f477206f1382737c14638470fec5532c9a78
+D
+android/build.gradle,1/3/13f012f60e18f38225ce59137db2e07d5d70b29c

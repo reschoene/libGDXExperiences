@@ -70,12 +70,14 @@ public class AudioManager {
         soundsByName.put("hurry", new AudioConfig("audio/sounds/hurry.mp3"));
         soundsByName.put("win", new AudioConfig("audio/sounds/win.mp3"));
         soundsByName.put("gameover", new AudioConfig("audio/sounds/gameover.mp3"));
+        soundsByName.put("fire", new AudioConfig("audio/sounds/fire.mp3", 0.2f));
+        soundsByName.put("pause", new AudioConfig("audio/sounds/pause.mp3"));
     }
 
     private static void buildMusicByName() {
         musicByMapName = new HashMap<>();
         musicByMapName.put("stageClear", new AudioConfig("audio/music/stage_clear.mp3", 0.9f));
-        musicByMapName.put("map01.tmx", new AudioConfig("audio/music/main_theme.ogg", 0.7f));
+        musicByMapName.put("map01.tmx", new AudioConfig("audio/music/main_theme.mp3", 0.7f));
         musicByMapName.put("map01.tmx_fast", new AudioConfig("audio/music/main_theme_fast.mp3", 0.8f));
         musicByMapName.put("map02.tmx", new AudioConfig("audio/music/underworld.mp3", 0.7f));
         musicByMapName.put("map02.tmx_fast", new AudioConfig("audio/music/underworld_fast.mp3", 0.8f));

@@ -1,5 +1,6 @@
 package br.com.reschoene.mariobros.sprites.items;
 
+import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.screens.LevelScreen;
 import br.com.reschoene.mariobros.util.GameState;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -39,11 +40,14 @@ public class FirePower {
         if (active){
             if (fireballs.size > MAX_FIREBALLS_PER_TRIGGER) {
                 if (timeSinceLastFire > TIME_BETWEEN_FIRES) {
+                    AudioManager.playSound("fire");
                     fireballs.add(new FireBall(screen, position.x, position.y, runningRight ? true : false, owner));
                     timeSinceLastFire = 0;
                 }
-            }else
+            }else {
+                AudioManager.playSound("fire");
                 fireballs.add(new FireBall(screen, position.x, position.y, runningRight ? true : false, owner));
+            }
         }
     }
 

@@ -1,11 +1,19 @@
 
+[
+java:S1128"9Remove this unused import 'com.badlogic.gdx.audio.Music'.(„ß†úÿÿÿÿ8Ö¥ø‰/
+>
+java:S1185#"(Remove this method to simply inherit it.(íŠ¦¯
 B
 java:S1444"-Make this "public static manager" field final(«‚í&
-h
-java:S1104"SMake manager a static final constant or non-public and provide accessors if needed.(«‚í&
-S
-java:S2696#"6Make the enclosing method "static" or remove this set.(èåÃÂ8Ä“ğˆ…/
 l
 java:S1104"QMake batch a static final constant or non-public and provide accessors if needed.(û Üêıÿÿÿÿ
->
-java:S11851"(Remove this method to simply inherit it.(íŠ¦¯
+h
+java:S1104"SMake manager a static final constant or non-public and provide accessors if needed.(«‚í&
+[
+java:S1128"9Remove this unused import 'com.badlogic.gdx.audio.Sound'.(”£Óÿÿÿÿÿ8Ö¥ø‰/
+L
+java:S1128"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ8Ö¥ø‰/
+L
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8Ö¥ø‰/
+X
+java:S2696"6Make the enclosing method "static" or remove this set.(Ì¼Íúÿÿÿÿ8’êı‰/

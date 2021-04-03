@@ -10,6 +10,9 @@ Entrar no diretório MarioBros e rodar o comando para gerar a APK release:
 Será gerado no diretório abaixo um APK não assinado
 `MarioBros/android/build/outputs/apk/release`
 
+entre neste diretório
+`cd android/build/outputs/apk/release`
+
 Caso ainda não tenha criado uma keystore, crie uma com o comando abaixo:
 
 `keytool -genkeypair -v -keystore mario.keystore -alias publishingdoc -keyalg RSA -keysize 2048 -validity 10000`
