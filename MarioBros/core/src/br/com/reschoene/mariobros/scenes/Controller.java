@@ -21,8 +21,8 @@ public class Controller implements Disposable {
     private Viewport viewport;
     private Stage stage;
 
-    private static final int SIZE_BTN = 20;
-    private static final int BTN_PAD = 2;
+    private static final int SIZE_BTN = 25;
+    private static final float BTN_PAD = -0.5f;
 
     private boolean upPressed;
     private boolean downPressed;
@@ -271,7 +271,7 @@ public class Controller implements Disposable {
         tableBackgroundActions.bottom().right().padRight(3).padTop(3);
 
         Image actionBackgroundImg = new Image(new TextureRegion(textureAtlas.findRegion("actionBackground"), 0, 0, 162, 163));
-        actionBackgroundImg.setSize(73, 73);
+        actionBackgroundImg.setSize(78, 78);
         tableBackgroundActions.add(actionBackgroundImg).size(actionBackgroundImg.getWidth(), actionBackgroundImg.getHeight());;
 
         stage.addActor(tableBackgroundActions);
