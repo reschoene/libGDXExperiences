@@ -2,6 +2,18 @@
 Entrar no diretório MarioBros e rodar o comando para gerar o JAR release:
 `./gradlew desktop:dist`
 
+#Geração WEB
+Entrar no diretório MarioBros e rodar o comando para gerar a versão WEB
+`./gradlew html:dist`
+
+Em seguida rodar o comando abaixo para subir a versão web gerada para nuvem:
+`./deployHTML.sh`
+
+###dica: do index.html gerado, remova a linha que inicia com <a class="superdev" (refresh button)
+
+quando terminar a execução, o jogo ficará disponível em:
+`http://vps6174.publiccloud.com.br/mario`
+
 #Geração APK Android
 
 Entrar no diretório MarioBros e rodar o comando para gerar a APK release:

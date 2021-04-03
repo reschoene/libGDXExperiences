@@ -4,6 +4,7 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.scenes.Controller;
 import br.com.reschoene.mariobros.util.GameState;
+import br.com.reschoene.mariobros.util.StrFmt;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -36,8 +37,8 @@ public class GameOverScreen implements Screen {
         table.setFillParent(true);
 
         Label gameOverLabel = new Label("GAME OVER", font);
-        Label scoreLabel = new Label(String.format("Score: %06d", GameState.score), font);
-        Label levelLabel = new Label(String.format("World: %d-%d", GameState.currentWorld, GameState.currentPhase), font);
+        Label scoreLabel = new Label(StrFmt.format("Score: %s", StrFmt.zeroPad(GameState.score, 6)), font);
+        Label levelLabel = new Label(StrFmt.format("World: %d-%d", GameState.currentWorld, GameState.currentPhase), font);
         Label upToContinueLabel = new Label("Press UP to continue", font);
         Label orLabel = new Label("or", font);
         Label downToGiveUpLabel = new Label("Press DOWN to give up", font);

@@ -4,6 +4,7 @@ import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.audio.AudioManager;
 import br.com.reschoene.mariobros.sprites.Mario;
 import br.com.reschoene.mariobros.util.GameState;
+import br.com.reschoene.mariobros.util.StrFmt;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -52,10 +53,10 @@ public class Hud implements Disposable {
 
         Label.LabelStyle whiteStyle = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
 
-        countDownLabel = new Label(String.format("%03d", GameState.worldTimer), whiteStyle);
-        scoreLabel = new Label(String.format("%06d", GameState.score), whiteStyle);
-        levelLabel = new Label(String.format("%d-%d", GameState.currentWorld, GameState.currentPhase), whiteStyle);
-        coinLabel = new Label(String.format("%02d", GameState.coins), whiteStyle);
+        countDownLabel = new Label(StrFmt.zeroPad(GameState.worldTimer, 3), whiteStyle);
+        scoreLabel = new Label(StrFmt.zeroPad(GameState.score, 6), whiteStyle);
+        levelLabel = new Label(StrFmt.format("%d-%d", GameState.currentWorld, GameState.currentPhase), whiteStyle);
+        coinLabel = new Label(StrFmt.zeroPad(GameState.coins, 2), whiteStyle);
 
         timeLabel = new Label("TIME", whiteStyle);
         worldLabel = new Label("WORLD", whiteStyle);
@@ -108,7 +109,7 @@ public class Hud implements Disposable {
             if (timeCount >= 1) {
                 tic();
 
-                countDownLabel.setText(String.format("%03d", GameState.worldTimer));
+                countDownLabel.setText(StrFmt.zeroPad(GameState.worldTimer, 3));
                 timeCount = 0;
             }
         }
@@ -133,7 +134,7 @@ public class Hud implements Disposable {
 
     public static void addScore(int value){
         GameState.score += value;
-        scoreLabel.setText(String.format("%06d", GameState.score));
+        scoreLabel.setText(StrFmt.zeroPad(GameState.score, 6));
     }
 
     public static void addCoin(int value){
@@ -146,7 +147,7 @@ public class Hud implements Disposable {
         }else
             AudioManager.playSound("coin");
 
-        coinLabel.setText(String.format("%02d", GameState.coins));
+        coinLabel.setText(StrFmt.zeroPad(GameState.coins, 2));
     }
 
     public static void setActive(boolean active){

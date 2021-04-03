@@ -245,13 +245,10 @@ public class Mario extends Sprite {
                 break;
         }
 
-        if ((b2Body.getLinearVelocity().x < 0 || !runningRight) && !region.isFlipX()) {
+        if (!runningRight && !region.isFlipX())
             region.flip(true, false);
-            runningRight = false;
-        } else if ((b2Body.getLinearVelocity().x > 0 || runningRight) && region.isFlipX()) {
+        else if (runningRight && region.isFlipX())
             region.flip(true, false);
-            runningRight = true;
-        }
 
         stateTimer = currentState == previousState ? stateTimer + dt : 0;
         previousState = currentState;
@@ -274,10 +271,6 @@ public class Mario extends Sprite {
             return State.RUNNING;
         else
             return State.STANDING;
-    }
-
-    public static int getLives() {
-        return GameState.lives;
     }
 
     public void grow() {
@@ -325,6 +318,9 @@ public class Mario extends Sprite {
     public void killMario(boolean animate) {
         if (!marioIsDead) {
             marioIsDead = true;
+
+            firePower.setActive(false);
+            GameState.isBig = false;
 
             stateTimer = 0;
             GameState.lives--;
@@ -377,15 +373,19 @@ public class Mario extends Sprite {
     }
 
     public void moveRight() {
-        if (enabledControls)
+        if (enabledControls) {
+            runningRight = true;
             if (b2Body.getLinearVelocity().x <= 2)
                 b2Body.applyLinearImpulse(new Vector2(0.1f, 0), b2Body.getWorldCenter(), true);
+        }
     }
 
     public void moveLeft() {
-        if (enabledControls)
+        if (enabledControls){
+            runningRight = false;
             if (b2Body.getLinearVelocity().x >= -2)
                 b2Body.applyLinearImpulse(new Vector2(-0.1f, 0), b2Body.getWorldCenter(), true);
+        }
     }
 
     public LevelScreen getScreen() {

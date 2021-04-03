@@ -2,6 +2,7 @@ package br.com.reschoene.mariobros.screens;
 
 import br.com.reschoene.mariobros.MarioGame;
 import br.com.reschoene.mariobros.util.GameState;
+import br.com.reschoene.mariobros.util.StrFmt;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -38,7 +39,7 @@ public class InfoScreen implements Screen {
 
         TextureRegion textureRegion = new TextureRegion(GameAtlas.getAtlas().findRegion("little_mario"), 0, 0, 16, 16);
 
-        Label worldPhaseLabel = new Label(String.format("WORLD %d - %d", GameState.currentWorld, GameState.currentPhase), font);
+        Label worldPhaseLabel = new Label(StrFmt.format("WORLD: %d-%d", GameState.currentWorld, GameState.currentPhase), font);
         Label livesLabel = new Label(String.valueOf(GameState.lives), font);
         Label xLabel = new Label("X", font);
 

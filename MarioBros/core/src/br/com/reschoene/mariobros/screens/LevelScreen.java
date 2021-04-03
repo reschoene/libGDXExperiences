@@ -29,6 +29,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class LevelScreen implements Screen {
@@ -57,7 +58,7 @@ public class LevelScreen implements Screen {
     private B2WorldCreator creator;
 
     private Array<Item> items;
-    private LinkedBlockingDeque<ItemDef> itemsToSpawn;
+    private LinkedList<ItemDef> itemsToSpawn;
     private boolean hasMapToChange = false;
     private boolean changeScreenToLives = false;
 
@@ -90,7 +91,7 @@ public class LevelScreen implements Screen {
         AudioManager.getMusicByMapName(mapFileName).play();
 
         items = new Array<>();
-        itemsToSpawn = new LinkedBlockingDeque<>();
+        itemsToSpawn = new LinkedList<>();
     }
 
     public void changeMap(){
@@ -190,7 +191,7 @@ public class LevelScreen implements Screen {
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
-        if(Gdx.app.getType() == Application.ApplicationType.Android)
+        if(Gdx.app.getType() != Application.ApplicationType.Desktop)
             controller.draw();
 
         if(gameOver()){
