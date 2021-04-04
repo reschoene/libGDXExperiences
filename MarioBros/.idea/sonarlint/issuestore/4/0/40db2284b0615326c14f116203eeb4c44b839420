@@ -1,15 +1,15 @@
 
-
-java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’Şìõùÿÿÿÿ
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ÿ¢Äğ
 m
 java:S3776"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(µİ¦¿úÿÿÿÿ
 
 java:S1186‰"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‡·ÈÕşÿÿÿÿ
-—
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ÿ¢Äğ
 X
 java:S2696R"6Make the enclosing method "static" or remove this set.(¸Ûô÷ıÿÿÿÿ8ë¢‡/
 S
 java:S2696T"6Make the enclosing method "static" or remove this set.(óâĞş8ĞÔõ˜‰/
+
+java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’Şìõùÿÿÿÿ
 S
 java:S2696S"6Make the enclosing method "static" or remove this set.(è…ßÈ8ë¢‡/

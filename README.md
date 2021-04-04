@@ -1,4 +1,4 @@
-# Mario Bros - developed with Java and LibGDX
+# LibGDX experiences
 
 ### Build desktop executable:
 Type `./gradlew desktop:dist` to 

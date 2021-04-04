@@ -1,12 +1,12 @@
 
+u	java:S116"YRename this field "SUBTITLE_SCALE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­ è²8ÿŒ®¤‡/
 
-java:S1186D"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Àİì8ïÊ¸¢‰/
-
-java:S1186i"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü³Í8“Ü¾£‡/
-£
-java:S1186s"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ğ£²¾ÿÿÿÿÿ8“Ü¾£‡/
+java:S1186j"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü³Í8“Ü¾£‡/
 >
-java:S1170"!Make this final field static too.(­ è²8ÿŒ®¤‡/
+java:S1170"!Make this final field static too.(­ è²8ÿŒ®¤‡/
 £
-java:S1186n"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ·öÅûÿÿÿÿ8“Ü¾£‡/
-u	java:S116"YRename this field "SUBTITLE_SCALE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­ è²8ÿŒ®¤‡/
+java:S1186t"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ğ£²¾ÿÿÿÿÿ8“Ü¾£‡/
+
+java:S1186E"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Àİì8ïÊ¸¢‰/
+£
+java:S1186o"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µ·öÅûÿÿÿÿ8“Ü¾£‡/

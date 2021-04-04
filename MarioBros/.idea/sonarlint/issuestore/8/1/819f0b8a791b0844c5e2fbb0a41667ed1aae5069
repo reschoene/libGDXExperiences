@@ -1,9 +1,9 @@
 
-|
-java:S1192¯"YDefine a constant instead of duplicating this literal "controlActionLightPurple" 4 times.(£ñ†Ûøÿÿÿÿ8Î½Ã«‡/
 7	java:S131O""Add a default case to this switch.(ÖÅ«Á
+7	java:S1310""Add a default case to this switch.(ÖÅ«Á
 8
 java:S1116“"Remove this empty statement.(ø°Çúÿÿÿÿ
-7	java:S1310""Add a default case to this switch.(ÖÅ«Á
 `
 java:S1128">Remove this unused import 'com.badlogic.gdx.graphics.Texture'.(ˆ°µúÿÿÿÿ8âÌÇ«‡/
+|
+java:S1192¯"YDefine a constant instead of duplicating this literal "controlActionLightPurple" 4 times.(£ñ†Ûøÿÿÿÿ8Î½Ã«‡/
