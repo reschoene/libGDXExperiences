@@ -1,4 +1,4 @@
-#Mario - LibGDX!
+#Mario - LibGDX
 
 #Geração executário desktop
 Entrar no diretório MarioBros e rodar o comando para gerar o JAR release:
