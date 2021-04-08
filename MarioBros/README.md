@@ -21,7 +21,7 @@ Remake do game *Super Mario Bros* feito em Java com o framework *LibGDX*
 `./deployHTML.sh`
 
 3. quando terminar a execução, o jogo ficará disponível em:
-`http://vps6174.publiccloud.com.br/mario`
+http://vps6174.publiccloud.com.br/mario
 
 ## Geração APK Android
 
